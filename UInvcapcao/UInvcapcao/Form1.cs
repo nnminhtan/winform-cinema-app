@@ -76,5 +76,10 @@ namespace UInvcapcao
             //set timer interval to lowest 
             phimTimer.Start();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
