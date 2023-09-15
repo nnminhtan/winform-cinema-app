@@ -39,3 +39,15 @@ C:\Users\xinlo\source\repos\aaa\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapca
 C:\Users\xinlo\source\repos\aaa\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.exe
 C:\Users\xinlo\source\repos\aaa\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.pdb
 C:\Users\xinlo\source\repos\aaa\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmDatVe.resources
+C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.exe.config
+C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.exe
+C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.pdb
+C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.AssemblyReference.cache
+C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmDatVe.resources
+C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmQuanLy.resources
+C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.Properties.Resources.resources
+C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.GenerateResource.cache
+C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.CoreCompileInputs.cache
+C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.exe
+C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.pdb
+C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.GiaoDienQL.resources

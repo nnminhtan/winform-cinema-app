@@ -63,6 +63,26 @@ namespace UInvcapcao.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap avengers {
+            get {
+                object obj = ResourceManager.GetObject("avengers", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bong_dung_trung_so {
+            get {
+                object obj = ResourceManager.GetObject("bong_dung_trung_so", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bullet_point_icon {
             get {
                 object obj = ResourceManager.GetObject("bullet_point_icon", resourceCulture);
@@ -73,9 +93,39 @@ namespace UInvcapcao.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap conan {
+            get {
+                object obj = ResourceManager.GetObject("conan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dot_icon4 {
             get {
                 object obj = ResourceManager.GetObject("dot_icon4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fastandfurious {
+            get {
+                object obj = ResourceManager.GetObject("fastandfurious", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap luavsnuoc {
+            get {
+                object obj = ResourceManager.GetObject("luavsnuoc", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +156,16 @@ namespace UInvcapcao.Properties {
         internal static System.Drawing.Bitmap pink {
             get {
                 object obj = ResourceManager.GetObject("pink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shin {
+            get {
+                object obj = ResourceManager.GetObject("shin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

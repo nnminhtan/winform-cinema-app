@@ -139,4 +139,22 @@
   <data name="pink" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="conan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\conan.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="luavsnuoc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\luavsnuoc.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="avengers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\avengers.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bong_dung_trung_so" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bong dung trung so.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fastandfurious" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fastandfurious.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

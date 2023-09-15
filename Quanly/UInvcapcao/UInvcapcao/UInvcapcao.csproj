@@ -52,6 +52,12 @@
     <Compile Include="DATVE1.Designer.cs">
       <DependentUpon>DATVE1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaoDienQL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDienQL.Designer.cs">
+      <DependentUpon>GiaoDienQL.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQuanLy.resx">
       <DependentUpon>FrmQuanLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDienQL.resx">
+      <DependentUpon>GiaoDienQL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,7 +108,17 @@
     <None Include="Resources\bullet point icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\shin.jpg" />
+    <None Include="Resources\vietnam_eq3_intl_online_1080x1350_tsr_04.jpg" />
+    <None Include="Resources\rsz_1shin_poster_ch_nh_th_c-01.jpg" />
+    <None Include="Resources\conan_movie_26_-_vietnamese_poster.jpg" />
+    <None Include="Resources\conan.jpg" />
+    <None Include="Resources\luavsnuoc.jpg" />
+    <None Include="Resources\fastandfurious.jpg" />
+    <None Include="Resources\avengers.jpg" />
+    <None Include="Resources\bong dung trung so.jpg" />
     <Content Include="Resources\Menu.png.png" />
+    <None Include="Resources\poster_official_preiview.jpg" />
     <None Include="Resources\pink.png" />
     <None Include="Resources\x.jpg" />
     <None Include="Resources\Menu2.png" />
