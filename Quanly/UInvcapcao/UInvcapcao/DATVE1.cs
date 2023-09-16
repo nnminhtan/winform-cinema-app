@@ -17,7 +17,7 @@ namespace UInvcapcao
             InitializeComponent();
         }
 
-        private void btnHuy_Click(object sender, EventArgs e)
+        private void btnHuy_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -522,8 +522,6 @@ namespace UInvcapcao
                  btnG1.BackColor = Color.White;
              else btnG1.BackColor = Color.Pink;
          }
-
-
     }
 
 }

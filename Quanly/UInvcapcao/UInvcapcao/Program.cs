@@ -17,7 +17,7 @@ namespace UInvcapcao
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDatVe());
+            Application.Run(new frmQuanLy());
         }
     }
 }
