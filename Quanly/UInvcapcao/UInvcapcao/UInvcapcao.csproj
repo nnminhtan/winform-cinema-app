@@ -70,11 +70,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBase.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DATVE1.cs">
+    <Compile Include="frmDatVe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DATVE1.Designer.cs">
-      <DependentUpon>DATVE1.cs</DependentUpon>
+    <Compile Include="frmDatVe.Designer.cs">
+      <DependentUpon>frmDatVe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="GiaoDienQL.cs">
       <SubType>Form</SubType>
@@ -125,8 +131,8 @@
     <Compile Include="tblVe.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DATVE1.resx">
-      <DependentUpon>DATVE1.cs</DependentUpon>
+    <EmbeddedResource Include="frmDatVe.resx">
+      <DependentUpon>frmDatVe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQuanLy.resx">
       <DependentUpon>FrmQuanLy.cs</DependentUpon>
