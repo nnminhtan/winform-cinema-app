@@ -134,6 +134,9 @@
     <EmbeddedResource Include="frmDatVe.resx">
       <DependentUpon>frmDatVe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmQuanLy.resx">
       <DependentUpon>FrmQuanLy.cs</DependentUpon>
     </EmbeddedResource>

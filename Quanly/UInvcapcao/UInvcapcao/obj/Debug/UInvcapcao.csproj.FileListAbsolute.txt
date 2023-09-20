@@ -68,3 +68,4 @@ C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\
 C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.CopyComplete
 C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.exe
 C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.pdb
+C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmLogin.resources
