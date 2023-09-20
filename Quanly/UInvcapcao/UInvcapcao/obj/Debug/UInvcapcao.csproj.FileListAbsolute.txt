@@ -50,21 +50,16 @@ C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj
 C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.CoreCompileInputs.cache
 C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.exe
 C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.pdb
-C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.GiaoDienQL.resources
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.exe.config
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.exe
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.pdb
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.dll
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.xml
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.AssemblyReference.cache
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmDatVe.resources
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmQuanLy.resources
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.GiaoDienQL.resources
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.Properties.Resources.resources
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.GenerateResource.cache
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.CoreCompileInputs.cache
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.CopyComplete
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.exe
-C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.pdb
+C:\Users\CKLACE\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmGiaoDienQL.resources
+D:\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.AssemblyReference.cache
+D:\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmDatVe.resources
+D:\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmQuanLy.resources
+D:\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.GiaoDienBanVe.resources
+D:\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.Properties.Resources.resources
+D:\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.GenerateResource.cache
+D:\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.CoreCompileInputs.cache
+D:\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.exe
+D:\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.pdb
+D:\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.exe.config
+D:\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.exe
+D:\source\repos\winform-cinema-app\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.pdb
