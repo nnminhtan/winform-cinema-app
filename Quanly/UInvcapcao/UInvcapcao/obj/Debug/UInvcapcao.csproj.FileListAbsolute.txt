@@ -69,3 +69,22 @@ C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\
 C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.exe
 C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.pdb
 C:\Users\Minh Tan\source\repos\currentv1\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmLogin.resources
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.exe.config
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.exe
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.pdb
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.dll
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.xml
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.AssemblyReference.cache
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmgiaodien.resources
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmDatVe.resources
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmLogin.resources
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmQuanLy.resources
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.GiaoDienQL.resources
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.Properties.Resources.resources
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.GenerateResource.cache
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.CoreCompileInputs.cache
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.CopyComplete
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.exe
+C:\Users\xinlo\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.pdb
