@@ -233,6 +233,7 @@
             // 
             // sidebarTimer
             // 
+            this.sidebarTimer.Interval = 1;
             this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
             // 
             // pictureBox1
