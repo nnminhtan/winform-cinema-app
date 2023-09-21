@@ -70,6 +70,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBase.edmx</DependentUpon>
     </Compile>
+    <Compile Include="frmgiaodien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmgiaodien.Designer.cs">
+      <DependentUpon>frmgiaodien.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDatVe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     <Compile Include="tblVe.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmgiaodien.resx">
+      <DependentUpon>frmgiaodien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDatVe.resx">
       <DependentUpon>frmDatVe.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +223,7 @@
       <DependentUpon>DataBase.edmx</DependentUpon>
       <LastGenOutput>DataBase.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\logowithwords.png" />
     <Content Include="Resources\Menu.png.png" />
     <None Include="Resources\poster_official_preiview.jpg" />
     <None Include="Resources\pink.png" />
