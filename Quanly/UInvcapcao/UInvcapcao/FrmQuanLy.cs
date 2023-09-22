@@ -110,7 +110,7 @@ namespace UInvcapcao
             private void btnShowList_Click(object sender, EventArgs e)
             {
                 var result = db.tblNhanViens.Select(x => new { x.MaNV, x.TenNV, x.ChucVu, x.Luong, x.MaRap })
-                    .Where(x => x.ChucVu == "Nhan Vien").ToList();
+                    .Where(x => x.ChucVu == "Nhân Viên").ToList();
                 dgvData.DataSource = result;
                 //AddBinding();
           
@@ -151,6 +151,7 @@ namespace UInvcapcao
                     Luong = Convert.ToInt32(txtLuong.Text), MaRap = txtMaRap.Text };
                 db.tblNhanViens.Add(nv);
                 db.SaveChanges();
+                //clear txtbox
                 txtTenNV.Clear();
                 txtMK.Clear();
                 txtChucVu.Clear();
@@ -197,6 +198,7 @@ namespace UInvcapcao
                 nv.TenNV = txtTenNVUpdate.Text;
                 nv.MaRap = txtMaRapUpdate.Text;
                 db.SaveChanges();
+                //txtbox clear
                 txtTenNVUpdate.Clear();
                 txtMKUpdate.Clear();
                 txtChucVuUpdate.Clear();

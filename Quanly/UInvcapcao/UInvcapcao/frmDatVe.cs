@@ -522,6 +522,16 @@ namespace UInvcapcao
                  btnG1.BackColor = Color.White;
              else btnG1.BackColor = Color.Pink;
          }
+
+        private void dateTimePicker1_DropDown(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void frmDatVe_Load(object sender, EventArgs e)
+        {
+            dateTimePicker1.MinDate = DateTime.Now;
+        }
     }
 
 }

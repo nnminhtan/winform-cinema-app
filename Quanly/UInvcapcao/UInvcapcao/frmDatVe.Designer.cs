@@ -154,16 +154,17 @@ namespace UInvcapcao
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(106, 146);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(188, 20);
             this.dateTimePicker1.TabIndex = 61;
             this.dateTimePicker1.UseWaitCursor = true;
+            this.dateTimePicker1.DropDown += new System.EventHandler(this.dateTimePicker1_DropDown);
             // 
             // btnTime1
             // 
             this.btnTime1.Location = new System.Drawing.Point(41, 191);
-            this.btnTime1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTime1.Margin = new System.Windows.Forms.Padding(2);
             this.btnTime1.Name = "btnTime1";
             this.btnTime1.Size = new System.Drawing.Size(70, 19);
             this.btnTime1.TabIndex = 62;
@@ -174,7 +175,7 @@ namespace UInvcapcao
             // btnTime6
             // 
             this.btnTime6.Location = new System.Drawing.Point(224, 226);
-            this.btnTime6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTime6.Margin = new System.Windows.Forms.Padding(2);
             this.btnTime6.Name = "btnTime6";
             this.btnTime6.Size = new System.Drawing.Size(70, 19);
             this.btnTime6.TabIndex = 63;
@@ -185,7 +186,7 @@ namespace UInvcapcao
             // btnTime2
             // 
             this.btnTime2.Location = new System.Drawing.Point(134, 191);
-            this.btnTime2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTime2.Margin = new System.Windows.Forms.Padding(2);
             this.btnTime2.Name = "btnTime2";
             this.btnTime2.Size = new System.Drawing.Size(70, 19);
             this.btnTime2.TabIndex = 64;
@@ -196,7 +197,7 @@ namespace UInvcapcao
             // btnTime3
             // 
             this.btnTime3.Location = new System.Drawing.Point(224, 191);
-            this.btnTime3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTime3.Margin = new System.Windows.Forms.Padding(2);
             this.btnTime3.Name = "btnTime3";
             this.btnTime3.Size = new System.Drawing.Size(70, 19);
             this.btnTime3.TabIndex = 65;
@@ -207,7 +208,7 @@ namespace UInvcapcao
             // btnTime5
             // 
             this.btnTime5.Location = new System.Drawing.Point(134, 226);
-            this.btnTime5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTime5.Margin = new System.Windows.Forms.Padding(2);
             this.btnTime5.Name = "btnTime5";
             this.btnTime5.Size = new System.Drawing.Size(70, 19);
             this.btnTime5.TabIndex = 66;
@@ -218,7 +219,7 @@ namespace UInvcapcao
             // btnTime4
             // 
             this.btnTime4.Location = new System.Drawing.Point(41, 226);
-            this.btnTime4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTime4.Margin = new System.Windows.Forms.Padding(2);
             this.btnTime4.Name = "btnTime4";
             this.btnTime4.Size = new System.Drawing.Size(70, 19);
             this.btnTime4.TabIndex = 67;
@@ -351,7 +352,7 @@ namespace UInvcapcao
             this.pnlGhe.Controls.Add(this.btnA2);
             this.pnlGhe.Controls.Add(this.btnA1);
             this.pnlGhe.Location = new System.Drawing.Point(317, -1);
-            this.pnlGhe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlGhe.Margin = new System.Windows.Forms.Padding(2);
             this.pnlGhe.Name = "pnlGhe";
             this.pnlGhe.Size = new System.Drawing.Size(530, 306);
             this.pnlGhe.TabIndex = 76;
@@ -373,7 +374,7 @@ namespace UInvcapcao
             // 
             this.pictureBoxGheTrong.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGheTrong.Image")));
             this.pictureBoxGheTrong.Location = new System.Drawing.Point(386, 276);
-            this.pictureBoxGheTrong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxGheTrong.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxGheTrong.Name = "pictureBoxGheTrong";
             this.pictureBoxGheTrong.Size = new System.Drawing.Size(26, 21);
             this.pictureBoxGheTrong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -399,7 +400,7 @@ namespace UInvcapcao
             this.pictureBoxDaDat.Image = global::UInvcapcao.Properties.Resources.x;
             this.pictureBoxDaDat.InitialImage = null;
             this.pictureBoxDaDat.Location = new System.Drawing.Point(99, 276);
-            this.pictureBoxDaDat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxDaDat.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxDaDat.Name = "pictureBoxDaDat";
             this.pictureBoxDaDat.Size = new System.Drawing.Size(24, 20);
             this.pictureBoxDaDat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -411,7 +412,7 @@ namespace UInvcapcao
             // 
             this.pictureBoxGheBanChon.Image = global::UInvcapcao.Properties.Resources.pink;
             this.pictureBoxGheBanChon.Location = new System.Drawing.Point(245, 276);
-            this.pictureBoxGheBanChon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxGheBanChon.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxGheBanChon.Name = "pictureBoxGheBanChon";
             this.pictureBoxGheBanChon.Size = new System.Drawing.Size(28, 21);
             this.pictureBoxGheBanChon.TabIndex = 74;
@@ -1273,7 +1274,7 @@ namespace UInvcapcao
             // 
             this.btnOk.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnOk.Location = new System.Drawing.Point(44, 274);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(2);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(70, 19);
             this.btnOk.TabIndex = 77;
@@ -1285,7 +1286,7 @@ namespace UInvcapcao
             // 
             this.btnHuy.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnHuy.Location = new System.Drawing.Point(187, 274);
-            this.btnHuy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(2);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(70, 19);
             this.btnHuy.TabIndex = 78;
@@ -1299,7 +1300,7 @@ namespace UInvcapcao
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
-            this.ClientSize = new System.Drawing.Size(848, 304);
+            this.ClientSize = new System.Drawing.Size(984, 304);
             this.ControlBox = false;
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnOk);
@@ -1316,10 +1317,11 @@ namespace UInvcapcao
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.lblNgayChieu);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDatVe";
             this.Text = "Đặt Vé";
             this.UseWaitCursor = true;
+            this.Load += new System.EventHandler(this.frmDatVe_Load);
             this.pnlGhe.ResumeLayout(false);
             this.pnlGhe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGheTrong)).EndInit();
