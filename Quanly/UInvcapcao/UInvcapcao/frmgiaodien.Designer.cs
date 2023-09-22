@@ -40,10 +40,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btncategory = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnhelp = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnabout = new System.Windows.Forms.Button();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -52,13 +48,12 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnclose = new System.Windows.Forms.Button();
             this.sidebar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menubuttom)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -74,8 +69,7 @@
             this.sidebar.Controls.Add(this.panel1);
             this.sidebar.Controls.Add(this.panel2);
             this.sidebar.Controls.Add(this.panel5);
-            this.sidebar.Controls.Add(this.panel6);
-            this.sidebar.Controls.Add(this.panel7);
+            this.sidebar.Controls.Add(this.btnclose);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 0);
             this.sidebar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -191,59 +185,6 @@
             this.btncategory.UseVisualStyleBackColor = false;
             this.btncategory.Click += new System.EventHandler(this.button2_Click);
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.btnhelp);
-            this.panel6.Location = new System.Drawing.Point(3, 315);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(293, 89);
-            this.panel6.TabIndex = 1;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // btnhelp
-            // 
-            this.btnhelp.BackColor = System.Drawing.Color.Transparent;
-            this.btnhelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnhelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnhelp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnhelp.Image = ((System.Drawing.Image)(resources.GetObject("btnhelp.Image")));
-            this.btnhelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnhelp.Location = new System.Drawing.Point(0, 0);
-            this.btnhelp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnhelp.Name = "btnhelp";
-            this.btnhelp.Size = new System.Drawing.Size(291, 85);
-            this.btnhelp.TabIndex = 1;
-            this.btnhelp.Text = "Help";
-            this.btnhelp.UseVisualStyleBackColor = false;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.btnabout);
-            this.panel7.Location = new System.Drawing.Point(3, 408);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(293, 89);
-            this.panel7.TabIndex = 1;
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // btnabout
-            // 
-            this.btnabout.BackColor = System.Drawing.Color.Transparent;
-            this.btnabout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnabout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnabout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnabout.Image = ((System.Drawing.Image)(resources.GetObject("btnabout.Image")));
-            this.btnabout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnabout.Location = new System.Drawing.Point(0, 2);
-            this.btnabout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnabout.Name = "btnabout";
-            this.btnabout.Size = new System.Drawing.Size(291, 85);
-            this.btnabout.TabIndex = 1;
-            this.btnabout.Text = "  About";
-            this.btnabout.UseVisualStyleBackColor = false;
-            this.btnabout.Click += new System.EventHandler(this.btnabout_Click);
-            // 
             // sidebarTimer
             // 
             this.sidebarTimer.Interval = 1;
@@ -333,7 +274,24 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // frmGiaoDien1
+            // btnclose
+            // 
+            this.btnclose.BackColor = System.Drawing.Color.Transparent;
+            this.btnclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnclose.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnclose.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnclose.Image = ((System.Drawing.Image)(resources.GetObject("btnclose.Image")));
+            this.btnclose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnclose.Location = new System.Drawing.Point(3, 315);
+            this.btnclose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnclose.Name = "btnclose";
+            this.btnclose.Size = new System.Drawing.Size(291, 85);
+            this.btnclose.TabIndex = 1;
+            this.btnclose.Text = "  Close";
+            this.btnclose.UseVisualStyleBackColor = false;
+            this.btnclose.Click += new System.EventHandler(this.btnabout_Click);
+            // 
+            // frmGiaoDien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -348,7 +306,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.sidebar);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "frmGiaoDien1";
+            this.Name = "frmGiaoDien";
             this.Text = "Giao Diện Bán Vé";
             this.sidebar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -356,8 +314,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.menubuttom)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -376,13 +332,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnhome;
         private System.Windows.Forms.Button btncategory;
-        private System.Windows.Forms.Button btnabout;
-        private System.Windows.Forms.Button btnhelp;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox menubuttom;
         private System.Windows.Forms.Timer sidebarTimer;
@@ -393,5 +345,6 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Button btnclose;
     }
 }
