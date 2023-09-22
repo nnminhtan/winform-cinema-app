@@ -57,7 +57,7 @@ namespace UInvcapcao
 
         private void btnabout_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void menubuttom_Click(object sender, EventArgs e)
