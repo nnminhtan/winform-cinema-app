@@ -70,17 +70,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBase.edmx</DependentUpon>
     </Compile>
-    <Compile Include="frmgiaodien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmgiaodien.Designer.cs">
-      <DependentUpon>frmgiaodien.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmDatVe.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDatVe.Designer.cs">
       <DependentUpon>frmDatVe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGiaoDien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGiaoDien.Designer.cs">
+      <DependentUpon>frmGiaoDien.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -137,11 +137,11 @@
     <Compile Include="tblVe.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmgiaodien.resx">
-      <DependentUpon>frmgiaodien.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmDatVe.resx">
       <DependentUpon>frmDatVe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGiaoDien.resx">
+      <DependentUpon>frmGiaoDien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
