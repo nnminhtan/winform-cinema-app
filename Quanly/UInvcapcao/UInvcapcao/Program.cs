@@ -17,7 +17,7 @@ namespace UInvcapcao
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmgiaodien());
+            Application.Run(new frmLogin());
         }
     }
 }

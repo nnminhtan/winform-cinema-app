@@ -94,11 +94,11 @@
     <Compile Include="GiaoDienQL.Designer.cs">
       <DependentUpon>GiaoDienQL.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmQuanLy.cs">
+    <Compile Include="frmQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmQuanLy.Designer.cs">
-      <DependentUpon>FrmQuanLy.cs</DependentUpon>
+    <Compile Include="frmQuanLy.Designer.cs">
+      <DependentUpon>frmQuanLy.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -146,8 +146,8 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmQuanLy.resx">
-      <DependentUpon>FrmQuanLy.cs</DependentUpon>
+    <EmbeddedResource Include="frmQuanLy.resx">
+      <DependentUpon>frmQuanLy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoDienQL.resx">
       <DependentUpon>GiaoDienQL.cs</DependentUpon>
@@ -224,6 +224,7 @@
       <LastGenOutput>DataBase.cs</LastGenOutput>
     </Content>
     <None Include="Resources\logowithwords.png" />
+    <None Include="Resources\logowithoutwords.png" />
     <Content Include="Resources\Menu.png.png" />
     <None Include="Resources\poster_official_preiview.jpg" />
     <None Include="Resources\pink.png" />

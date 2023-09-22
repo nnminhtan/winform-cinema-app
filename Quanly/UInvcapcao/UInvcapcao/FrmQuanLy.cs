@@ -151,8 +151,13 @@ namespace UInvcapcao
                     Luong = Convert.ToInt32(txtLuong.Text), MaRap = txtMaRap.Text };
                 db.tblNhanViens.Add(nv);
                 db.SaveChanges();
+                txtTenNV.Clear();
+                txtMK.Clear();
+                txtChucVu.Clear();
+                txtLuong.Clear();
+                txtMaRap.Clear();
 
-                pnlAddDetails.Visible=false;
+            pnlAddDetails.Visible=false;
             }
 
             private void btnCancel_Click(object sender, EventArgs e)
@@ -192,6 +197,11 @@ namespace UInvcapcao
                 nv.TenNV = txtTenNVUpdate.Text;
                 nv.MaRap = txtMaRapUpdate.Text;
                 db.SaveChanges();
+                txtTenNVUpdate.Clear();
+                txtMKUpdate.Clear();
+                txtChucVuUpdate.Clear();
+                txtMaRapUpdate.Clear();
+                txtLuongUpdate.Clear();
                 pnlUpdate.Visible = false;
 
             }

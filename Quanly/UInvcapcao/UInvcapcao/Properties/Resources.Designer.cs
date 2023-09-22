@@ -123,6 +123,16 @@ namespace UInvcapcao.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logowithoutwords {
+            get {
+                object obj = ResourceManager.GetObject("logowithoutwords", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logowithwords {
             get {
                 object obj = ResourceManager.GetObject("logowithwords", resourceCulture);
