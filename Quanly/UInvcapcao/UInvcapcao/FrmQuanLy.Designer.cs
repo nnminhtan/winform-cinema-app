@@ -393,7 +393,7 @@ namespace UInvcapcao
             this.pnlNhanVien.Controls.Add(this.dgvData);
             this.pnlNhanVien.Controls.Add(this.btnShowList);
             this.pnlNhanVien.Location = new System.Drawing.Point(65, 5);
-            this.pnlNhanVien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlNhanVien.Margin = new System.Windows.Forms.Padding(2);
             this.pnlNhanVien.Name = "pnlNhanVien";
             this.pnlNhanVien.Size = new System.Drawing.Size(908, 545);
             this.pnlNhanVien.TabIndex = 1;
@@ -735,7 +735,7 @@ namespace UInvcapcao
             // 
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Location = new System.Drawing.Point(2, 67);
-            this.dgvData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvData.Margin = new System.Windows.Forms.Padding(2);
             this.dgvData.Name = "dgvData";
             this.dgvData.RowHeadersWidth = 82;
             this.dgvData.RowTemplate.Height = 33;
@@ -747,7 +747,7 @@ namespace UInvcapcao
             // btnShowList
             // 
             this.btnShowList.Location = new System.Drawing.Point(661, 67);
-            this.btnShowList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnShowList.Margin = new System.Windows.Forms.Padding(2);
             this.btnShowList.Name = "btnShowList";
             this.btnShowList.Size = new System.Drawing.Size(90, 29);
             this.btnShowList.TabIndex = 0;

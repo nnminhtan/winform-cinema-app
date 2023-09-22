@@ -34,9 +34,9 @@
             this.txtTK = new System.Windows.Forms.TextBox();
             this.txtMK = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnConfirm = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.lblQuenMK = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
@@ -75,6 +75,7 @@
             this.txtMK.Name = "txtMK";
             this.txtMK.Size = new System.Drawing.Size(136, 13);
             this.txtMK.TabIndex = 1;
+            this.txtMK.UseSystemPasswordChar = true;
             // 
             // panel1
             // 
@@ -92,15 +93,15 @@
             this.panel1.Size = new System.Drawing.Size(642, 406);
             this.panel1.TabIndex = 2;
             // 
-            // btnConfirm
+            // lblQuenMK
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(212, 315);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(76, 35);
-            this.btnConfirm.TabIndex = 2;
-            this.btnConfirm.Text = "Confirm";
-            this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            this.lblQuenMK.AutoSize = true;
+            this.lblQuenMK.Location = new System.Drawing.Point(334, 280);
+            this.lblQuenMK.Name = "lblQuenMK";
+            this.lblQuenMK.Size = new System.Drawing.Size(91, 13);
+            this.lblQuenMK.TabIndex = 4;
+            this.lblQuenMK.Text = "Quên Mật Khẩu ?";
+            this.lblQuenMK.Click += new System.EventHandler(this.lblQuenMK_Click);
             // 
             // btnCancel
             // 
@@ -112,15 +113,15 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // lblQuenMK
+            // btnConfirm
             // 
-            this.lblQuenMK.AutoSize = true;
-            this.lblQuenMK.Location = new System.Drawing.Point(334, 280);
-            this.lblQuenMK.Name = "lblQuenMK";
-            this.lblQuenMK.Size = new System.Drawing.Size(91, 13);
-            this.lblQuenMK.TabIndex = 4;
-            this.lblQuenMK.Text = "Quên Mật Khẩu ?";
-            this.lblQuenMK.Click += new System.EventHandler(this.lblQuenMK_Click);
+            this.btnConfirm.Location = new System.Drawing.Point(212, 315);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(76, 35);
+            this.btnConfirm.TabIndex = 2;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // pbLogo
             // 

@@ -94,6 +94,9 @@ namespace UInvcapcao
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Show();
+
             this.Close();
         }
 
