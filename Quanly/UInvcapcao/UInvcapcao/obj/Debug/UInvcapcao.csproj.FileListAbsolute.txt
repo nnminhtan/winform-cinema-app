@@ -107,3 +107,22 @@ C:\Users\Minh Tan\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcap
 C:\Users\Minh Tan\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.CopyComplete
 C:\Users\Minh Tan\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.exe
 C:\Users\Minh Tan\source\repos\v2\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.pdb
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.exe.config
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.exe
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.pdb
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.dll
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.SqlServer.dll
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.xml
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.SqlServer.xml
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.AssemblyReference.cache
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmgiaodien.resources
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmDatVe.resources
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmLogin.resources
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmQuanLy.resources
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.GiaoDienQL.resources
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.Properties.Resources.resources
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.GenerateResource.cache
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.CoreCompileInputs.cache
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.CopyComplete
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.exe
+D:\source\repos\winformc\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.pdb

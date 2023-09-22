@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace UInvcapcao
 {
-    public partial class frmgiaodien : Form
+    public partial class frmGiaoDien : Form
     {
         bool sidebarExpand;
-        public frmgiaodien()
+        public frmGiaoDien()
         {
             InitializeComponent();
         }
@@ -67,7 +67,38 @@ namespace UInvcapcao
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
+            frmDatVe frmDatVe = new frmDatVe();
+            frmDatVe.ShowDialog();
+        }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            frmDatVe frmDatVe = new frmDatVe();
+            frmDatVe.ShowDialog();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            frmDatVe frmDatVe = new frmDatVe();
+            frmDatVe.ShowDialog();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            frmDatVe frmDatVe = new frmDatVe();
+            frmDatVe.ShowDialog();
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            frmDatVe frmDatVe = new frmDatVe();
+            frmDatVe.ShowDialog();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            frmDatVe frmDatVe = new frmDatVe();
+            frmDatVe.ShowDialog();
         }
     }
 }
