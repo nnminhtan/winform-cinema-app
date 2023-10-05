@@ -46,23 +46,6 @@ namespace UInvcapcao
                             frmgiaodien.ShowDialog();
                         }
                     }
-                    else
-                    {
-                        if(!ISTK)
-                        {
-                            MessageBox.Show("Sai TK!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtTK.Clear();
-                            txtMK.Clear();
-                            txtTK.Focus();
-                        }
-                        if(!ISMK)
-                        {
-                            MessageBox.Show("Sai MK!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtMK.Clear();
-                            txtTK.Focus();
-                        }
-                    }
-
                 }
                 catch (ApplicationException ex)
                 {
