@@ -59,22 +59,36 @@ namespace UInvcapcao
         private void CheckIDNV(out bool iSTK, out bool iSMK, out int aCCESSKEY)
         {
             var parameters = new[]
-            {
+             {
             new SqlParameter("@ISTK", SqlDbType.Bit) { Direction = ParameterDirection.Output },
             new SqlParameter("@ISMK", SqlDbType.Bit) { Direction = ParameterDirection.Output },
             new SqlParameter("@TK", SqlDbType.NVarChar) { Value = txtTK.Text },
             new SqlParameter("@MK", SqlDbType.NVarChar) { Value = txtMK.Text },
             new SqlParameter("@ACCESSKEY", SqlDbType.Int) { Direction = ParameterDirection.Output }
             };
+            try
+            {
+                // Execute the stored procedure
+                db.Database.ExecuteSqlCommand("CheckIDNV @ISTK OUT, @ISMK OUT, @TK, @MK, @ACCESSKEY OUT", parameters);
 
-            // Execute the stored procedure
-            db.Database.ExecuteSqlCommand("CheckIDNV @ISTK OUT, @ISMK OUT, @TK, @MK, @ACCESSKEY OUT", parameters);
+                // Retrieve the output parameter values
+                iSTK = (bool)parameters[0].Value;
+                iSMK = (bool)parameters[1].Value;
+                aCCESSKEY = (int)parameters[4].Value;
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception, e.g., display an error message to the user
+                MessageBox.Show("Sai tai khoan hoac mat khau. Xin hay kiem tra lai thong tin ca nhan! \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //+ex.Message
+                //set focus to txtbox tk
+                txtTK.Focus();
+                // Set output parameters to default values or indicate failure
+                iSTK = false;
+                iSMK = false;
+                aCCESSKEY = -1; // Or another appropriate default value
+            }
 
-            // Retrieve the output parameter values
-            iSTK = (bool)parameters[0].Value;
-            iSMK = (bool)parameters[1].Value;
-            aCCESSKEY = (int)parameters[4].Value;
-            
         }
 
 

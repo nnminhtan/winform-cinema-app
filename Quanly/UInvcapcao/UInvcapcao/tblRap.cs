@@ -20,8 +20,8 @@ namespace UInvcapcao
             this.tblGhePhongChieux = new HashSet<tblGhePhongChieu>();
             this.tblGioChieux = new HashSet<tblGioChieu>();
             this.tblLichChieux = new HashSet<tblLichChieu>();
-            this.tblNhanViens = new HashSet<tblNhanVien>();
             this.tblPhongChieux = new HashSet<tblPhongChieu>();
+            this.tblNhanViens = new HashSet<tblNhanVien>();
         }
     
         public string MaRap { get; set; }
@@ -38,8 +38,8 @@ namespace UInvcapcao
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblLichChieu> tblLichChieux { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblNhanVien> tblNhanViens { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblPhongChieu> tblPhongChieux { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblNhanVien> tblNhanViens { get; set; }
     }
 }

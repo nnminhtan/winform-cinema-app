@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Quanly",
+    "\\Quanly\\UInvcapcao",
+    "\\Quanly\\UInvcapcao\\UInvcapcao"
   ],
-  "SelectedNode": "\\UInvcapcao.sln",
+  "SelectedNode": "\\Quanly\\UInvcapcao\\UInvcapcao\\FrmQuanLy.cs",
   "PreviewInSolutionExplorer": false
 }
