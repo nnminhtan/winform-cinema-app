@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="QUANLYRAPCHIEUPHIMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblChucNang">
+    <Key>
+      <PropertyRef Name="MaChucNang" />
+    </Key>
+    <Property Name="MaChucNang" Type="int" Nullable="false" />
+    <Property Name="TenChucNang" Type="nvarchar" MaxLength="21" />
+  </EntityType>
   <EntityType Name="tblGhePhongChieu">
     <Key>
       <PropertyRef Name="MaGhe" />
@@ -17,6 +24,14 @@
     <Property Name="MaRap" Type="char" MaxLength="21" />
     <Property Name="GioChieu" Type="time" Precision="7" />
   </EntityType>
+  <EntityType Name="tblKhach">
+    <Key>
+      <PropertyRef Name="MaKhach" />
+    </Key>
+    <Property Name="MaKhach" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="MatKhauKhach" Type="varchar" MaxLength="21" />
+    <Property Name="MaLoai" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="tblLichChieu">
     <Key>
       <PropertyRef Name="MaShow" />
@@ -31,14 +46,21 @@
     <Property Name="SoVeDaBan" Type="int" />
     <Property Name="TongTien" Type="int" />
   </EntityType>
+  <EntityType Name="tblLoaiKhach">
+    <Key>
+      <PropertyRef Name="MaLoai" />
+    </Key>
+    <Property Name="MaLoai" Type="int" Nullable="false" />
+    <Property Name="TenLoai" Type="nvarchar" MaxLength="21" />
+  </EntityType>
   <EntityType Name="tblNhanVien">
     <Key>
       <PropertyRef Name="MaNV" />
     </Key>
     <Property Name="MaNV" Type="char" MaxLength="11" Nullable="false" />
-    <Property Name="TenNV" Type="varchar" MaxLength="41" />
+    <Property Name="TenNV" Type="nvarchar" MaxLength="41" />
     <Property Name="MatKhauNV" Type="char" MaxLength="21" />
-    <Property Name="ChucVu" Type="varchar" MaxLength="31" />
+    <Property Name="ChucVu" Type="nvarchar" MaxLength="31" />
     <Property Name="Luong" Type="int" />
     <Property Name="MaRap" Type="char" MaxLength="21" />
   </EntityType>
@@ -47,14 +69,14 @@
       <PropertyRef Name="MaPhim" />
     </Key>
     <Property Name="MaPhim" Type="char" MaxLength="11" Nullable="false" />
-    <Property Name="TenPhim" Type="varchar" MaxLength="40" />
+    <Property Name="TenPhim" Type="nvarchar" MaxLength="40" />
     <Property Name="MaTheLoai" Type="char" MaxLength="6" />
     <Property Name="NgayKhoiChieu" Type="date" />
     <Property Name="NgayKetThuc" Type="date" />
-    <Property Name="MoTa" Type="varchar" MaxLength="200" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="200" />
+    <Property Name="ThoiLuong" Type="nvarchar" MaxLength="20" />
     <Property Name="TongChiPhi" Type="int" />
     <Property Name="TongThu" Type="int" />
-    <Property Name="TinhTrang" Type="varchar" MaxLength="31" />
   </EntityType>
   <EntityType Name="tblPhongChieu">
     <Key>
@@ -62,24 +84,24 @@
     </Key>
     <Property Name="MaPhong" Type="char" MaxLength="11" Nullable="false" />
     <Property Name="MaRap" Type="char" MaxLength="21" />
-    <Property Name="TenPhong" Type="varchar" MaxLength="11" />
+    <Property Name="TenPhong" Type="nvarchar" MaxLength="11" />
     <Property Name="TongSoGhe" Type="int" />
   </EntityType>
-  <EntityType Name="tblQuyenTruyCap">
+  <EntityType Name="tblQuyenHan">
     <Key>
-      <PropertyRef Name="MaNV" />
+      <PropertyRef Name="MaQuyen" />
     </Key>
-    <Property Name="MaQuyenTruyCap" Type="int" />
-    <Property Name="TenQuyenTruyCap" Type="varchar" MaxLength="21" />
+    <Property Name="MaQuyen" Type="int" Nullable="false" />
     <Property Name="MaNV" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="MaChucNang" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="tblRap">
     <Key>
       <PropertyRef Name="MaRap" />
     </Key>
     <Property Name="MaRap" Type="char" MaxLength="21" Nullable="false" />
-    <Property Name="TenRap" Type="varchar" MaxLength="50" />
-    <Property Name="DiaChi" Type="varchar" MaxLength="50" />
+    <Property Name="TenRap" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
     <Property Name="DienThoai" Type="char" MaxLength="11" />
     <Property Name="SoPhong" Type="int" />
     <Property Name="TongSoGhe" Type="int" />
@@ -89,7 +111,7 @@
       <PropertyRef Name="MaTheLoai" />
     </Key>
     <Property Name="MaTheLoai" Type="char" MaxLength="6" Nullable="false" />
-    <Property Name="TenTheLoai" Type="varchar" MaxLength="30" />
+    <Property Name="TenTheLoai" Type="nvarchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="tblVe">
     <Key>
@@ -131,6 +153,18 @@
       </Principal>
       <Dependent Role="tblGioChieu">
         <PropertyRef Name="MaRap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblKhach_tblLoaiKhach">
+    <End Role="tblLoaiKhach" Type="Self.tblLoaiKhach" Multiplicity="1" />
+    <End Role="tblKhach" Type="Self.tblKhach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLoaiKhach">
+        <PropertyRef Name="MaLoai" />
+      </Principal>
+      <Dependent Role="tblKhach">
+        <PropertyRef Name="MaLoai" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -218,14 +252,26 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_tblQuyenTruyCap_tblNhanVien">
+  <Association Name="FK_tblQuyenHan_tblChucNang">
+    <End Role="tblChucNang" Type="Self.tblChucNang" Multiplicity="1" />
+    <End Role="tblQuyenHan" Type="Self.tblQuyenHan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblChucNang">
+        <PropertyRef Name="MaChucNang" />
+      </Principal>
+      <Dependent Role="tblQuyenHan">
+        <PropertyRef Name="MaChucNang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblQuyenHan_tblNhanVien">
     <End Role="tblNhanVien" Type="Self.tblNhanVien" Multiplicity="1" />
-    <End Role="tblQuyenTruyCap" Type="Self.tblQuyenTruyCap" Multiplicity="0..1" />
+    <End Role="tblQuyenHan" Type="Self.tblQuyenHan" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="tblNhanVien">
         <PropertyRef Name="MaNV" />
       </Principal>
-      <Dependent Role="tblQuyenTruyCap">
+      <Dependent Role="tblQuyenHan">
         <PropertyRef Name="MaNV" />
       </Dependent>
     </ReferentialConstraint>
@@ -255,13 +301,16 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="QUANLYRAPCHIEUPHIMModelStoreContainer">
+    <EntitySet Name="tblChucNang" EntityType="Self.tblChucNang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblGhePhongChieu" EntityType="Self.tblGhePhongChieu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblGioChieu" EntityType="Self.tblGioChieu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblKhach" EntityType="Self.tblKhach" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblLichChieu" EntityType="Self.tblLichChieu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblLoaiKhach" EntityType="Self.tblLoaiKhach" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblNhanVien" EntityType="Self.tblNhanVien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblPhim" EntityType="Self.tblPhim" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblPhongChieu" EntityType="Self.tblPhongChieu" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tblQuyenTruyCap" EntityType="Self.tblQuyenTruyCap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblQuyenHan" EntityType="Self.tblQuyenHan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblRap" EntityType="Self.tblRap" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblTheLoai" EntityType="Self.tblTheLoai" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblVe" EntityType="Self.tblVe" Schema="dbo" store:Type="Tables" />
@@ -276,6 +325,10 @@
     <AssociationSet Name="FK_tblGioChieu" Association="Self.FK_tblGioChieu">
       <End Role="tblRap" EntitySet="tblRap" />
       <End Role="tblGioChieu" EntitySet="tblGioChieu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblKhach_tblLoaiKhach" Association="Self.FK_tblKhach_tblLoaiKhach">
+      <End Role="tblLoaiKhach" EntitySet="tblLoaiKhach" />
+      <End Role="tblKhach" EntitySet="tblKhach" />
     </AssociationSet>
     <AssociationSet Name="FK_tblLichChieu_tblGioChieu" Association="Self.FK_tblLichChieu_tblGioChieu">
       <End Role="tblGioChieu" EntitySet="tblGioChieu" />
@@ -305,9 +358,13 @@
       <End Role="tblRap" EntitySet="tblRap" />
       <End Role="tblPhongChieu" EntitySet="tblPhongChieu" />
     </AssociationSet>
-    <AssociationSet Name="FK_tblQuyenTruyCap_tblNhanVien" Association="Self.FK_tblQuyenTruyCap_tblNhanVien">
+    <AssociationSet Name="FK_tblQuyenHan_tblChucNang" Association="Self.FK_tblQuyenHan_tblChucNang">
+      <End Role="tblChucNang" EntitySet="tblChucNang" />
+      <End Role="tblQuyenHan" EntitySet="tblQuyenHan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblQuyenHan_tblNhanVien" Association="Self.FK_tblQuyenHan_tblNhanVien">
       <End Role="tblNhanVien" EntitySet="tblNhanVien" />
-      <End Role="tblQuyenTruyCap" EntitySet="tblQuyenTruyCap" />
+      <End Role="tblQuyenHan" EntitySet="tblQuyenHan" />
     </AssociationSet>
     <AssociationSet Name="FK_tblVe_tblGhePhongChieu" Association="Self.FK_tblVe_tblGhePhongChieu">
       <End Role="tblGhePhongChieu" EntitySet="tblGhePhongChieu" />

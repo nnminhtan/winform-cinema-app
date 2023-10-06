@@ -26,9 +26,9 @@ namespace UInvcapcao
         public Nullable<System.DateTime> NgayKhoiChieu { get; set; }
         public Nullable<System.DateTime> NgayKetThuc { get; set; }
         public string MoTa { get; set; }
+        public string ThoiLuong { get; set; }
         public Nullable<int> TongChiPhi { get; set; }
         public Nullable<int> TongThu { get; set; }
-        public string TinhTrang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblLichChieu> tblLichChieux { get; set; }

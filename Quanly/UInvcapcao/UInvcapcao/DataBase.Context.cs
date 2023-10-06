@@ -25,15 +25,18 @@ namespace UInvcapcao
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<tblChucNang> tblChucNangs { get; set; }
         public virtual DbSet<tblGhePhongChieu> tblGhePhongChieux { get; set; }
         public virtual DbSet<tblGioChieu> tblGioChieux { get; set; }
+        public virtual DbSet<tblKhach> tblKhaches { get; set; }
         public virtual DbSet<tblLichChieu> tblLichChieux { get; set; }
-        public virtual DbSet<tblNhanVien> tblNhanViens { get; set; }
+        public virtual DbSet<tblLoaiKhach> tblLoaiKhaches { get; set; }
         public virtual DbSet<tblPhim> tblPhims { get; set; }
         public virtual DbSet<tblPhongChieu> tblPhongChieux { get; set; }
-        public virtual DbSet<tblQuyenTruyCap> tblQuyenTruyCaps { get; set; }
         public virtual DbSet<tblRap> tblRaps { get; set; }
         public virtual DbSet<tblTheLoai> tblTheLoais { get; set; }
         public virtual DbSet<tblVe> tblVes { get; set; }
+        public virtual DbSet<tblNhanVien> tblNhanViens { get; set; }
+        public virtual DbSet<tblQuyenHan> tblQuyenHans { get; set; }
     }
 }

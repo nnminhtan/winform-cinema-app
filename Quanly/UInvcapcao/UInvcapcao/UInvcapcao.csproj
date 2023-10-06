@@ -103,10 +103,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QUANLYRAPCHIEUPHIMDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QUANLYRAPCHIEUPHIMDataSet.xsd</DependentUpon>
+    <Compile Include="tblChucNang.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="tblGhePhongChieu.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
@@ -114,7 +112,13 @@
     <Compile Include="tblGioChieu.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="tblKhach.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="tblLichChieu.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLoaiKhach.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="tblNhanVien.cs">
@@ -126,7 +130,7 @@
     <Compile Include="tblPhongChieu.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="tblQuyenTruyCap.cs">
+    <Compile Include="tblQuyenHan.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="tblRap.cs">
@@ -185,17 +189,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="QUANLYRAPCHIEUPHIMDataSet.xsc">
-      <DependentUpon>QUANLYRAPCHIEUPHIMDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="QUANLYRAPCHIEUPHIMDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QUANLYRAPCHIEUPHIMDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QUANLYRAPCHIEUPHIMDataSet.xss">
-      <DependentUpon>QUANLYRAPCHIEUPHIMDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Resources\sidebar button5.png" />
   </ItemGroup>
   <ItemGroup>
@@ -214,18 +207,18 @@
     <None Include="Resources\fastandfurious.jpg" />
     <None Include="Resources\avengers.jpg" />
     <None Include="Resources\bong dung trung so.jpg" />
+    <None Include="Resources\logowithwords.png" />
+    <None Include="Resources\logowithoutwords.png" />
     <Content Include="DataBase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DataBase.Context.cs</LastGenOutput>
       <DependentUpon>DataBase.edmx</DependentUpon>
+      <LastGenOutput>DataBase.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DataBase.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DataBase.edmx</DependentUpon>
       <LastGenOutput>DataBase.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\logowithwords.png" />
-    <None Include="Resources\logowithoutwords.png" />
     <Content Include="Resources\Menu.png.png" />
     <None Include="Resources\poster_official_preiview.jpg" />
     <None Include="Resources\pink.png" />

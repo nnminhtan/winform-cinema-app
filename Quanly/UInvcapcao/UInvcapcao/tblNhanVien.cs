@@ -14,6 +14,12 @@ namespace UInvcapcao
     
     public partial class tblNhanVien
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblNhanVien()
+        {
+            this.tblQuyenHans = new HashSet<tblQuyenHan>();
+        }
+    
         public string MaNV { get; set; }
         public string TenNV { get; set; }
         public string MatKhauNV { get; set; }
@@ -22,6 +28,7 @@ namespace UInvcapcao
         public string MaRap { get; set; }
     
         public virtual tblRap tblRap { get; set; }
-        public virtual tblQuyenTruyCap tblQuyenTruyCap { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblQuyenHan> tblQuyenHans { get; set; }
     }
 }
