@@ -45,6 +45,11 @@ namespace UInvcapcao
                             frmGiaoDien frmgiaodien = new frmGiaoDien();
                             frmgiaodien.ShowDialog();
                         }
+                        if (ACCESSKEY == 3)
+                        {
+                            MessageBox.Show("Tài khoản của bạn đã bị khóa. Vui lòng liên hệ với quản trị viên để giải quyết vấn đề này."
+                              , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
                 catch (ApplicationException ex)
