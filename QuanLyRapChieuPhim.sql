@@ -1,4 +1,4 @@
-﻿USE MASTER
+USE MASTER
 GO
 IF EXISTS ( SELECT * FROM SYS.DATABASES WHERE NAME = 'QUANLYRAPCHIEUPHIM')
 	DROP DATABASE QUANLYRAPCHIEUPHIM
@@ -8,7 +8,7 @@ CREATE DATABASE QUANLYRAPCHIEUPHIM
 GO
 
 USE QUANLYRAPCHIEUPHIM
-ALTER DATABASE QUANLYRAPCHIEUPHIM COLLATE Vietnamese_CI_AS
+ALTER DATABASE QUANLYRAPCHIEUPHIM2 COLLATE Vietnamese_CI_AS
 --CREATE TABLE
 IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE NAME = 'tblLichChieu')
 	DROP TABLE tblLichChieu
@@ -40,7 +40,7 @@ CREATE TABLE tblPhim
 	ThoiLuong NVARCHAR(20),
 	TongChiPhi INT,
 	TongThu INT,
---	TinhTrang VARCHAR(31)
+	Poster VARBINARY(MAX)
 )
 
 IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE NAME = 'tblTheLoai')
@@ -79,8 +79,34 @@ IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE NAME = 'tblVe')
 GO
 CREATE TABLE tblVe
 (
-	MaGhe CHAR(11) NOT NULL,
-	MaShow CHAR(11)
+	MaVe INT NOT NULL,
+	--MaGhe CHAR(11),
+	--MaKhach INT,
+	MaShow CHAR(11),
+	--TenPhim  NVARCHAR(40),
+	--NgayChieu DATETIME,
+	--GioChieu TIME,
+	--GiaVe INT,
+	--HinhThucThanhToan NVARCHAR(40),
+	--HinhThucDat bit
+)
+
+IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE NAME = 'tblThongTinVe')
+	DROP TABLE tblThongTinVe
+GO
+CREATE TABLE tblThongTinVe
+(
+	IdTTVe INT NOT NULL,
+	MaVe INT,
+	MaGhe CHAR(11),
+	--MaKhach INT,
+	--MaShow CHAR(11),
+	TenPhim  NVARCHAR(40),
+	NgayChieu DATETIME,
+	GioChieu TIME,
+	GiaVe INT,
+	HinhThucThanhToan NVARCHAR(40),
+	--HinhThucDat bit
 )
 
 IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE NAME = 'tblRap')
@@ -139,28 +165,20 @@ IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE NAME = 'tblQuyenHan')
 GO
 CREATE TABLE tblQuyenHan
 (
-	MaQuyen INT NOT NULL,
-	MaNV CHAR(11),
-	MaChucNang INT
+	 MaQuyen INT NOT NULL,
+	 MaNV CHAR(11) NOT NULL,
+	 MaChucNang INT NOT NULL
 )
 
-IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE NAME = 'tblKhach')
-	DROP TABLE tblKhach
-GO
-CREATE TABLE tblKhach
-(
-	MaKhach CHAR(11) NOT NULL,
-	MatKhauKhach VARCHAR(21),
-	MaLoai INT NOT NULL
-)
-IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE NAME = 'tblLoaiKhach')
-	DROP TABLE tblLoaiKhach
-GO
-CREATE TABLE tblLoaiKhach
-(
-	MaLoai INT NOT NULL,
-	TenLoai NVARCHAR(21)
-)
+--IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE NAME = 'tblKhach')
+--	DROP TABLE tblKhach
+--GO
+--CREATE TABLE tblKhach
+--(
+--	MaKhach INT NOT NULL,
+--	TenKhach NVARCHAR(51),
+--	SDT INT,
+--)
 
 --ADD PRIMARY KEY
 ALTER TABLE tblLichChieu 
@@ -174,7 +192,9 @@ ALTER TABLE tblPhongChieu
 ALTER TABLE tblGhePhongChieu 
 	ADD CONSTRAINT PK_tblGhePhongChieu PRIMARY KEY (MaGhe)
 ALTER TABLE tblVe 
-	ADD CONSTRAINT PK_tblVe PRIMARY KEY (MaGhe)
+	ADD CONSTRAINT PK_tblVe PRIMARY KEY (MaVe)
+ALTER TABLE tblThongTinVe 
+	ADD CONSTRAINT PK_tblThongTinVe PRIMARY KEY (IdTTVe)
 ALTER TABLE tblRap 
 	ADD CONSTRAINT PK_tblRap PRIMARY KEY (MaRap)
 ALTER TABLE tblGioChieu 
@@ -185,11 +205,8 @@ ALTER TABLE tblChucNang
 	ADD CONSTRAINT PK_tblChucNang PRIMARY KEY(MaChucNang)
 ALTER TABLE tblQuyenHan
 	ADD CONSTRAINT PK_tblQuyenHan PRIMARY KEY(MaQuyen)
-ALTER TABLE tblKhach
-	ADD CONSTRAINT PK_tblKhach PRIMARY KEY(MaKhach)
-ALTER TABLE tblLoaiKhach
-	ADD CONSTRAINT PK_tblLoaiKhach PRIMARY KEY(MaLoai)
-
+--ALTER TABLE tblKhach
+--	ADD CONSTRAINT PK_tblKhach PRIMARY KEY(MaKhach)
 
 --ADD FOREIGN KEY
 ALTER TABLE tblLichChieu
@@ -206,8 +223,14 @@ ALTER TABLE tblGioChieu
 	ADD CONSTRAINT FK_tblGioChieu FOREIGN KEY(MaRap) REFERENCES tblRap(MaRap)
 ALTER TABLE tblVe
 	ADD CONSTRAINT FK_tblVe_tblLichChieu FOREIGN KEY(MaShow) REFERENCES tblLichChieu(MaShow)
-ALTER TABLE tblVe
-	ADD CONSTRAINT FK_tblVe_tblGhePhongChieu FOREIGN KEY(MaGhe) REFERENCES tblGhePhongChieu(MaGhe)
+ALTER TABLE tblThongTinVe
+	ADD CONSTRAINT FK_tblThongTinVe_tblVe FOREIGN KEY(MaVe) REFERENCES tblVe(MaVe)
+ALTER TABLE tblThongTinVe
+	ADD CONSTRAINT FK_tblThongTinVe_tblGhePhongChieu FOREIGN KEY(MaGhe) REFERENCES tblGhePhongChieu(MaGhe)
+--ALTER TABLE tblVe
+--	ADD CONSTRAINT FK_tblVe_tblGhePhongChieu FOREIGN KEY(MaGhe) REFERENCES tblGhePhongChieu(MaGhe)
+--ALTER TABLE tblVe
+--	ADD CONSTRAINT FK_tblVe_tblKhach FOREIGN KEY(MaKhach) REFERENCES tblKhach(MaKhach)
 ALTER TABLE tblPhongChieu
 	ADD CONSTRAINT FK_tblPhongChieu_tblRap FOREIGN KEY(MaRap) REFERENCES tblRap(MaRap)
 ALTER TABLE tblGhePhongChieu
@@ -222,8 +245,7 @@ ALTER TABLE tblQuyenHan
 	ADD CONSTRAINT FK_tblQuyenHan_tblNhanVien FOREIGN KEY(MaNV) REFERENCES tblNhanVien(MaNV)
 ALTER TABLE tblQuyenHan
 	ADD CONSTRAINT FK_tblQuyenHan_tblChucNang FOREIGN KEY(MaChucNang) REFERENCES tblChucNang(MaChucNang)
-ALTER TABLE tblKhach
-	ADD CONSTRAINT FK_tblKhach_tblLoaiKhach FOREIGN KEY(MaLoai) REFERENCES tblLoaiKhach(MaLoai)
+
 
 --ADD CONSTRAINT
 ALTER TABLE tblGhePhongChieu
@@ -251,7 +273,7 @@ INSERT INTO tblTheLoai(MaTheLoai,TenTheLoai) VALUES('TL10', N'Giật gân')
 SELECT * FROM tblTheLoai
 
 INSERT INTO tblPhim(MaPhim,TenPhim,MaTheLoai,NgayKhoiChieu,NgayKetThuc,MoTa,ThoiLuong,TongChiPhi,TongThu)
-	VALUES('P1','Baking Bad','TL10','11/9/2023','6/10/2023',N'this is a great movie',N'120 Phút',100000000,500000000)
+	VALUES('P1','Baking Bad','TL10','10/6/2023','30/10/2023',N'this is a great movie',N'120 Phút',100000000,500000000)
 INSERT INTO tblPhim(MaPhim,TenPhim,MaTheLoai,NgayKhoiChieu,NgayKetThuc,MoTa,ThoiLuong,TongChiPhi,TongThu)
 	VALUES('P2','Conan','TL1','20/09/2023','21/10/2023',N'...',N'90 Phút',100000000,500000000)
 INSERT INTO tblPhim(MaPhim,TenPhim,MaTheLoai,NgayKhoiChieu,NgayKetThuc,MoTa,ThoiLuong,TongChiPhi,TongThu)
@@ -259,7 +281,9 @@ INSERT INTO tblPhim(MaPhim,TenPhim,MaTheLoai,NgayKhoiChieu,NgayKetThuc,MoTa,Thoi
 INSERT INTO tblPhim(MaPhim,TenPhim,MaTheLoai,NgayKhoiChieu,NgayKetThuc,MoTa,ThoiLuong,TongChiPhi,TongThu)
 	VALUES('P4','Fast and Furious','TL1','16/09/2023','20/10/2023',N'...',N'69 Phút',100000000,500000000)
 INSERT INTO tblPhim(MaPhim,TenPhim,MaTheLoai,NgayKhoiChieu,NgayKetThuc,MoTa,ThoiLuong,TongChiPhi,TongThu)
-	VALUES('P5','Ant Man','TL3','28/09/2023','25/10/2023',N'...',N'120 Phút',100000000,500000000)
+	VALUES('P5','Avengers','TL3','28/09/2023','25/10/2023',N'...',N'120 Phút',100000000,500000000)
+INSERT INTO tblPhim(MaPhim,TenPhim,MaTheLoai,NgayKhoiChieu,NgayKetThuc,MoTa,ThoiLuong,TongChiPhi,TongThu)
+	VALUES('P6','Your Name','TL4','28/09/2023','25/10/2023',N'...',N'120 Phút',100000000,500000000)
 SELECT * FROM tblPhim
 
 INSERT INTO tblGioChieu(MaGioChieu,MaRap,GioChieu) VALUES('GC1','BTC1','08:00')
@@ -520,6 +544,7 @@ INSERT INTO tblNhanVien(MaNV,TenNV,MatKhauNV,ChucVu,Luong,MaRap) VALUES('2',N'Ch
 INSERT INTO tblNhanVien(MaNV,TenNV,MatKhauNV,ChucVu,Luong,MaRap) VALUES('3',N'Ngô Anh Khoa','123',N'Nhân Viên',5000000,'BTC1')
 INSERT INTO tblNhanVien(MaNV,TenNV,MatKhauNV,ChucVu,Luong,MaRap) VALUES('4',N'Nguyễn Đức Hải Bằng','123',N'Nhân Viên',5000000,'BTC1')
 INSERT INTO tblNhanVien(MaNV,TenNV,MatKhauNV,ChucVu,Luong,MaRap) VALUES('5',N'Nguyễn Ngọc Minh Tân','123',N'Nhân Viên',6000000,'BTC2')
+INSERT INTO tblNhanVien(MaNV,TenNV,MatKhauNV,ChucVu,Luong,MaRap) VALUES('6',N'Deez Nuts','123',N'Nhân Viên',6000000,'BTC2')
 SELECT * FROM tblNhanVien
 
 INSERT INTO tblChucNang(MaChucNang, TenChucNang) VALUES(1,N'Quản lý rạp')
@@ -532,8 +557,16 @@ INSERT INTO tblQuyenHan(MaQuyen,MaNV,MaChucNang) VALUES('2','2','1')
 INSERT INTO tblQuyenHan(MaQuyen,MaNV,MaChucNang) VALUES('3','3','2')
 INSERT INTO tblQuyenHan(MaQuyen,MaNV,MaChucNang) VALUES('4','4','2')
 INSERT INTO tblQuyenHan(MaQuyen,MaNV,MaChucNang) VALUES('5','5','2')
+INSERT INTO tblQuyenHan(MaQuyen,MaNV,MaChucNang) VALUES('6','6','3')
 SELECT * FROM tblQuyenHan
-SELECT * FROM tblNhanVien
+
+--INSERT INTO tblVe(MaVe,MaGhe,MaShow) VALUEs(1,'PC1_A6','S1')
+--INSERT INTO tblVe(MaVe,MaGhe,MaShow) VALUEs(2,'PC1_A7','S1')
+--INSERT INTO tblVe(MaVe,MaGhe,MaShow) VALUEs(3,'PC1_A8','S1')
+--select * from tblve
+
+--INSERT INTO tblKhach(MaKhach,TenKhach,SDT,HinhThucThanhToan,MaVe,MaGhe,TenPhim,NgayChieu,GioChieu,GiaVe,HinhThucDat) 
+--	VALUEs(1,N'Nguyễn Văn A','09374385245',N'Tại quầy',1,'PC1_A6')
 
 
 -- Cập nhật tổng số phòng một rạp khi có phòng mới
@@ -614,27 +647,27 @@ AS BEGIN
 	= tblPhongChieu.MaPhong) FROM tblPhongChieu JOIN deleted ON tblPhongChieu.MaPhong = deleted.MaPhong
 END
 
-GO
-CREATE TRIGGER DatVe
-ON tblVe 
-AFTER INSERT 
-AS BEGIN 
-	UPDATE tblGhePhongChieu
-	SET TrangThai = N'Đã Đặt'
-	FROM tblGhePhongChieu JOIN inserted ON tblGhePhongChieu.MaGhe = inserted.MaGhe
-	WHERE tblGhePhongChieu.MaGhe = inserted.MaGhe
-END
+--GO
+--CREATE TRIGGER DatVe
+--ON tblVe 
+--AFTER INSERT 
+--AS BEGIN 
+--	UPDATE tblGhePhongChieu
+--	SET TrangThai = 1
+--	FROM tblGhePhongChieu JOIN inserted ON tblGhePhongChieu.MaGhe = inserted.MaGhe
+--	WHERE tblGhePhongChieu.MaGhe = inserted.MaGhe
+--END
 
-GO
-CREATE TRIGGER HuyVe
-ON tblVe
-AFTER DELETE 
-AS BEGIN 
-	UPDATE tblGhePhongChieu
-	SET TrangThai= N'Trống'
-	FROM tblGhePhongChieu JOIN deleted ON tblGhePhongChieu.MaGhe = deleted.MaGhe
-	WHERE tblGhePhongChieu.MaGhe = deleted.MaGhe
-END
+--GO
+--CREATE TRIGGER HuyVe
+--ON tblVe
+--AFTER DELETE 
+--AS BEGIN 
+--	UPDATE tblGhePhongChieu
+--	SET TrangThai= 0
+--	FROM tblGhePhongChieu JOIN deleted ON tblGhePhongChieu.MaGhe = deleted.MaGhe
+--	WHERE tblGhePhongChieu.MaGhe = deleted.MaGhe
+--END
 
  -- Cập nhật tổng tiền khi có thêm vé được bán
 GO
@@ -742,6 +775,14 @@ BEGIN
 SET @ISTK = 1
 SET @ISMK = 1
 SET @ACCESSKEY = 2
+END
+ELSE IF EXISTS(SELECT * FROM tblNhanVien NV FULL OUTER JOIN tblQuyenHan QH
+ON NV.MaNV = QH.MaNV 
+WHERE NV.MaNV = @TK AND MatKhauNV = @MK AND QH.MaChucNang = 3)
+BEGIN
+SET @ISTK = 1
+SET @ISMK = 1
+SET @ACCESSKEY = 3
 END
 ELSE 
 	BEGIN
