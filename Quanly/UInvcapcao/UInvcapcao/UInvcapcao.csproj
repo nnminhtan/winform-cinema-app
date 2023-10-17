@@ -39,6 +39,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -71,34 +74,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBase.edmx</DependentUpon>
     </Compile>
-    <Compile Include="frmDatVe.cs">
+    <Compile Include="Forms\frmDatVe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDatVe.Designer.cs">
+    <Compile Include="Forms\frmDatVe.Designer.cs">
       <DependentUpon>frmDatVe.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGiaoDien.cs">
+    <Compile Include="Forms\frmGiaoDien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGiaoDien.Designer.cs">
+    <Compile Include="Forms\frmGiaoDien.Designer.cs">
       <DependentUpon>frmGiaoDien.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="Forms\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
+    <Compile Include="Forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="GiaoDienQL.cs">
+    <Compile Include="Forms\frmQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GiaoDienQL.Designer.cs">
-      <DependentUpon>GiaoDienQL.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmQuanLy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmQuanLy.Designer.cs">
+    <Compile Include="Forms\frmQuanLy.Designer.cs">
       <DependentUpon>frmQuanLy.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -142,20 +139,17 @@
     <Compile Include="tblVe.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmDatVe.resx">
+    <EmbeddedResource Include="Forms\frmDatVe.resx">
       <DependentUpon>frmDatVe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGiaoDien.resx">
+    <EmbeddedResource Include="Forms\frmGiaoDien.resx">
       <DependentUpon>frmGiaoDien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmQuanLy.resx">
+    <EmbeddedResource Include="Forms\frmQuanLy.resx">
       <DependentUpon>frmQuanLy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GiaoDienQL.resx">
-      <DependentUpon>GiaoDienQL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

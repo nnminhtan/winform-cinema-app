@@ -63,6 +63,7 @@
     <EntitySetMapping Name="tblPhims">
       <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblPhim">
         <MappingFragment StoreEntitySet="tblPhim">
+          <ScalarProperty Name="Poster" ColumnName="Poster" />
           <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
           <ScalarProperty Name="TenPhim" ColumnName="TenPhim" />
           <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />

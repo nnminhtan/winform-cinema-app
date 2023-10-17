@@ -81,6 +81,7 @@
     <Property Name="TongThu" Type="Int32" />
     <NavigationProperty Name="tblLichChieux" Relationship="Self.FK_tblLichChieu_tblPhim" FromRole="tblPhim" ToRole="tblLichChieu" />
     <NavigationProperty Name="tblTheLoai" Relationship="Self.FK_tblPhim" FromRole="tblPhim" ToRole="tblTheLoai" />
+    <Property Name="Poster" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="tblPhongChieu">
     <Key>

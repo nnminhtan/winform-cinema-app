@@ -82,6 +82,7 @@
           <Property Name="ThoiLuong" Type="nvarchar" MaxLength="20" />
           <Property Name="TongChiPhi" Type="int" />
           <Property Name="TongThu" Type="int" />
+          <Property Name="Poster" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="tblPhongChieu">
           <Key>
@@ -465,6 +466,7 @@
           <Property Name="TongThu" Type="Int32" />
           <NavigationProperty Name="tblLichChieux" Relationship="Self.FK_tblLichChieu_tblPhim" FromRole="tblPhim" ToRole="tblLichChieu" />
           <NavigationProperty Name="tblTheLoai" Relationship="Self.FK_tblPhim" FromRole="tblPhim" ToRole="tblTheLoai" />
+          <Property Name="Poster" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="tblPhongChieu">
           <Key>
@@ -857,6 +859,7 @@
           <EntitySetMapping Name="tblPhims">
             <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblPhim">
               <MappingFragment StoreEntitySet="tblPhim">
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
                 <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
                 <ScalarProperty Name="TenPhim" ColumnName="TenPhim" />
                 <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />
