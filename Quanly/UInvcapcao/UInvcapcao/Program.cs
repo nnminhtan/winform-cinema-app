@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UInvcapcao.Forms;
 
 namespace UInvcapcao
 {
@@ -17,7 +18,7 @@ namespace UInvcapcao
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmQuanLy());
+            Application.Run(new frmLogin());
         }
     }
 }

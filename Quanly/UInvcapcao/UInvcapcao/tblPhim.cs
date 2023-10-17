@@ -29,6 +29,7 @@ namespace UInvcapcao
         public string ThoiLuong { get; set; }
         public Nullable<int> TongChiPhi { get; set; }
         public Nullable<int> TongThu { get; set; }
+        public byte[] Poster { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblLichChieu> tblLichChieux { get; set; }
