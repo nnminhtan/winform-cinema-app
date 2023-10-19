@@ -29,14 +29,6 @@
           <Property Name="MaRap" Type="char" MaxLength="21" />
           <Property Name="GioChieu" Type="time" Precision="7" />
         </EntityType>
-        <EntityType Name="tblKhach">
-          <Key>
-            <PropertyRef Name="MaKhach" />
-          </Key>
-          <Property Name="MaKhach" Type="char" MaxLength="11" Nullable="false" />
-          <Property Name="MatKhauKhach" Type="varchar" MaxLength="21" />
-          <Property Name="MaLoai" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="tblLichChieu">
           <Key>
             <PropertyRef Name="MaShow" />
@@ -50,13 +42,6 @@
           <Property Name="GiaVe" Type="int" />
           <Property Name="SoVeDaBan" Type="int" />
           <Property Name="TongTien" Type="int" />
-        </EntityType>
-        <EntityType Name="tblLoaiKhach">
-          <Key>
-            <PropertyRef Name="MaLoai" />
-          </Key>
-          <Property Name="MaLoai" Type="int" Nullable="false" />
-          <Property Name="TenLoai" Type="nvarchar" MaxLength="21" />
         </EntityType>
         <EntityType Name="tblNhanVien">
           <Key>
@@ -119,11 +104,24 @@
           <Property Name="MaTheLoai" Type="char" MaxLength="6" Nullable="false" />
           <Property Name="TenTheLoai" Type="nvarchar" MaxLength="30" />
         </EntityType>
+        <EntityType Name="tblThongTinVe">
+          <Key>
+            <PropertyRef Name="IdTTVe" />
+          </Key>
+          <Property Name="IdTTVe" Type="int" Nullable="false" />
+          <Property Name="MaVe" Type="int" />
+          <Property Name="MaGhe" Type="char" MaxLength="11" />
+          <Property Name="TenPhim" Type="nvarchar" MaxLength="40" />
+          <Property Name="NgayChieu" Type="datetime" />
+          <Property Name="GioChieu" Type="time" Precision="7" />
+          <Property Name="GiaVe" Type="int" />
+          <Property Name="HinhThucThanhToan" Type="nvarchar" MaxLength="40" />
+        </EntityType>
         <EntityType Name="tblVe">
           <Key>
-            <PropertyRef Name="MaGhe" />
+            <PropertyRef Name="MaVe" />
           </Key>
-          <Property Name="MaGhe" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="MaVe" Type="int" Nullable="false" />
           <Property Name="MaShow" Type="char" MaxLength="11" />
         </EntityType>
         <Association Name="FK_tblGhePhongChieu_tblPhongChieu">
@@ -159,18 +157,6 @@
             </Principal>
             <Dependent Role="tblGioChieu">
               <PropertyRef Name="MaRap" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblKhach_tblLoaiKhach">
-          <End Role="tblLoaiKhach" Type="Self.tblLoaiKhach" Multiplicity="1" />
-          <End Role="tblKhach" Type="Self.tblKhach" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblLoaiKhach">
-              <PropertyRef Name="MaLoai" />
-            </Principal>
-            <Dependent Role="tblKhach">
-              <PropertyRef Name="MaLoai" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -282,15 +268,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tblVe_tblGhePhongChieu">
-          <End Role="tblGhePhongChieu" Type="Self.tblGhePhongChieu" Multiplicity="1" />
-          <End Role="tblVe" Type="Self.tblVe" Multiplicity="0..1" />
+        <Association Name="FK_tblThongTinVe_tblGhePhongChieu">
+          <End Role="tblGhePhongChieu" Type="Self.tblGhePhongChieu" Multiplicity="0..1" />
+          <End Role="tblThongTinVe" Type="Self.tblThongTinVe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblGhePhongChieu">
               <PropertyRef Name="MaGhe" />
             </Principal>
-            <Dependent Role="tblVe">
+            <Dependent Role="tblThongTinVe">
               <PropertyRef Name="MaGhe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblThongTinVe_tblVe">
+          <End Role="tblVe" Type="Self.tblVe" Multiplicity="0..1" />
+          <End Role="tblThongTinVe" Type="Self.tblThongTinVe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblVe">
+              <PropertyRef Name="MaVe" />
+            </Principal>
+            <Dependent Role="tblThongTinVe">
+              <PropertyRef Name="MaVe" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -306,19 +304,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="CheckIDNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ISTK" Type="bit" Mode="InOut" />
+          <Parameter Name="ISMK" Type="bit" Mode="InOut" />
+          <Parameter Name="TK" Type="varchar" Mode="In" />
+          <Parameter Name="MK" Type="char" Mode="In" />
+          <Parameter Name="ACCESSKEY" Type="int" Mode="InOut" />
+        </Function>
         <EntityContainer Name="QUANLYRAPCHIEUPHIMModelStoreContainer">
           <EntitySet Name="tblChucNang" EntityType="Self.tblChucNang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblGhePhongChieu" EntityType="Self.tblGhePhongChieu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblGioChieu" EntityType="Self.tblGioChieu" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tblKhach" EntityType="Self.tblKhach" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblLichChieu" EntityType="Self.tblLichChieu" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tblLoaiKhach" EntityType="Self.tblLoaiKhach" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblNhanVien" EntityType="Self.tblNhanVien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPhim" EntityType="Self.tblPhim" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPhongChieu" EntityType="Self.tblPhongChieu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblQuyenHan" EntityType="Self.tblQuyenHan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblRap" EntityType="Self.tblRap" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTheLoai" EntityType="Self.tblTheLoai" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblThongTinVe" EntityType="Self.tblThongTinVe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblVe" EntityType="Self.tblVe" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tblGhePhongChieu_tblPhongChieu" Association="Self.FK_tblGhePhongChieu_tblPhongChieu">
             <End Role="tblPhongChieu" EntitySet="tblPhongChieu" />
@@ -331,10 +335,6 @@
           <AssociationSet Name="FK_tblGioChieu" Association="Self.FK_tblGioChieu">
             <End Role="tblRap" EntitySet="tblRap" />
             <End Role="tblGioChieu" EntitySet="tblGioChieu" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblKhach_tblLoaiKhach" Association="Self.FK_tblKhach_tblLoaiKhach">
-            <End Role="tblLoaiKhach" EntitySet="tblLoaiKhach" />
-            <End Role="tblKhach" EntitySet="tblKhach" />
           </AssociationSet>
           <AssociationSet Name="FK_tblLichChieu_tblGioChieu" Association="Self.FK_tblLichChieu_tblGioChieu">
             <End Role="tblGioChieu" EntitySet="tblGioChieu" />
@@ -372,9 +372,13 @@
             <End Role="tblNhanVien" EntitySet="tblNhanVien" />
             <End Role="tblQuyenHan" EntitySet="tblQuyenHan" />
           </AssociationSet>
-          <AssociationSet Name="FK_tblVe_tblGhePhongChieu" Association="Self.FK_tblVe_tblGhePhongChieu">
+          <AssociationSet Name="FK_tblThongTinVe_tblGhePhongChieu" Association="Self.FK_tblThongTinVe_tblGhePhongChieu">
             <End Role="tblGhePhongChieu" EntitySet="tblGhePhongChieu" />
+            <End Role="tblThongTinVe" EntitySet="tblThongTinVe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblThongTinVe_tblVe" Association="Self.FK_tblThongTinVe_tblVe">
             <End Role="tblVe" EntitySet="tblVe" />
+            <End Role="tblThongTinVe" EntitySet="tblThongTinVe" />
           </AssociationSet>
           <AssociationSet Name="FK_tblVe_tblLichChieu" Association="Self.FK_tblVe_tblLichChieu">
             <End Role="tblLichChieu" EntitySet="tblLichChieu" />
@@ -385,6 +389,87 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QUANLYRAPCHIEUPHIMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QUANLYRAPCHIEUPHIMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblChucNangs" EntityType="QUANLYRAPCHIEUPHIMModel.tblChucNang" />
+          <EntitySet Name="tblGhePhongChieux" EntityType="QUANLYRAPCHIEUPHIMModel.tblGhePhongChieu" />
+          <EntitySet Name="tblGioChieux" EntityType="QUANLYRAPCHIEUPHIMModel.tblGioChieu" />
+          <EntitySet Name="tblLichChieux" EntityType="QUANLYRAPCHIEUPHIMModel.tblLichChieu" />
+          <EntitySet Name="tblNhanViens" EntityType="QUANLYRAPCHIEUPHIMModel.tblNhanVien" />
+          <EntitySet Name="tblPhims" EntityType="QUANLYRAPCHIEUPHIMModel.tblPhim" />
+          <EntitySet Name="tblPhongChieux" EntityType="QUANLYRAPCHIEUPHIMModel.tblPhongChieu" />
+          <EntitySet Name="tblQuyenHans" EntityType="QUANLYRAPCHIEUPHIMModel.tblQuyenHan" />
+          <EntitySet Name="tblRaps" EntityType="QUANLYRAPCHIEUPHIMModel.tblRap" />
+          <EntitySet Name="tblTheLoais" EntityType="QUANLYRAPCHIEUPHIMModel.tblTheLoai" />
+          <EntitySet Name="tblThongTinVes" EntityType="QUANLYRAPCHIEUPHIMModel.tblThongTinVe" />
+          <EntitySet Name="tblVes" EntityType="QUANLYRAPCHIEUPHIMModel.tblVe" />
+          <AssociationSet Name="FK_tblQuyenHan_tblChucNang" Association="QUANLYRAPCHIEUPHIMModel.FK_tblQuyenHan_tblChucNang">
+            <End Role="tblChucNang" EntitySet="tblChucNangs" />
+            <End Role="tblQuyenHan" EntitySet="tblQuyenHans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGhePhongChieu_tblPhongChieu" Association="QUANLYRAPCHIEUPHIMModel.FK_tblGhePhongChieu_tblPhongChieu">
+            <End Role="tblPhongChieu" EntitySet="tblPhongChieux" />
+            <End Role="tblGhePhongChieu" EntitySet="tblGhePhongChieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGhePhongChieu_tblRap" Association="QUANLYRAPCHIEUPHIMModel.FK_tblGhePhongChieu_tblRap">
+            <End Role="tblRap" EntitySet="tblRaps" />
+            <End Role="tblGhePhongChieu" EntitySet="tblGhePhongChieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblThongTinVe_tblGhePhongChieu" Association="QUANLYRAPCHIEUPHIMModel.FK_tblThongTinVe_tblGhePhongChieu">
+            <End Role="tblGhePhongChieu" EntitySet="tblGhePhongChieux" />
+            <End Role="tblThongTinVe" EntitySet="tblThongTinVes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblGioChieu" Association="QUANLYRAPCHIEUPHIMModel.FK_tblGioChieu">
+            <End Role="tblRap" EntitySet="tblRaps" />
+            <End Role="tblGioChieu" EntitySet="tblGioChieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLichChieu_tblGioChieu" Association="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblGioChieu">
+            <End Role="tblGioChieu" EntitySet="tblGioChieux" />
+            <End Role="tblLichChieu" EntitySet="tblLichChieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLichChieu_tblPhim" Association="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblPhim">
+            <End Role="tblPhim" EntitySet="tblPhims" />
+            <End Role="tblLichChieu" EntitySet="tblLichChieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLichChieu_tblPhongChieu" Association="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblPhongChieu">
+            <End Role="tblPhongChieu" EntitySet="tblPhongChieux" />
+            <End Role="tblLichChieu" EntitySet="tblLichChieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLichChieu_tblRap" Association="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblRap">
+            <End Role="tblRap" EntitySet="tblRaps" />
+            <End Role="tblLichChieu" EntitySet="tblLichChieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblVe_tblLichChieu" Association="QUANLYRAPCHIEUPHIMModel.FK_tblVe_tblLichChieu">
+            <End Role="tblLichChieu" EntitySet="tblLichChieux" />
+            <End Role="tblVe" EntitySet="tblVes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblNhanVien" Association="QUANLYRAPCHIEUPHIMModel.FK_tblNhanVien">
+            <End Role="tblRap" EntitySet="tblRaps" />
+            <End Role="tblNhanVien" EntitySet="tblNhanViens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblQuyenHan_tblNhanVien" Association="QUANLYRAPCHIEUPHIMModel.FK_tblQuyenHan_tblNhanVien">
+            <End Role="tblNhanVien" EntitySet="tblNhanViens" />
+            <End Role="tblQuyenHan" EntitySet="tblQuyenHans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPhim" Association="QUANLYRAPCHIEUPHIMModel.FK_tblPhim">
+            <End Role="tblTheLoai" EntitySet="tblTheLoais" />
+            <End Role="tblPhim" EntitySet="tblPhims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPhongChieu_tblRap" Association="QUANLYRAPCHIEUPHIMModel.FK_tblPhongChieu_tblRap">
+            <End Role="tblRap" EntitySet="tblRaps" />
+            <End Role="tblPhongChieu" EntitySet="tblPhongChieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblThongTinVe_tblVe" Association="QUANLYRAPCHIEUPHIMModel.FK_tblThongTinVe_tblVe">
+            <End Role="tblVe" EntitySet="tblVes" />
+            <End Role="tblThongTinVe" EntitySet="tblThongTinVes" />
+          </AssociationSet>
+          <FunctionImport Name="CheckIDNV">
+            <Parameter Name="ISTK" Mode="InOut" Type="Boolean" />
+            <Parameter Name="ISMK" Mode="InOut" Type="Boolean" />
+            <Parameter Name="TK" Mode="In" Type="String" />
+            <Parameter Name="MK" Mode="In" Type="String" />
+            <Parameter Name="ACCESSKEY" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
         <EntityType Name="tblChucNang">
           <Key>
             <PropertyRef Name="MaChucNang" />
@@ -397,38 +482,29 @@
           <Key>
             <PropertyRef Name="MaGhe" />
           </Key>
-          <Property Name="MaGhe" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaGhe" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
           <Property Name="MaRap" Type="String" MaxLength="21" FixedLength="true" Unicode="false" />
           <Property Name="MaPhong" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
           <Property Name="TrangThai" Type="Boolean" />
-          <NavigationProperty Name="tblPhongChieu" Relationship="Self.FK_tblGhePhongChieu_tblPhongChieu" FromRole="tblGhePhongChieu" ToRole="tblPhongChieu" />
-          <NavigationProperty Name="tblRap" Relationship="Self.FK_tblGhePhongChieu_tblRap" FromRole="tblGhePhongChieu" ToRole="tblRap" />
-          <NavigationProperty Name="tblVe" Relationship="Self.FK_tblVe_tblGhePhongChieu" FromRole="tblGhePhongChieu" ToRole="tblVe" />
+          <NavigationProperty Name="tblPhongChieu" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblGhePhongChieu_tblPhongChieu" FromRole="tblGhePhongChieu" ToRole="tblPhongChieu" />
+          <NavigationProperty Name="tblRap" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblGhePhongChieu_tblRap" FromRole="tblGhePhongChieu" ToRole="tblRap" />
+          <NavigationProperty Name="tblThongTinVes" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblThongTinVe_tblGhePhongChieu" FromRole="tblGhePhongChieu" ToRole="tblThongTinVe" />
         </EntityType>
         <EntityType Name="tblGioChieu">
           <Key>
             <PropertyRef Name="MaGioChieu" />
           </Key>
-          <Property Name="MaGioChieu" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaGioChieu" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
           <Property Name="MaRap" Type="String" MaxLength="21" FixedLength="true" Unicode="false" />
           <Property Name="GioChieu" Type="Time" Precision="7" />
-          <NavigationProperty Name="tblRap" Relationship="Self.FK_tblGioChieu" FromRole="tblGioChieu" ToRole="tblRap" />
-          <NavigationProperty Name="tblLichChieux" Relationship="Self.FK_tblLichChieu_tblGioChieu" FromRole="tblGioChieu" ToRole="tblLichChieu" />
-        </EntityType>
-        <EntityType Name="tblKhach">
-          <Key>
-            <PropertyRef Name="MaKhach" />
-          </Key>
-          <Property Name="MaKhach" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MatKhauKhach" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
-          <Property Name="MaLoai" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblLoaiKhach" Relationship="Self.FK_tblKhach_tblLoaiKhach" FromRole="tblKhach" ToRole="tblLoaiKhach" />
+          <NavigationProperty Name="tblRap" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblGioChieu" FromRole="tblGioChieu" ToRole="tblRap" />
+          <NavigationProperty Name="tblLichChieux" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblGioChieu" FromRole="tblGioChieu" ToRole="tblLichChieu" />
         </EntityType>
         <EntityType Name="tblLichChieu">
           <Key>
             <PropertyRef Name="MaShow" />
           </Key>
-          <Property Name="MaShow" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaShow" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
           <Property Name="MaPhim" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
           <Property Name="MaRap" Type="String" MaxLength="21" FixedLength="true" Unicode="false" />
           <Property Name="MaPhong" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
@@ -437,301 +513,12 @@
           <Property Name="GiaVe" Type="Int32" />
           <Property Name="SoVeDaBan" Type="Int32" />
           <Property Name="TongTien" Type="Int32" />
-          <NavigationProperty Name="tblGioChieu" Relationship="Self.FK_tblLichChieu_tblGioChieu" FromRole="tblLichChieu" ToRole="tblGioChieu" />
-          <NavigationProperty Name="tblPhim" Relationship="Self.FK_tblLichChieu_tblPhim" FromRole="tblLichChieu" ToRole="tblPhim" />
-          <NavigationProperty Name="tblPhongChieu" Relationship="Self.FK_tblLichChieu_tblPhongChieu" FromRole="tblLichChieu" ToRole="tblPhongChieu" />
-          <NavigationProperty Name="tblRap" Relationship="Self.FK_tblLichChieu_tblRap" FromRole="tblLichChieu" ToRole="tblRap" />
-          <NavigationProperty Name="tblVes" Relationship="Self.FK_tblVe_tblLichChieu" FromRole="tblLichChieu" ToRole="tblVe" />
+          <NavigationProperty Name="tblGioChieu" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblGioChieu" FromRole="tblLichChieu" ToRole="tblGioChieu" />
+          <NavigationProperty Name="tblPhim" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblPhim" FromRole="tblLichChieu" ToRole="tblPhim" />
+          <NavigationProperty Name="tblPhongChieu" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblPhongChieu" FromRole="tblLichChieu" ToRole="tblPhongChieu" />
+          <NavigationProperty Name="tblRap" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblRap" FromRole="tblLichChieu" ToRole="tblRap" />
+          <NavigationProperty Name="tblVes" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblVe_tblLichChieu" FromRole="tblLichChieu" ToRole="tblVe" />
         </EntityType>
-        <EntityType Name="tblLoaiKhach">
-          <Key>
-            <PropertyRef Name="MaLoai" />
-          </Key>
-          <Property Name="MaLoai" Type="Int32" Nullable="false" />
-          <Property Name="TenLoai" Type="String" MaxLength="21" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tblKhaches" Relationship="Self.FK_tblKhach_tblLoaiKhach" FromRole="tblLoaiKhach" ToRole="tblKhach" />
-        </EntityType>
-        <EntityType Name="tblPhim">
-          <Key>
-            <PropertyRef Name="MaPhim" />
-          </Key>
-          <Property Name="MaPhim" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="TenPhim" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="MaTheLoai" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
-          <Property Name="NgayKhoiChieu" Type="DateTime" Precision="0" />
-          <Property Name="NgayKetThuc" Type="DateTime" Precision="0" />
-          <Property Name="MoTa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="ThoiLuong" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="TongChiPhi" Type="Int32" />
-          <Property Name="TongThu" Type="Int32" />
-          <NavigationProperty Name="tblLichChieux" Relationship="Self.FK_tblLichChieu_tblPhim" FromRole="tblPhim" ToRole="tblLichChieu" />
-          <NavigationProperty Name="tblTheLoai" Relationship="Self.FK_tblPhim" FromRole="tblPhim" ToRole="tblTheLoai" />
-          <Property Name="Poster" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="tblPhongChieu">
-          <Key>
-            <PropertyRef Name="MaPhong" />
-          </Key>
-          <Property Name="MaPhong" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MaRap" Type="String" MaxLength="21" FixedLength="true" Unicode="false" />
-          <Property Name="TenPhong" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
-          <Property Name="TongSoGhe" Type="Int32" />
-          <NavigationProperty Name="tblGhePhongChieux" Relationship="Self.FK_tblGhePhongChieu_tblPhongChieu" FromRole="tblPhongChieu" ToRole="tblGhePhongChieu" />
-          <NavigationProperty Name="tblLichChieux" Relationship="Self.FK_tblLichChieu_tblPhongChieu" FromRole="tblPhongChieu" ToRole="tblLichChieu" />
-          <NavigationProperty Name="tblRap" Relationship="Self.FK_tblPhongChieu_tblRap" FromRole="tblPhongChieu" ToRole="tblRap" />
-        </EntityType>
-        <EntityType Name="tblRap">
-          <Key>
-            <PropertyRef Name="MaRap" />
-          </Key>
-          <Property Name="MaRap" Type="String" MaxLength="21" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="TenRap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DienThoai" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
-          <Property Name="SoPhong" Type="Int32" />
-          <Property Name="TongSoGhe" Type="Int32" />
-          <NavigationProperty Name="tblGhePhongChieux" Relationship="Self.FK_tblGhePhongChieu_tblRap" FromRole="tblRap" ToRole="tblGhePhongChieu" />
-          <NavigationProperty Name="tblGioChieux" Relationship="Self.FK_tblGioChieu" FromRole="tblRap" ToRole="tblGioChieu" />
-          <NavigationProperty Name="tblLichChieux" Relationship="Self.FK_tblLichChieu_tblRap" FromRole="tblRap" ToRole="tblLichChieu" />
-          <NavigationProperty Name="tblPhongChieux" Relationship="Self.FK_tblPhongChieu_tblRap" FromRole="tblRap" ToRole="tblPhongChieu" />
-          <NavigationProperty Name="tblNhanViens" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblNhanVien" FromRole="tblRap" ToRole="tblNhanVien" />
-        </EntityType>
-        <EntityType Name="tblTheLoai">
-          <Key>
-            <PropertyRef Name="MaTheLoai" />
-          </Key>
-          <Property Name="MaTheLoai" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="TenTheLoai" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tblPhims" Relationship="Self.FK_tblPhim" FromRole="tblTheLoai" ToRole="tblPhim" />
-        </EntityType>
-        <EntityType Name="tblVe">
-          <Key>
-            <PropertyRef Name="MaGhe" />
-          </Key>
-          <Property Name="MaGhe" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MaShow" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="tblGhePhongChieu" Relationship="Self.FK_tblVe_tblGhePhongChieu" FromRole="tblVe" ToRole="tblGhePhongChieu" />
-          <NavigationProperty Name="tblLichChieu" Relationship="Self.FK_tblVe_tblLichChieu" FromRole="tblVe" ToRole="tblLichChieu" />
-        </EntityType>
-        <Association Name="FK_tblGhePhongChieu_tblPhongChieu">
-          <End Role="tblPhongChieu" Type="Self.tblPhongChieu" Multiplicity="0..1" />
-          <End Role="tblGhePhongChieu" Type="Self.tblGhePhongChieu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblPhongChieu">
-              <PropertyRef Name="MaPhong" />
-            </Principal>
-            <Dependent Role="tblGhePhongChieu">
-              <PropertyRef Name="MaPhong" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblGhePhongChieu_tblRap">
-          <End Role="tblRap" Type="Self.tblRap" Multiplicity="0..1" />
-          <End Role="tblGhePhongChieu" Type="Self.tblGhePhongChieu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblRap">
-              <PropertyRef Name="MaRap" />
-            </Principal>
-            <Dependent Role="tblGhePhongChieu">
-              <PropertyRef Name="MaRap" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblVe_tblGhePhongChieu">
-          <End Role="tblGhePhongChieu" Type="Self.tblGhePhongChieu" Multiplicity="1" />
-          <End Role="tblVe" Type="Self.tblVe" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="tblGhePhongChieu">
-              <PropertyRef Name="MaGhe" />
-            </Principal>
-            <Dependent Role="tblVe">
-              <PropertyRef Name="MaGhe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblGioChieu">
-          <End Role="tblRap" Type="Self.tblRap" Multiplicity="0..1" />
-          <End Role="tblGioChieu" Type="Self.tblGioChieu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblRap">
-              <PropertyRef Name="MaRap" />
-            </Principal>
-            <Dependent Role="tblGioChieu">
-              <PropertyRef Name="MaRap" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblLichChieu_tblGioChieu">
-          <End Role="tblGioChieu" Type="Self.tblGioChieu" Multiplicity="0..1" />
-          <End Role="tblLichChieu" Type="Self.tblLichChieu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblGioChieu">
-              <PropertyRef Name="MaGioChieu" />
-            </Principal>
-            <Dependent Role="tblLichChieu">
-              <PropertyRef Name="MaGioChieu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblKhach_tblLoaiKhach">
-          <End Role="tblLoaiKhach" Type="Self.tblLoaiKhach" Multiplicity="1" />
-          <End Role="tblKhach" Type="Self.tblKhach" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblLoaiKhach">
-              <PropertyRef Name="MaLoai" />
-            </Principal>
-            <Dependent Role="tblKhach">
-              <PropertyRef Name="MaLoai" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblLichChieu_tblPhim">
-          <End Role="tblPhim" Type="Self.tblPhim" Multiplicity="0..1" />
-          <End Role="tblLichChieu" Type="Self.tblLichChieu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblPhim">
-              <PropertyRef Name="MaPhim" />
-            </Principal>
-            <Dependent Role="tblLichChieu">
-              <PropertyRef Name="MaPhim" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblLichChieu_tblPhongChieu">
-          <End Role="tblPhongChieu" Type="Self.tblPhongChieu" Multiplicity="0..1" />
-          <End Role="tblLichChieu" Type="Self.tblLichChieu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblPhongChieu">
-              <PropertyRef Name="MaPhong" />
-            </Principal>
-            <Dependent Role="tblLichChieu">
-              <PropertyRef Name="MaPhong" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblLichChieu_tblRap">
-          <End Role="tblRap" Type="Self.tblRap" Multiplicity="0..1" />
-          <End Role="tblLichChieu" Type="Self.tblLichChieu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblRap">
-              <PropertyRef Name="MaRap" />
-            </Principal>
-            <Dependent Role="tblLichChieu">
-              <PropertyRef Name="MaRap" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblVe_tblLichChieu">
-          <End Role="tblLichChieu" Type="Self.tblLichChieu" Multiplicity="0..1" />
-          <End Role="tblVe" Type="Self.tblVe" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblLichChieu">
-              <PropertyRef Name="MaShow" />
-            </Principal>
-            <Dependent Role="tblVe">
-              <PropertyRef Name="MaShow" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblPhim">
-          <End Role="tblTheLoai" Type="Self.tblTheLoai" Multiplicity="0..1" />
-          <End Role="tblPhim" Type="Self.tblPhim" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblTheLoai">
-              <PropertyRef Name="MaTheLoai" />
-            </Principal>
-            <Dependent Role="tblPhim">
-              <PropertyRef Name="MaTheLoai" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblPhongChieu_tblRap">
-          <End Role="tblRap" Type="Self.tblRap" Multiplicity="0..1" />
-          <End Role="tblPhongChieu" Type="Self.tblPhongChieu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblRap">
-              <PropertyRef Name="MaRap" />
-            </Principal>
-            <Dependent Role="tblPhongChieu">
-              <PropertyRef Name="MaRap" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="QUANLYRAPCHIEUPHIMEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tblChucNangs" EntityType="Self.tblChucNang" />
-          <EntitySet Name="tblGhePhongChieux" EntityType="Self.tblGhePhongChieu" />
-          <EntitySet Name="tblGioChieux" EntityType="Self.tblGioChieu" />
-          <EntitySet Name="tblKhaches" EntityType="Self.tblKhach" />
-          <EntitySet Name="tblLichChieux" EntityType="Self.tblLichChieu" />
-          <EntitySet Name="tblLoaiKhaches" EntityType="Self.tblLoaiKhach" />
-          <EntitySet Name="tblPhims" EntityType="Self.tblPhim" />
-          <EntitySet Name="tblPhongChieux" EntityType="Self.tblPhongChieu" />
-          <EntitySet Name="tblRaps" EntityType="Self.tblRap" />
-          <EntitySet Name="tblTheLoais" EntityType="Self.tblTheLoai" />
-          <EntitySet Name="tblVes" EntityType="Self.tblVe" />
-          <AssociationSet Name="FK_tblGhePhongChieu_tblPhongChieu" Association="Self.FK_tblGhePhongChieu_tblPhongChieu">
-            <End Role="tblPhongChieu" EntitySet="tblPhongChieux" />
-            <End Role="tblGhePhongChieu" EntitySet="tblGhePhongChieux" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblGhePhongChieu_tblRap" Association="Self.FK_tblGhePhongChieu_tblRap">
-            <End Role="tblRap" EntitySet="tblRaps" />
-            <End Role="tblGhePhongChieu" EntitySet="tblGhePhongChieux" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblVe_tblGhePhongChieu" Association="Self.FK_tblVe_tblGhePhongChieu">
-            <End Role="tblGhePhongChieu" EntitySet="tblGhePhongChieux" />
-            <End Role="tblVe" EntitySet="tblVes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblGioChieu" Association="Self.FK_tblGioChieu">
-            <End Role="tblRap" EntitySet="tblRaps" />
-            <End Role="tblGioChieu" EntitySet="tblGioChieux" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblLichChieu_tblGioChieu" Association="Self.FK_tblLichChieu_tblGioChieu">
-            <End Role="tblGioChieu" EntitySet="tblGioChieux" />
-            <End Role="tblLichChieu" EntitySet="tblLichChieux" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblKhach_tblLoaiKhach" Association="Self.FK_tblKhach_tblLoaiKhach">
-            <End Role="tblLoaiKhach" EntitySet="tblLoaiKhaches" />
-            <End Role="tblKhach" EntitySet="tblKhaches" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblLichChieu_tblPhim" Association="Self.FK_tblLichChieu_tblPhim">
-            <End Role="tblPhim" EntitySet="tblPhims" />
-            <End Role="tblLichChieu" EntitySet="tblLichChieux" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblLichChieu_tblPhongChieu" Association="Self.FK_tblLichChieu_tblPhongChieu">
-            <End Role="tblPhongChieu" EntitySet="tblPhongChieux" />
-            <End Role="tblLichChieu" EntitySet="tblLichChieux" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblLichChieu_tblRap" Association="Self.FK_tblLichChieu_tblRap">
-            <End Role="tblRap" EntitySet="tblRaps" />
-            <End Role="tblLichChieu" EntitySet="tblLichChieux" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblVe_tblLichChieu" Association="Self.FK_tblVe_tblLichChieu">
-            <End Role="tblLichChieu" EntitySet="tblLichChieux" />
-            <End Role="tblVe" EntitySet="tblVes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblPhim" Association="Self.FK_tblPhim">
-            <End Role="tblTheLoai" EntitySet="tblTheLoais" />
-            <End Role="tblPhim" EntitySet="tblPhims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblPhongChieu_tblRap" Association="Self.FK_tblPhongChieu_tblRap">
-            <End Role="tblRap" EntitySet="tblRaps" />
-            <End Role="tblPhongChieu" EntitySet="tblPhongChieux" />
-          </AssociationSet>
-          <EntitySet Name="tblNhanViens" EntityType="QUANLYRAPCHIEUPHIMModel.tblNhanVien" />
-          <AssociationSet Name="FK_tblNhanVien" Association="QUANLYRAPCHIEUPHIMModel.FK_tblNhanVien">
-            <End Role="tblRap" EntitySet="tblRaps" />
-            <End Role="tblNhanVien" EntitySet="tblNhanViens" />
-          </AssociationSet>
-          <EntitySet Name="tblQuyenHans" EntityType="QUANLYRAPCHIEUPHIMModel.tblQuyenHan" />
-          <AssociationSet Name="FK_tblQuyenHan_tblChucNang" Association="QUANLYRAPCHIEUPHIMModel.FK_tblQuyenHan_tblChucNang">
-            <End Role="tblChucNang" EntitySet="tblChucNangs" />
-            <End Role="tblQuyenHan" EntitySet="tblQuyenHans" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblQuyenHan_tblNhanVien" Association="QUANLYRAPCHIEUPHIMModel.FK_tblQuyenHan_tblNhanVien">
-            <End Role="tblNhanVien" EntitySet="tblNhanViens" />
-            <End Role="tblQuyenHan" EntitySet="tblQuyenHans" />
-          </AssociationSet>
-          </EntityContainer>
         <EntityType Name="tblNhanVien">
           <Key>
             <PropertyRef Name="MaNV" />
@@ -745,18 +532,35 @@
           <NavigationProperty Name="tblRap" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblNhanVien" FromRole="tblNhanVien" ToRole="tblRap" />
           <NavigationProperty Name="tblQuyenHans" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblQuyenHan_tblNhanVien" FromRole="tblNhanVien" ToRole="tblQuyenHan" />
         </EntityType>
-        <Association Name="FK_tblNhanVien">
-          <End Type="QUANLYRAPCHIEUPHIMModel.tblRap" Role="tblRap" Multiplicity="0..1" />
-          <End Type="QUANLYRAPCHIEUPHIMModel.tblNhanVien" Role="tblNhanVien" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblRap">
-              <PropertyRef Name="MaRap" />
-            </Principal>
-            <Dependent Role="tblNhanVien">
-              <PropertyRef Name="MaRap" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="tblPhim">
+          <Key>
+            <PropertyRef Name="MaPhim" />
+          </Key>
+          <Property Name="MaPhim" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="TenPhim" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="MaTheLoai" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="NgayKhoiChieu" Type="DateTime" Precision="0" />
+          <Property Name="NgayKetThuc" Type="DateTime" Precision="0" />
+          <Property Name="MoTa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ThoiLuong" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TongChiPhi" Type="Int32" />
+          <Property Name="TongThu" Type="Int32" />
+          <Property Name="Poster" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="tblLichChieux" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblPhim" FromRole="tblPhim" ToRole="tblLichChieu" />
+          <NavigationProperty Name="tblTheLoai" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblPhim" FromRole="tblPhim" ToRole="tblTheLoai" />
+        </EntityType>
+        <EntityType Name="tblPhongChieu">
+          <Key>
+            <PropertyRef Name="MaPhong" />
+          </Key>
+          <Property Name="MaPhong" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="MaRap" Type="String" MaxLength="21" FixedLength="true" Unicode="false" />
+          <Property Name="TenPhong" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="TongSoGhe" Type="Int32" />
+          <NavigationProperty Name="tblGhePhongChieux" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblGhePhongChieu_tblPhongChieu" FromRole="tblPhongChieu" ToRole="tblGhePhongChieu" />
+          <NavigationProperty Name="tblLichChieux" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblPhongChieu" FromRole="tblPhongChieu" ToRole="tblLichChieu" />
+          <NavigationProperty Name="tblRap" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblPhongChieu_tblRap" FromRole="tblPhongChieu" ToRole="tblRap" />
+        </EntityType>
         <EntityType Name="tblQuyenHan">
           <Key>
             <PropertyRef Name="MaQuyen" />
@@ -767,6 +571,54 @@
           <NavigationProperty Name="tblChucNang" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblQuyenHan_tblChucNang" FromRole="tblQuyenHan" ToRole="tblChucNang" />
           <NavigationProperty Name="tblNhanVien" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblQuyenHan_tblNhanVien" FromRole="tblQuyenHan" ToRole="tblNhanVien" />
         </EntityType>
+        <EntityType Name="tblRap">
+          <Key>
+            <PropertyRef Name="MaRap" />
+          </Key>
+          <Property Name="MaRap" Type="String" Nullable="false" MaxLength="21" FixedLength="true" Unicode="false" />
+          <Property Name="TenRap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="SoPhong" Type="Int32" />
+          <Property Name="TongSoGhe" Type="Int32" />
+          <NavigationProperty Name="tblGhePhongChieux" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblGhePhongChieu_tblRap" FromRole="tblRap" ToRole="tblGhePhongChieu" />
+          <NavigationProperty Name="tblGioChieux" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblGioChieu" FromRole="tblRap" ToRole="tblGioChieu" />
+          <NavigationProperty Name="tblLichChieux" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblRap" FromRole="tblRap" ToRole="tblLichChieu" />
+          <NavigationProperty Name="tblNhanViens" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblNhanVien" FromRole="tblRap" ToRole="tblNhanVien" />
+          <NavigationProperty Name="tblPhongChieux" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblPhongChieu_tblRap" FromRole="tblRap" ToRole="tblPhongChieu" />
+        </EntityType>
+        <EntityType Name="tblTheLoai">
+          <Key>
+            <PropertyRef Name="MaTheLoai" />
+          </Key>
+          <Property Name="MaTheLoai" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="TenTheLoai" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblPhims" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblPhim" FromRole="tblTheLoai" ToRole="tblPhim" />
+        </EntityType>
+        <EntityType Name="tblThongTinVe">
+          <Key>
+            <PropertyRef Name="IdTTVe" />
+          </Key>
+          <Property Name="IdTTVe" Type="Int32" Nullable="false" />
+          <Property Name="MaVe" Type="Int32" />
+          <Property Name="MaGhe" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="TenPhim" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="NgayChieu" Type="DateTime" Precision="3" />
+          <Property Name="GioChieu" Type="Time" Precision="7" />
+          <Property Name="GiaVe" Type="Int32" />
+          <Property Name="HinhThucThanhToan" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblGhePhongChieu" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblThongTinVe_tblGhePhongChieu" FromRole="tblThongTinVe" ToRole="tblGhePhongChieu" />
+          <NavigationProperty Name="tblVe" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblThongTinVe_tblVe" FromRole="tblThongTinVe" ToRole="tblVe" />
+        </EntityType>
+        <EntityType Name="tblVe">
+          <Key>
+            <PropertyRef Name="MaVe" />
+          </Key>
+          <Property Name="MaVe" Type="Int32" Nullable="false" />
+          <Property Name="MaShow" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="tblLichChieu" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblVe_tblLichChieu" FromRole="tblVe" ToRole="tblLichChieu" />
+          <NavigationProperty Name="tblThongTinVes" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblThongTinVe_tblVe" FromRole="tblVe" ToRole="tblThongTinVe" />
+        </EntityType>
         <Association Name="FK_tblQuyenHan_tblChucNang">
           <End Type="QUANLYRAPCHIEUPHIMModel.tblChucNang" Role="tblChucNang" Multiplicity="1" />
           <End Type="QUANLYRAPCHIEUPHIMModel.tblQuyenHan" Role="tblQuyenHan" Multiplicity="*" />
@@ -776,6 +628,126 @@
             </Principal>
             <Dependent Role="tblQuyenHan">
               <PropertyRef Name="MaChucNang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGhePhongChieu_tblPhongChieu">
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblPhongChieu" Role="tblPhongChieu" Multiplicity="0..1" />
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblGhePhongChieu" Role="tblGhePhongChieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPhongChieu">
+              <PropertyRef Name="MaPhong" />
+            </Principal>
+            <Dependent Role="tblGhePhongChieu">
+              <PropertyRef Name="MaPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGhePhongChieu_tblRap">
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblRap" Role="tblRap" Multiplicity="0..1" />
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblGhePhongChieu" Role="tblGhePhongChieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRap">
+              <PropertyRef Name="MaRap" />
+            </Principal>
+            <Dependent Role="tblGhePhongChieu">
+              <PropertyRef Name="MaRap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblThongTinVe_tblGhePhongChieu">
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblGhePhongChieu" Role="tblGhePhongChieu" Multiplicity="0..1" />
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblThongTinVe" Role="tblThongTinVe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGhePhongChieu">
+              <PropertyRef Name="MaGhe" />
+            </Principal>
+            <Dependent Role="tblThongTinVe">
+              <PropertyRef Name="MaGhe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblGioChieu">
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblRap" Role="tblRap" Multiplicity="0..1" />
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblGioChieu" Role="tblGioChieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRap">
+              <PropertyRef Name="MaRap" />
+            </Principal>
+            <Dependent Role="tblGioChieu">
+              <PropertyRef Name="MaRap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLichChieu_tblGioChieu">
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblGioChieu" Role="tblGioChieu" Multiplicity="0..1" />
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblLichChieu" Role="tblLichChieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGioChieu">
+              <PropertyRef Name="MaGioChieu" />
+            </Principal>
+            <Dependent Role="tblLichChieu">
+              <PropertyRef Name="MaGioChieu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLichChieu_tblPhim">
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblPhim" Role="tblPhim" Multiplicity="0..1" />
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblLichChieu" Role="tblLichChieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPhim">
+              <PropertyRef Name="MaPhim" />
+            </Principal>
+            <Dependent Role="tblLichChieu">
+              <PropertyRef Name="MaPhim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLichChieu_tblPhongChieu">
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblPhongChieu" Role="tblPhongChieu" Multiplicity="0..1" />
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblLichChieu" Role="tblLichChieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPhongChieu">
+              <PropertyRef Name="MaPhong" />
+            </Principal>
+            <Dependent Role="tblLichChieu">
+              <PropertyRef Name="MaPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLichChieu_tblRap">
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblRap" Role="tblRap" Multiplicity="0..1" />
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblLichChieu" Role="tblLichChieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRap">
+              <PropertyRef Name="MaRap" />
+            </Principal>
+            <Dependent Role="tblLichChieu">
+              <PropertyRef Name="MaRap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblVe_tblLichChieu">
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblLichChieu" Role="tblLichChieu" Multiplicity="0..1" />
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblVe" Role="tblVe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLichChieu">
+              <PropertyRef Name="MaShow" />
+            </Principal>
+            <Dependent Role="tblVe">
+              <PropertyRef Name="MaShow" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblNhanVien">
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblRap" Role="tblRap" Multiplicity="0..1" />
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblNhanVien" Role="tblNhanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRap">
+              <PropertyRef Name="MaRap" />
+            </Principal>
+            <Dependent Role="tblNhanVien">
+              <PropertyRef Name="MaRap" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -791,6 +763,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tblPhim">
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblTheLoai" Role="tblTheLoai" Multiplicity="0..1" />
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblPhim" Role="tblPhim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTheLoai">
+              <PropertyRef Name="MaTheLoai" />
+            </Principal>
+            <Dependent Role="tblPhim">
+              <PropertyRef Name="MaTheLoai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPhongChieu_tblRap">
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblRap" Role="tblRap" Multiplicity="0..1" />
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblPhongChieu" Role="tblPhongChieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRap">
+              <PropertyRef Name="MaRap" />
+            </Principal>
+            <Dependent Role="tblPhongChieu">
+              <PropertyRef Name="MaRap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblThongTinVe_tblVe">
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblVe" Role="tblVe" Multiplicity="0..1" />
+          <End Type="QUANLYRAPCHIEUPHIMModel.tblThongTinVe" Role="tblThongTinVe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblVe">
+              <PropertyRef Name="MaVe" />
+            </Principal>
+            <Dependent Role="tblThongTinVe">
+              <PropertyRef Name="MaVe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -800,112 +808,41 @@
           <EntitySetMapping Name="tblChucNangs">
             <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblChucNang">
               <MappingFragment StoreEntitySet="tblChucNang">
-                <ScalarProperty Name="MaChucNang" ColumnName="MaChucNang" />
                 <ScalarProperty Name="TenChucNang" ColumnName="TenChucNang" />
+                <ScalarProperty Name="MaChucNang" ColumnName="MaChucNang" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblGhePhongChieux">
             <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblGhePhongChieu">
               <MappingFragment StoreEntitySet="tblGhePhongChieu">
-                <ScalarProperty Name="MaGhe" ColumnName="MaGhe" />
-                <ScalarProperty Name="MaRap" ColumnName="MaRap" />
-                <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
                 <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
+                <ScalarProperty Name="MaRap" ColumnName="MaRap" />
+                <ScalarProperty Name="MaGhe" ColumnName="MaGhe" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblGioChieux">
             <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblGioChieu">
               <MappingFragment StoreEntitySet="tblGioChieu">
-                <ScalarProperty Name="MaGioChieu" ColumnName="MaGioChieu" />
-                <ScalarProperty Name="MaRap" ColumnName="MaRap" />
                 <ScalarProperty Name="GioChieu" ColumnName="GioChieu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblKhaches">
-            <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblKhach">
-              <MappingFragment StoreEntitySet="tblKhach">
-                <ScalarProperty Name="MaKhach" ColumnName="MaKhach" />
-                <ScalarProperty Name="MatKhauKhach" ColumnName="MatKhauKhach" />
-                <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+                <ScalarProperty Name="MaRap" ColumnName="MaRap" />
+                <ScalarProperty Name="MaGioChieu" ColumnName="MaGioChieu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblLichChieux">
             <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblLichChieu">
               <MappingFragment StoreEntitySet="tblLichChieu">
-                <ScalarProperty Name="MaShow" ColumnName="MaShow" />
-                <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
-                <ScalarProperty Name="MaRap" ColumnName="MaRap" />
-                <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
-                <ScalarProperty Name="NgayChieu" ColumnName="NgayChieu" />
-                <ScalarProperty Name="MaGioChieu" ColumnName="MaGioChieu" />
-                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
-                <ScalarProperty Name="SoVeDaBan" ColumnName="SoVeDaBan" />
                 <ScalarProperty Name="TongTien" ColumnName="TongTien" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblLoaiKhaches">
-            <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblLoaiKhach">
-              <MappingFragment StoreEntitySet="tblLoaiKhach">
-                <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
-                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblPhims">
-            <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblPhim">
-              <MappingFragment StoreEntitySet="tblPhim">
-                <ScalarProperty Name="Poster" ColumnName="Poster" />
-                <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
-                <ScalarProperty Name="TenPhim" ColumnName="TenPhim" />
-                <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />
-                <ScalarProperty Name="NgayKhoiChieu" ColumnName="NgayKhoiChieu" />
-                <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
-                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
-                <ScalarProperty Name="ThoiLuong" ColumnName="ThoiLuong" />
-                <ScalarProperty Name="TongChiPhi" ColumnName="TongChiPhi" />
-                <ScalarProperty Name="TongThu" ColumnName="TongThu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblPhongChieux">
-            <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblPhongChieu">
-              <MappingFragment StoreEntitySet="tblPhongChieu">
+                <ScalarProperty Name="SoVeDaBan" ColumnName="SoVeDaBan" />
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+                <ScalarProperty Name="MaGioChieu" ColumnName="MaGioChieu" />
+                <ScalarProperty Name="NgayChieu" ColumnName="NgayChieu" />
                 <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
                 <ScalarProperty Name="MaRap" ColumnName="MaRap" />
-                <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
-                <ScalarProperty Name="TongSoGhe" ColumnName="TongSoGhe" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblRaps">
-            <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblRap">
-              <MappingFragment StoreEntitySet="tblRap">
-                <ScalarProperty Name="MaRap" ColumnName="MaRap" />
-                <ScalarProperty Name="TenRap" ColumnName="TenRap" />
-                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
-                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
-                <ScalarProperty Name="SoPhong" ColumnName="SoPhong" />
-                <ScalarProperty Name="TongSoGhe" ColumnName="TongSoGhe" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblTheLoais">
-            <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblTheLoai">
-              <MappingFragment StoreEntitySet="tblTheLoai">
-                <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />
-                <ScalarProperty Name="TenTheLoai" ColumnName="TenTheLoai" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblVes">
-            <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblVe">
-              <MappingFragment StoreEntitySet="tblVe">
-                <ScalarProperty Name="MaGhe" ColumnName="MaGhe" />
+                <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
                 <ScalarProperty Name="MaShow" ColumnName="MaShow" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -922,6 +859,32 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tblPhims">
+            <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblPhim">
+              <MappingFragment StoreEntitySet="tblPhim">
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
+                <ScalarProperty Name="TongThu" ColumnName="TongThu" />
+                <ScalarProperty Name="TongChiPhi" ColumnName="TongChiPhi" />
+                <ScalarProperty Name="ThoiLuong" ColumnName="ThoiLuong" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+                <ScalarProperty Name="NgayKhoiChieu" ColumnName="NgayKhoiChieu" />
+                <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />
+                <ScalarProperty Name="TenPhim" ColumnName="TenPhim" />
+                <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPhongChieux">
+            <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblPhongChieu">
+              <MappingFragment StoreEntitySet="tblPhongChieu">
+                <ScalarProperty Name="TongSoGhe" ColumnName="TongSoGhe" />
+                <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+                <ScalarProperty Name="MaRap" ColumnName="MaRap" />
+                <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tblQuyenHans">
             <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblQuyenHan">
               <MappingFragment StoreEntitySet="tblQuyenHan">
@@ -931,6 +894,49 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tblRaps">
+            <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblRap">
+              <MappingFragment StoreEntitySet="tblRap">
+                <ScalarProperty Name="TongSoGhe" ColumnName="TongSoGhe" />
+                <ScalarProperty Name="SoPhong" ColumnName="SoPhong" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="TenRap" ColumnName="TenRap" />
+                <ScalarProperty Name="MaRap" ColumnName="MaRap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTheLoais">
+            <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblTheLoai">
+              <MappingFragment StoreEntitySet="tblTheLoai">
+                <ScalarProperty Name="TenTheLoai" ColumnName="TenTheLoai" />
+                <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblThongTinVes">
+            <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblThongTinVe">
+              <MappingFragment StoreEntitySet="tblThongTinVe">
+                <ScalarProperty Name="HinhThucThanhToan" ColumnName="HinhThucThanhToan" />
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+                <ScalarProperty Name="GioChieu" ColumnName="GioChieu" />
+                <ScalarProperty Name="NgayChieu" ColumnName="NgayChieu" />
+                <ScalarProperty Name="TenPhim" ColumnName="TenPhim" />
+                <ScalarProperty Name="MaGhe" ColumnName="MaGhe" />
+                <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+                <ScalarProperty Name="IdTTVe" ColumnName="IdTTVe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVes">
+            <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblVe">
+              <MappingFragment StoreEntitySet="tblVe">
+                <ScalarProperty Name="MaShow" ColumnName="MaShow" />
+                <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CheckIDNV" FunctionName="QUANLYRAPCHIEUPHIMModel.Store.CheckIDNV" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

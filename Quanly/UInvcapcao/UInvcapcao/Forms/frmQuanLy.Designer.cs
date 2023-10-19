@@ -45,7 +45,7 @@ namespace UInvcapcao.Forms
             this.panel9 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnCoSoVatChat = new System.Windows.Forms.Button();
+            this.btnLichChieu = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnNhanVien = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -113,13 +113,11 @@ namespace UInvcapcao.Forms
             this.dtpNgayKetThuc = new System.Windows.Forms.DateTimePicker();
             this.dtpNgayKhoiChieu = new System.Windows.Forms.DateTimePicker();
             this.cmbTheLoai = new System.Windows.Forms.ComboBox();
-            this.txtTongThu = new System.Windows.Forms.TextBox();
             this.txtTongChiPhi = new System.Windows.Forms.TextBox();
             this.txtThoiLuong = new System.Windows.Forms.TextBox();
             this.txtTenPhim = new System.Windows.Forms.TextBox();
             this.txtMaPhim = new System.Windows.Forms.TextBox();
             this.lblPosterPhim = new System.Windows.Forms.Label();
-            this.lblTongThu = new System.Windows.Forms.Label();
             this.lblTongChiPhi = new System.Windows.Forms.Label();
             this.lblThoiLuong = new System.Windows.Forms.Label();
             this.lblNgayKetThuc = new System.Windows.Forms.Label();
@@ -129,6 +127,35 @@ namespace UInvcapcao.Forms
             this.lblMaPhim = new System.Windows.Forms.Label();
             this.ptbPosterPhim = new System.Windows.Forms.PictureBox();
             this.dgvQuanLyPhim = new System.Windows.Forms.DataGridView();
+            this.pnlLichChieu = new System.Windows.Forms.Panel();
+            this.btnThongKeLichChieu = new System.Windows.Forms.Button();
+            this.grbThongTinLichChieu = new System.Windows.Forms.GroupBox();
+            this.btnLcDelete = new System.Windows.Forms.Button();
+            this.btnLcUpdate = new System.Windows.Forms.Button();
+            this.btnLcAdd = new System.Windows.Forms.Button();
+            this.btndgvLichChieuShowList = new System.Windows.Forms.Button();
+            this.cmbTenPhongLC = new System.Windows.Forms.ComboBox();
+            this.txtGiaVeLC = new System.Windows.Forms.TextBox();
+            this.dtpNgayChieuLC = new System.Windows.Forms.DateTimePicker();
+            this.cmbGioChieuLC = new System.Windows.Forms.ComboBox();
+            this.cmbMaRapLC = new System.Windows.Forms.ComboBox();
+            this.lblGiaVe = new System.Windows.Forms.Label();
+            this.cmbTenPhimLC = new System.Windows.Forms.ComboBox();
+            this.txtMaShow = new System.Windows.Forms.TextBox();
+            this.lblGioChieu = new System.Windows.Forms.Label();
+            this.lblTenPhimLC = new System.Windows.Forms.Label();
+            this.lblNgayChieu = new System.Windows.Forms.Label();
+            this.lblMaRapLC = new System.Windows.Forms.Label();
+            this.lblMaShow = new System.Windows.Forms.Label();
+            this.lblTenPhong = new System.Windows.Forms.Label();
+            this.dgvLichChieu = new System.Windows.Forms.DataGridView();
+            this.MaShow = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaPhim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -136,7 +163,9 @@ namespace UInvcapcao.Forms
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDoanhThuRap = new System.Windows.Forms.DataGridView();
+            this.btnXuatDoanhThuRap = new System.Windows.Forms.Button();
+            this.btnThongKeDoanhThuRap = new System.Windows.Forms.Button();
             this.sidebar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
@@ -160,6 +189,10 @@ namespace UInvcapcao.Forms
             this.grbQuanLyPhim.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbPosterPhim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuanLyPhim)).BeginInit();
+            this.pnlLichChieu.SuspendLayout();
+            this.grbThongTinLichChieu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLichChieu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThuRap)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar
@@ -333,27 +366,28 @@ namespace UInvcapcao.Forms
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.btnCoSoVatChat);
+            this.panel4.Controls.Add(this.btnLichChieu);
             this.panel4.Location = new System.Drawing.Point(3, 136);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(175, 48);
             this.panel4.TabIndex = 1;
             // 
-            // btnCoSoVatChat
+            // btnLichChieu
             // 
-            this.btnCoSoVatChat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCoSoVatChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCoSoVatChat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCoSoVatChat.ForeColor = System.Drawing.Color.White;
-            this.btnCoSoVatChat.Image = global::UInvcapcao.Properties.Resources.dot_icon4;
-            this.btnCoSoVatChat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCoSoVatChat.Location = new System.Drawing.Point(-23, -9);
-            this.btnCoSoVatChat.Name = "btnCoSoVatChat";
-            this.btnCoSoVatChat.Size = new System.Drawing.Size(209, 66);
-            this.btnCoSoVatChat.TabIndex = 1;
-            this.btnCoSoVatChat.Text = "                Khách Hàng";
-            this.btnCoSoVatChat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCoSoVatChat.UseVisualStyleBackColor = true;
+            this.btnLichChieu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnLichChieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLichChieu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLichChieu.ForeColor = System.Drawing.Color.White;
+            this.btnLichChieu.Image = global::UInvcapcao.Properties.Resources.dot_icon4;
+            this.btnLichChieu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLichChieu.Location = new System.Drawing.Point(-23, -9);
+            this.btnLichChieu.Name = "btnLichChieu";
+            this.btnLichChieu.Size = new System.Drawing.Size(209, 66);
+            this.btnLichChieu.TabIndex = 1;
+            this.btnLichChieu.Text = "                Lịch Chiếu";
+            this.btnLichChieu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLichChieu.UseVisualStyleBackColor = true;
+            this.btnLichChieu.Click += new System.EventHandler(this.btnLichChieu_Click);
             // 
             // panel5
             // 
@@ -459,7 +493,7 @@ namespace UInvcapcao.Forms
             this.btnThongKeNV.Name = "btnThongKeNV";
             this.btnThongKeNV.Size = new System.Drawing.Size(88, 23);
             this.btnThongKeNV.TabIndex = 5;
-            this.btnThongKeNV.Text = "Thống Kê NV";
+            this.btnThongKeNV.Text = "In Báo Cáo";
             this.btnThongKeNV.UseVisualStyleBackColor = true;
             this.btnThongKeNV.Click += new System.EventHandler(this.btnThongKePhim_Click);
             // 
@@ -886,6 +920,9 @@ namespace UInvcapcao.Forms
             // 
             // pnlThongKe
             // 
+            this.pnlThongKe.Controls.Add(this.btnThongKeDoanhThuRap);
+            this.pnlThongKe.Controls.Add(this.btnXuatDoanhThuRap);
+            this.pnlThongKe.Controls.Add(this.dgvDoanhThuRap);
             this.pnlThongKe.Controls.Add(this.btnXuatDoanhThuPhim);
             this.pnlThongKe.Controls.Add(this.dgvDoanhThuPhim);
             this.pnlThongKe.Controls.Add(this.btnThongKeDoanhThuPhim);
@@ -915,7 +952,7 @@ namespace UInvcapcao.Forms
             // 
             // btnThongKeDoanhThuPhim
             // 
-            this.btnThongKeDoanhThuPhim.Location = new System.Drawing.Point(415, 253);
+            this.btnThongKeDoanhThuPhim.Location = new System.Drawing.Point(510, 86);
             this.btnThongKeDoanhThuPhim.Name = "btnThongKeDoanhThuPhim";
             this.btnThongKeDoanhThuPhim.Size = new System.Drawing.Size(75, 23);
             this.btnThongKeDoanhThuPhim.TabIndex = 0;
@@ -940,7 +977,7 @@ namespace UInvcapcao.Forms
             this.btnThongKePhim.Name = "btnThongKePhim";
             this.btnThongKePhim.Size = new System.Drawing.Size(75, 23);
             this.btnThongKePhim.TabIndex = 6;
-            this.btnThongKePhim.Text = "Thống Kê Phim";
+            this.btnThongKePhim.Text = "In Báo Cáo";
             this.btnThongKePhim.UseVisualStyleBackColor = true;
             this.btnThongKePhim.Click += new System.EventHandler(this.btnThongKePhim_Click);
             // 
@@ -954,13 +991,11 @@ namespace UInvcapcao.Forms
             this.grbQuanLyPhim.Controls.Add(this.dtpNgayKetThuc);
             this.grbQuanLyPhim.Controls.Add(this.dtpNgayKhoiChieu);
             this.grbQuanLyPhim.Controls.Add(this.cmbTheLoai);
-            this.grbQuanLyPhim.Controls.Add(this.txtTongThu);
             this.grbQuanLyPhim.Controls.Add(this.txtTongChiPhi);
             this.grbQuanLyPhim.Controls.Add(this.txtThoiLuong);
             this.grbQuanLyPhim.Controls.Add(this.txtTenPhim);
             this.grbQuanLyPhim.Controls.Add(this.txtMaPhim);
             this.grbQuanLyPhim.Controls.Add(this.lblPosterPhim);
-            this.grbQuanLyPhim.Controls.Add(this.lblTongThu);
             this.grbQuanLyPhim.Controls.Add(this.lblTongChiPhi);
             this.grbQuanLyPhim.Controls.Add(this.lblThoiLuong);
             this.grbQuanLyPhim.Controls.Add(this.lblNgayKetThuc);
@@ -969,16 +1004,16 @@ namespace UInvcapcao.Forms
             this.grbQuanLyPhim.Controls.Add(this.lblTenPhim);
             this.grbQuanLyPhim.Controls.Add(this.lblMaPhim);
             this.grbQuanLyPhim.Controls.Add(this.ptbPosterPhim);
-            this.grbQuanLyPhim.Location = new System.Drawing.Point(574, 21);
+            this.grbQuanLyPhim.Location = new System.Drawing.Point(573, 58);
             this.grbQuanLyPhim.Name = "grbQuanLyPhim";
-            this.grbQuanLyPhim.Size = new System.Drawing.Size(336, 440);
+            this.grbQuanLyPhim.Size = new System.Drawing.Size(336, 403);
             this.grbQuanLyPhim.TabIndex = 1;
             this.grbQuanLyPhim.TabStop = false;
             this.grbQuanLyPhim.Text = "Thông tin phim";
             // 
             // btnPhimDel
             // 
-            this.btnPhimDel.Location = new System.Drawing.Point(256, 408);
+            this.btnPhimDel.Location = new System.Drawing.Point(253, 376);
             this.btnPhimDel.Name = "btnPhimDel";
             this.btnPhimDel.Size = new System.Drawing.Size(75, 23);
             this.btnPhimDel.TabIndex = 5;
@@ -988,7 +1023,7 @@ namespace UInvcapcao.Forms
             // 
             // btnPhimUpdate
             // 
-            this.btnPhimUpdate.Location = new System.Drawing.Point(175, 408);
+            this.btnPhimUpdate.Location = new System.Drawing.Point(172, 376);
             this.btnPhimUpdate.Name = "btnPhimUpdate";
             this.btnPhimUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnPhimUpdate.TabIndex = 5;
@@ -998,7 +1033,7 @@ namespace UInvcapcao.Forms
             // 
             // btnPosterAdd
             // 
-            this.btnPosterAdd.Location = new System.Drawing.Point(44, 313);
+            this.btnPosterAdd.Location = new System.Drawing.Point(41, 281);
             this.btnPosterAdd.Name = "btnPosterAdd";
             this.btnPosterAdd.Size = new System.Drawing.Size(75, 23);
             this.btnPosterAdd.TabIndex = 5;
@@ -1008,17 +1043,17 @@ namespace UInvcapcao.Forms
             // 
             // btnShowdgvPhim
             // 
-            this.btnShowdgvPhim.Location = new System.Drawing.Point(11, 408);
+            this.btnShowdgvPhim.Location = new System.Drawing.Point(8, 376);
             this.btnShowdgvPhim.Name = "btnShowdgvPhim";
             this.btnShowdgvPhim.Size = new System.Drawing.Size(75, 23);
             this.btnShowdgvPhim.TabIndex = 5;
-            this.btnShowdgvPhim.Text = "Show list";
+            this.btnShowdgvPhim.Text = "Show List";
             this.btnShowdgvPhim.UseVisualStyleBackColor = true;
             this.btnShowdgvPhim.Click += new System.EventHandler(this.btnShowdgvPhim_Click);
             // 
             // btnPhimAdd
             // 
-            this.btnPhimAdd.Location = new System.Drawing.Point(92, 408);
+            this.btnPhimAdd.Location = new System.Drawing.Point(89, 376);
             this.btnPhimAdd.Name = "btnPhimAdd";
             this.btnPhimAdd.Size = new System.Drawing.Size(75, 23);
             this.btnPhimAdd.TabIndex = 5;
@@ -1028,14 +1063,14 @@ namespace UInvcapcao.Forms
             // 
             // dtpNgayKetThuc
             // 
-            this.dtpNgayKetThuc.Location = new System.Drawing.Point(149, 147);
+            this.dtpNgayKetThuc.Location = new System.Drawing.Point(146, 148);
             this.dtpNgayKetThuc.Name = "dtpNgayKetThuc";
             this.dtpNgayKetThuc.Size = new System.Drawing.Size(182, 20);
             this.dtpNgayKetThuc.TabIndex = 4;
             // 
             // dtpNgayKhoiChieu
             // 
-            this.dtpNgayKhoiChieu.Location = new System.Drawing.Point(149, 112);
+            this.dtpNgayKhoiChieu.Location = new System.Drawing.Point(146, 113);
             this.dtpNgayKhoiChieu.Name = "dtpNgayKhoiChieu";
             this.dtpNgayKhoiChieu.Size = new System.Drawing.Size(183, 20);
             this.dtpNgayKhoiChieu.TabIndex = 4;
@@ -1043,42 +1078,35 @@ namespace UInvcapcao.Forms
             // cmbTheLoai
             // 
             this.cmbTheLoai.FormattingEnabled = true;
-            this.cmbTheLoai.Location = new System.Drawing.Point(149, 82);
+            this.cmbTheLoai.Location = new System.Drawing.Point(146, 83);
             this.cmbTheLoai.Name = "cmbTheLoai";
             this.cmbTheLoai.Size = new System.Drawing.Size(121, 21);
             this.cmbTheLoai.TabIndex = 3;
             // 
-            // txtTongThu
-            // 
-            this.txtTongThu.Location = new System.Drawing.Point(149, 245);
-            this.txtTongThu.Name = "txtTongThu";
-            this.txtTongThu.Size = new System.Drawing.Size(100, 20);
-            this.txtTongThu.TabIndex = 2;
-            // 
             // txtTongChiPhi
             // 
-            this.txtTongChiPhi.Location = new System.Drawing.Point(149, 214);
+            this.txtTongChiPhi.Location = new System.Drawing.Point(146, 215);
             this.txtTongChiPhi.Name = "txtTongChiPhi";
             this.txtTongChiPhi.Size = new System.Drawing.Size(100, 20);
             this.txtTongChiPhi.TabIndex = 2;
             // 
             // txtThoiLuong
             // 
-            this.txtThoiLuong.Location = new System.Drawing.Point(149, 183);
+            this.txtThoiLuong.Location = new System.Drawing.Point(146, 184);
             this.txtThoiLuong.Name = "txtThoiLuong";
             this.txtThoiLuong.Size = new System.Drawing.Size(100, 20);
             this.txtThoiLuong.TabIndex = 2;
             // 
             // txtTenPhim
             // 
-            this.txtTenPhim.Location = new System.Drawing.Point(149, 49);
+            this.txtTenPhim.Location = new System.Drawing.Point(146, 50);
             this.txtTenPhim.Name = "txtTenPhim";
             this.txtTenPhim.Size = new System.Drawing.Size(100, 20);
             this.txtTenPhim.TabIndex = 2;
             // 
             // txtMaPhim
             // 
-            this.txtMaPhim.Location = new System.Drawing.Point(149, 17);
+            this.txtMaPhim.Location = new System.Drawing.Point(146, 18);
             this.txtMaPhim.Name = "txtMaPhim";
             this.txtMaPhim.Size = new System.Drawing.Size(100, 20);
             this.txtMaPhim.TabIndex = 2;
@@ -1086,25 +1114,16 @@ namespace UInvcapcao.Forms
             // lblPosterPhim
             // 
             this.lblPosterPhim.AutoSize = true;
-            this.lblPosterPhim.Location = new System.Drawing.Point(42, 280);
+            this.lblPosterPhim.Location = new System.Drawing.Point(39, 248);
             this.lblPosterPhim.Name = "lblPosterPhim";
             this.lblPosterPhim.Size = new System.Drawing.Size(63, 13);
             this.lblPosterPhim.TabIndex = 1;
             this.lblPosterPhim.Text = "Poster Phim";
             // 
-            // lblTongThu
-            // 
-            this.lblTongThu.AutoSize = true;
-            this.lblTongThu.Location = new System.Drawing.Point(42, 248);
-            this.lblTongThu.Name = "lblTongThu";
-            this.lblTongThu.Size = new System.Drawing.Size(54, 13);
-            this.lblTongThu.TabIndex = 1;
-            this.lblTongThu.Text = "Tổng Thu";
-            // 
             // lblTongChiPhi
             // 
             this.lblTongChiPhi.AutoSize = true;
-            this.lblTongChiPhi.Location = new System.Drawing.Point(42, 218);
+            this.lblTongChiPhi.Location = new System.Drawing.Point(39, 219);
             this.lblTongChiPhi.Name = "lblTongChiPhi";
             this.lblTongChiPhi.Size = new System.Drawing.Size(70, 13);
             this.lblTongChiPhi.TabIndex = 1;
@@ -1113,7 +1132,7 @@ namespace UInvcapcao.Forms
             // lblThoiLuong
             // 
             this.lblThoiLuong.AutoSize = true;
-            this.lblThoiLuong.Location = new System.Drawing.Point(42, 187);
+            this.lblThoiLuong.Location = new System.Drawing.Point(39, 188);
             this.lblThoiLuong.Name = "lblThoiLuong";
             this.lblThoiLuong.Size = new System.Drawing.Size(61, 13);
             this.lblThoiLuong.TabIndex = 1;
@@ -1122,7 +1141,7 @@ namespace UInvcapcao.Forms
             // lblNgayKetThuc
             // 
             this.lblNgayKetThuc.AutoSize = true;
-            this.lblNgayKetThuc.Location = new System.Drawing.Point(42, 153);
+            this.lblNgayKetThuc.Location = new System.Drawing.Point(39, 154);
             this.lblNgayKetThuc.Name = "lblNgayKetThuc";
             this.lblNgayKetThuc.Size = new System.Drawing.Size(79, 13);
             this.lblNgayKetThuc.TabIndex = 1;
@@ -1131,7 +1150,7 @@ namespace UInvcapcao.Forms
             // lblNgayKhoiChieu
             // 
             this.lblNgayKhoiChieu.AutoSize = true;
-            this.lblNgayKhoiChieu.Location = new System.Drawing.Point(42, 118);
+            this.lblNgayKhoiChieu.Location = new System.Drawing.Point(39, 119);
             this.lblNgayKhoiChieu.Name = "lblNgayKhoiChieu";
             this.lblNgayKhoiChieu.Size = new System.Drawing.Size(86, 13);
             this.lblNgayKhoiChieu.TabIndex = 1;
@@ -1140,7 +1159,7 @@ namespace UInvcapcao.Forms
             // lblTheLoai
             // 
             this.lblTheLoai.AutoSize = true;
-            this.lblTheLoai.Location = new System.Drawing.Point(41, 85);
+            this.lblTheLoai.Location = new System.Drawing.Point(38, 86);
             this.lblTheLoai.Name = "lblTheLoai";
             this.lblTheLoai.Size = new System.Drawing.Size(49, 13);
             this.lblTheLoai.TabIndex = 1;
@@ -1149,7 +1168,7 @@ namespace UInvcapcao.Forms
             // lblTenPhim
             // 
             this.lblTenPhim.AutoSize = true;
-            this.lblTenPhim.Location = new System.Drawing.Point(42, 52);
+            this.lblTenPhim.Location = new System.Drawing.Point(39, 53);
             this.lblTenPhim.Name = "lblTenPhim";
             this.lblTenPhim.Size = new System.Drawing.Size(52, 13);
             this.lblTenPhim.TabIndex = 1;
@@ -1158,7 +1177,7 @@ namespace UInvcapcao.Forms
             // lblMaPhim
             // 
             this.lblMaPhim.AutoSize = true;
-            this.lblMaPhim.Location = new System.Drawing.Point(42, 20);
+            this.lblMaPhim.Location = new System.Drawing.Point(39, 21);
             this.lblMaPhim.Name = "lblMaPhim";
             this.lblMaPhim.Size = new System.Drawing.Size(48, 13);
             this.lblMaPhim.TabIndex = 1;
@@ -1166,7 +1185,7 @@ namespace UInvcapcao.Forms
             // 
             // ptbPosterPhim
             // 
-            this.ptbPosterPhim.Location = new System.Drawing.Point(149, 277);
+            this.ptbPosterPhim.Location = new System.Drawing.Point(146, 245);
             this.ptbPosterPhim.Name = "ptbPosterPhim";
             this.ptbPosterPhim.Size = new System.Drawing.Size(163, 115);
             this.ptbPosterPhim.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1183,14 +1202,276 @@ namespace UInvcapcao.Forms
             this.Column4,
             this.Column5,
             this.Column6,
-            this.Column7,
-            this.Column8});
-            this.dgvQuanLyPhim.Location = new System.Drawing.Point(15, 21);
+            this.Column7});
+            this.dgvQuanLyPhim.Location = new System.Drawing.Point(15, 58);
             this.dgvQuanLyPhim.Name = "dgvQuanLyPhim";
-            this.dgvQuanLyPhim.Size = new System.Drawing.Size(553, 440);
+            this.dgvQuanLyPhim.Size = new System.Drawing.Size(553, 403);
             this.dgvQuanLyPhim.TabIndex = 0;
             this.dgvQuanLyPhim.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvQuanLyPhim_CellClick);
             this.dgvQuanLyPhim.SelectionChanged += new System.EventHandler(this.dgvQuanLyPhim_SelectionChanged);
+            // 
+            // pnlLichChieu
+            // 
+            this.pnlLichChieu.Controls.Add(this.btnThongKeLichChieu);
+            this.pnlLichChieu.Controls.Add(this.grbThongTinLichChieu);
+            this.pnlLichChieu.Controls.Add(this.dgvLichChieu);
+            this.pnlLichChieu.Location = new System.Drawing.Point(50, 5);
+            this.pnlLichChieu.Name = "pnlLichChieu";
+            this.pnlLichChieu.Size = new System.Drawing.Size(915, 545);
+            this.pnlLichChieu.TabIndex = 4;
+            this.pnlLichChieu.Visible = false;
+            // 
+            // btnThongKeLichChieu
+            // 
+            this.btnThongKeLichChieu.Location = new System.Drawing.Point(502, 381);
+            this.btnThongKeLichChieu.Name = "btnThongKeLichChieu";
+            this.btnThongKeLichChieu.Size = new System.Drawing.Size(75, 23);
+            this.btnThongKeLichChieu.TabIndex = 2;
+            this.btnThongKeLichChieu.Text = "In Báo Cáo";
+            this.btnThongKeLichChieu.UseVisualStyleBackColor = true;
+            this.btnThongKeLichChieu.Click += new System.EventHandler(this.btnThongKePhim_Click);
+            // 
+            // grbThongTinLichChieu
+            // 
+            this.grbThongTinLichChieu.Controls.Add(this.btnLcDelete);
+            this.grbThongTinLichChieu.Controls.Add(this.btnLcUpdate);
+            this.grbThongTinLichChieu.Controls.Add(this.btnLcAdd);
+            this.grbThongTinLichChieu.Controls.Add(this.btndgvLichChieuShowList);
+            this.grbThongTinLichChieu.Controls.Add(this.cmbTenPhongLC);
+            this.grbThongTinLichChieu.Controls.Add(this.txtGiaVeLC);
+            this.grbThongTinLichChieu.Controls.Add(this.dtpNgayChieuLC);
+            this.grbThongTinLichChieu.Controls.Add(this.cmbGioChieuLC);
+            this.grbThongTinLichChieu.Controls.Add(this.cmbMaRapLC);
+            this.grbThongTinLichChieu.Controls.Add(this.lblGiaVe);
+            this.grbThongTinLichChieu.Controls.Add(this.cmbTenPhimLC);
+            this.grbThongTinLichChieu.Controls.Add(this.txtMaShow);
+            this.grbThongTinLichChieu.Controls.Add(this.lblGioChieu);
+            this.grbThongTinLichChieu.Controls.Add(this.lblTenPhimLC);
+            this.grbThongTinLichChieu.Controls.Add(this.lblNgayChieu);
+            this.grbThongTinLichChieu.Controls.Add(this.lblMaRapLC);
+            this.grbThongTinLichChieu.Controls.Add(this.lblMaShow);
+            this.grbThongTinLichChieu.Controls.Add(this.lblTenPhong);
+            this.grbThongTinLichChieu.Location = new System.Drawing.Point(583, 92);
+            this.grbThongTinLichChieu.Name = "grbThongTinLichChieu";
+            this.grbThongTinLichChieu.Size = new System.Drawing.Size(326, 292);
+            this.grbThongTinLichChieu.TabIndex = 1;
+            this.grbThongTinLichChieu.TabStop = false;
+            this.grbThongTinLichChieu.Text = "Thông tin lịch chiếu";
+            // 
+            // btnLcDelete
+            // 
+            this.btnLcDelete.Location = new System.Drawing.Point(251, 259);
+            this.btnLcDelete.Name = "btnLcDelete";
+            this.btnLcDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnLcDelete.TabIndex = 13;
+            this.btnLcDelete.Text = "Xóa";
+            this.btnLcDelete.UseVisualStyleBackColor = true;
+            this.btnLcDelete.Click += new System.EventHandler(this.btnLcDelete_Click);
+            // 
+            // btnLcUpdate
+            // 
+            this.btnLcUpdate.Location = new System.Drawing.Point(169, 259);
+            this.btnLcUpdate.Name = "btnLcUpdate";
+            this.btnLcUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnLcUpdate.TabIndex = 12;
+            this.btnLcUpdate.Text = "Sứa";
+            this.btnLcUpdate.UseVisualStyleBackColor = true;
+            this.btnLcUpdate.Click += new System.EventHandler(this.btnLcUpdate_Click);
+            // 
+            // btnLcAdd
+            // 
+            this.btnLcAdd.Location = new System.Drawing.Point(88, 259);
+            this.btnLcAdd.Name = "btnLcAdd";
+            this.btnLcAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnLcAdd.TabIndex = 11;
+            this.btnLcAdd.Text = "Thêm";
+            this.btnLcAdd.UseVisualStyleBackColor = true;
+            this.btnLcAdd.Click += new System.EventHandler(this.btnLcAdd_Click);
+            // 
+            // btndgvLichChieuShowList
+            // 
+            this.btndgvLichChieuShowList.Location = new System.Drawing.Point(7, 259);
+            this.btndgvLichChieuShowList.Name = "btndgvLichChieuShowList";
+            this.btndgvLichChieuShowList.Size = new System.Drawing.Size(75, 23);
+            this.btndgvLichChieuShowList.TabIndex = 10;
+            this.btndgvLichChieuShowList.Text = "Show List";
+            this.btndgvLichChieuShowList.UseVisualStyleBackColor = true;
+            this.btndgvLichChieuShowList.Click += new System.EventHandler(this.btndgvLichChieuShowList_Click);
+            // 
+            // cmbTenPhongLC
+            // 
+            this.cmbTenPhongLC.FormattingEnabled = true;
+            this.cmbTenPhongLC.Location = new System.Drawing.Point(93, 120);
+            this.cmbTenPhongLC.Name = "cmbTenPhongLC";
+            this.cmbTenPhongLC.Size = new System.Drawing.Size(121, 21);
+            this.cmbTenPhongLC.TabIndex = 9;
+            // 
+            // txtGiaVeLC
+            // 
+            this.txtGiaVeLC.Location = new System.Drawing.Point(93, 228);
+            this.txtGiaVeLC.Name = "txtGiaVeLC";
+            this.txtGiaVeLC.Size = new System.Drawing.Size(121, 20);
+            this.txtGiaVeLC.TabIndex = 8;
+            // 
+            // dtpNgayChieuLC
+            // 
+            this.dtpNgayChieuLC.Location = new System.Drawing.Point(93, 156);
+            this.dtpNgayChieuLC.Name = "dtpNgayChieuLC";
+            this.dtpNgayChieuLC.Size = new System.Drawing.Size(183, 20);
+            this.dtpNgayChieuLC.TabIndex = 5;
+            // 
+            // cmbGioChieuLC
+            // 
+            this.cmbGioChieuLC.FormattingEnabled = true;
+            this.cmbGioChieuLC.Location = new System.Drawing.Point(93, 197);
+            this.cmbGioChieuLC.Name = "cmbGioChieuLC";
+            this.cmbGioChieuLC.Size = new System.Drawing.Size(121, 21);
+            this.cmbGioChieuLC.TabIndex = 4;
+            // 
+            // cmbMaRapLC
+            // 
+            this.cmbMaRapLC.FormattingEnabled = true;
+            this.cmbMaRapLC.Location = new System.Drawing.Point(93, 89);
+            this.cmbMaRapLC.Name = "cmbMaRapLC";
+            this.cmbMaRapLC.Size = new System.Drawing.Size(121, 21);
+            this.cmbMaRapLC.TabIndex = 3;
+            this.cmbMaRapLC.SelectedIndexChanged += new System.EventHandler(this.cmbMaRapLC_SelectedIndexChanged);
+            // 
+            // lblGiaVe
+            // 
+            this.lblGiaVe.AutoSize = true;
+            this.lblGiaVe.Location = new System.Drawing.Point(23, 232);
+            this.lblGiaVe.Name = "lblGiaVe";
+            this.lblGiaVe.Size = new System.Drawing.Size(39, 13);
+            this.lblGiaVe.TabIndex = 0;
+            this.lblGiaVe.Text = "Giá Vé";
+            // 
+            // cmbTenPhimLC
+            // 
+            this.cmbTenPhimLC.FormattingEnabled = true;
+            this.cmbTenPhimLC.Location = new System.Drawing.Point(93, 57);
+            this.cmbTenPhimLC.Name = "cmbTenPhimLC";
+            this.cmbTenPhimLC.Size = new System.Drawing.Size(121, 21);
+            this.cmbTenPhimLC.TabIndex = 2;
+            // 
+            // txtMaShow
+            // 
+            this.txtMaShow.Location = new System.Drawing.Point(93, 27);
+            this.txtMaShow.Name = "txtMaShow";
+            this.txtMaShow.Size = new System.Drawing.Size(121, 20);
+            this.txtMaShow.TabIndex = 1;
+            // 
+            // lblGioChieu
+            // 
+            this.lblGioChieu.AutoSize = true;
+            this.lblGioChieu.Location = new System.Drawing.Point(23, 195);
+            this.lblGioChieu.Name = "lblGioChieu";
+            this.lblGioChieu.Size = new System.Drawing.Size(53, 13);
+            this.lblGioChieu.TabIndex = 0;
+            this.lblGioChieu.Text = "Giờ Chiếu";
+            // 
+            // lblTenPhimLC
+            // 
+            this.lblTenPhimLC.AutoSize = true;
+            this.lblTenPhimLC.Location = new System.Drawing.Point(23, 58);
+            this.lblTenPhimLC.Name = "lblTenPhimLC";
+            this.lblTenPhimLC.Size = new System.Drawing.Size(52, 13);
+            this.lblTenPhimLC.TabIndex = 0;
+            this.lblTenPhimLC.Text = "Tên Phim";
+            // 
+            // lblNgayChieu
+            // 
+            this.lblNgayChieu.AutoSize = true;
+            this.lblNgayChieu.Location = new System.Drawing.Point(23, 157);
+            this.lblNgayChieu.Name = "lblNgayChieu";
+            this.lblNgayChieu.Size = new System.Drawing.Size(62, 13);
+            this.lblNgayChieu.TabIndex = 0;
+            this.lblNgayChieu.Text = "Ngày Chiếu";
+            // 
+            // lblMaRapLC
+            // 
+            this.lblMaRapLC.AutoSize = true;
+            this.lblMaRapLC.Location = new System.Drawing.Point(23, 92);
+            this.lblMaRapLC.Name = "lblMaRapLC";
+            this.lblMaRapLC.Size = new System.Drawing.Size(45, 13);
+            this.lblMaRapLC.TabIndex = 0;
+            this.lblMaRapLC.Text = "Mã Rạp";
+            // 
+            // lblMaShow
+            // 
+            this.lblMaShow.AutoSize = true;
+            this.lblMaShow.Location = new System.Drawing.Point(23, 27);
+            this.lblMaShow.Name = "lblMaShow";
+            this.lblMaShow.Size = new System.Drawing.Size(52, 13);
+            this.lblMaShow.TabIndex = 0;
+            this.lblMaShow.Text = "Mã Show";
+            // 
+            // lblTenPhong
+            // 
+            this.lblTenPhong.AutoSize = true;
+            this.lblTenPhong.Location = new System.Drawing.Point(23, 122);
+            this.lblTenPhong.Name = "lblTenPhong";
+            this.lblTenPhong.Size = new System.Drawing.Size(60, 13);
+            this.lblTenPhong.TabIndex = 0;
+            this.lblTenPhong.Text = "Tên Phòng";
+            // 
+            // dgvLichChieu
+            // 
+            this.dgvLichChieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLichChieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaShow,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14});
+            this.dgvLichChieu.Location = new System.Drawing.Point(6, 92);
+            this.dgvLichChieu.Name = "dgvLichChieu";
+            this.dgvLichChieu.Size = new System.Drawing.Size(573, 283);
+            this.dgvLichChieu.TabIndex = 0;
+            this.dgvLichChieu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLichChieu_CellClick);
+            // 
+            // MaShow
+            // 
+            this.MaShow.HeaderText = "Mã Show";
+            this.MaShow.Name = "MaShow";
+            this.MaShow.Width = 50;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Tên Phim";
+            this.Column9.Name = "Column9";
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Mã Rạp";
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 60;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Tên Phòng";
+            this.Column11.Name = "Column11";
+            this.Column11.Width = 60;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Ngày Chiếu";
+            this.Column12.Name = "Column12";
+            this.Column12.Width = 80;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Giờ Chiếu";
+            this.Column13.Name = "Column13";
+            this.Column13.Width = 90;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Giá Vé";
+            this.Column14.Name = "Column14";
+            this.Column14.Width = 90;
             // 
             // MaPhim
             // 
@@ -1233,11 +1514,33 @@ namespace UInvcapcao.Forms
             this.Column7.Name = "Column7";
             this.Column7.Width = 70;
             // 
-            // Column8
+            // dgvDoanhThuRap
             // 
-            this.Column8.HeaderText = "Tổng thu";
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 70;
+            this.dgvDoanhThuRap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDoanhThuRap.Location = new System.Drawing.Point(50, 282);
+            this.dgvDoanhThuRap.Name = "dgvDoanhThuRap";
+            this.dgvDoanhThuRap.Size = new System.Drawing.Size(438, 174);
+            this.dgvDoanhThuRap.TabIndex = 4;
+            // 
+            // btnXuatDoanhThuRap
+            // 
+            this.btnXuatDoanhThuRap.Location = new System.Drawing.Point(510, 282);
+            this.btnXuatDoanhThuRap.Name = "btnXuatDoanhThuRap";
+            this.btnXuatDoanhThuRap.Size = new System.Drawing.Size(75, 23);
+            this.btnXuatDoanhThuRap.TabIndex = 5;
+            this.btnXuatDoanhThuRap.Text = "Xuất dt rạp";
+            this.btnXuatDoanhThuRap.UseVisualStyleBackColor = true;
+            this.btnXuatDoanhThuRap.Click += new System.EventHandler(this.btnXuatDoanhThuRap_Click);
+            // 
+            // btnThongKeDoanhThuRap
+            // 
+            this.btnThongKeDoanhThuRap.Location = new System.Drawing.Point(510, 312);
+            this.btnThongKeDoanhThuRap.Name = "btnThongKeDoanhThuRap";
+            this.btnThongKeDoanhThuRap.Size = new System.Drawing.Size(75, 23);
+            this.btnThongKeDoanhThuRap.TabIndex = 6;
+            this.btnThongKeDoanhThuRap.Text = "In ra Excel";
+            this.btnThongKeDoanhThuRap.UseVisualStyleBackColor = true;
+            this.btnThongKeDoanhThuRap.Click += new System.EventHandler(this.btnThongKePhim_Click);
             // 
             // frmQuanLy
             // 
@@ -1249,6 +1552,7 @@ namespace UInvcapcao.Forms
             this.Controls.Add(this.pnlThongKe);
             this.Controls.Add(this.pnlNhanVien);
             this.Controls.Add(this.pnlQuanLyPhim);
+            this.Controls.Add(this.pnlLichChieu);
             this.Name = "frmQuanLy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý";
@@ -1280,6 +1584,11 @@ namespace UInvcapcao.Forms
             this.grbQuanLyPhim.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbPosterPhim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuanLyPhim)).EndInit();
+            this.pnlLichChieu.ResumeLayout(false);
+            this.grbThongTinLichChieu.ResumeLayout(false);
+            this.grbThongTinLichChieu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLichChieu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThuRap)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1291,7 +1600,7 @@ namespace UInvcapcao.Forms
         private Panel panel3;
         private Button btnPhim;
         private Panel panel4;
-        private Button btnCoSoVatChat;
+        private Button btnLichChieu;
         private Panel panel5;
         private Button btnNhanVien;
         private Panel panel6;
@@ -1361,13 +1670,11 @@ namespace UInvcapcao.Forms
         private Label lblTenPhim;
         private Label lblMaPhim;
         private PictureBox ptbPosterPhim;
-        private Label lblTongThu;
         private Label lblTongChiPhi;
         private Label lblThoiLuong;
         private Label lblNgayKetThuc;
         private DateTimePicker dtpNgayKhoiChieu;
         private ComboBox cmbTheLoai;
-        private TextBox txtTongThu;
         private TextBox txtTongChiPhi;
         private TextBox txtThoiLuong;
         private TextBox txtTenPhim;
@@ -1379,6 +1686,40 @@ namespace UInvcapcao.Forms
         private Button btnPosterAdd;
         private Button btnShowdgvPhim;
         private Label lblPosterPhim;
+        private Button btnThongKePhim;
+        private Button btnThongKeNV;
+        private Button btnThongKeDoanhThuPhim;
+        private Button btnXuatDoanhThuPhim;
+        private DataGridView dgvDoanhThuPhim;
+        private Panel pnlLichChieu;
+        private DataGridView dgvLichChieu;
+        private GroupBox grbThongTinLichChieu;
+        private Label lblMaShow;
+        private DateTimePicker dtpNgayChieuLC;
+        private ComboBox cmbGioChieuLC;
+        private ComboBox cmbMaRapLC;
+        private ComboBox cmbTenPhimLC;
+        private TextBox txtMaShow;
+        private Label lblTenPhimLC;
+        private Label lblMaRapLC;
+        private Label lblGiaVe;
+        private Label lblGioChieu;
+        private Label lblTenPhong;
+        private Label lblNgayChieu;
+        private TextBox txtGiaVeLC;
+        private ComboBox cmbTenPhongLC;
+        private Button btndgvLichChieuShowList;
+        private Button btnLcAdd;
+        private Button btnLcUpdate;
+        private DataGridViewTextBoxColumn MaShow;
+        private DataGridViewTextBoxColumn Column9;
+        private DataGridViewTextBoxColumn Column10;
+        private DataGridViewTextBoxColumn Column11;
+        private DataGridViewTextBoxColumn Column12;
+        private DataGridViewTextBoxColumn Column13;
+        private DataGridViewTextBoxColumn Column14;
+        private Button btnLcDelete;
+        private Button btnThongKeLichChieu;
         private DataGridViewTextBoxColumn MaPhim;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
@@ -1386,12 +1727,9 @@ namespace UInvcapcao.Forms
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column7;
-        private DataGridViewTextBoxColumn Column8;
-        private Button btnThongKePhim;
-        private Button btnThongKeNV;
-        private Button btnThongKeDoanhThuPhim;
-        private Button btnXuatDoanhThuPhim;
-        private DataGridView dgvDoanhThuPhim;
+        private Button btnXuatDoanhThuRap;
+        private DataGridView dgvDoanhThuRap;
+        private Button btnThongKeDoanhThuRap;
         //       private Timer phimTimer;
     }
 }

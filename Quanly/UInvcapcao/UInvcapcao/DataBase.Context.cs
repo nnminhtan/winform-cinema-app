@@ -12,6 +12,8 @@ namespace UInvcapcao
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class QUANLYRAPCHIEUPHIMEntities : DbContext
     {
@@ -28,15 +30,27 @@ namespace UInvcapcao
         public virtual DbSet<tblChucNang> tblChucNangs { get; set; }
         public virtual DbSet<tblGhePhongChieu> tblGhePhongChieux { get; set; }
         public virtual DbSet<tblGioChieu> tblGioChieux { get; set; }
-        public virtual DbSet<tblKhach> tblKhaches { get; set; }
         public virtual DbSet<tblLichChieu> tblLichChieux { get; set; }
-        public virtual DbSet<tblLoaiKhach> tblLoaiKhaches { get; set; }
+        public virtual DbSet<tblNhanVien> tblNhanViens { get; set; }
         public virtual DbSet<tblPhim> tblPhims { get; set; }
         public virtual DbSet<tblPhongChieu> tblPhongChieux { get; set; }
+        public virtual DbSet<tblQuyenHan> tblQuyenHans { get; set; }
         public virtual DbSet<tblRap> tblRaps { get; set; }
         public virtual DbSet<tblTheLoai> tblTheLoais { get; set; }
+        public virtual DbSet<tblThongTinVe> tblThongTinVes { get; set; }
         public virtual DbSet<tblVe> tblVes { get; set; }
-        public virtual DbSet<tblNhanVien> tblNhanViens { get; set; }
-        public virtual DbSet<tblQuyenHan> tblQuyenHans { get; set; }
+    
+        public virtual int CheckIDNV(ObjectParameter iSTK, ObjectParameter iSMK, string tK, string mK, ObjectParameter aCCESSKEY)
+        {
+            var tKParameter = tK != null ?
+                new ObjectParameter("TK", tK) :
+                new ObjectParameter("TK", typeof(string));
+    
+            var mKParameter = mK != null ?
+                new ObjectParameter("MK", mK) :
+                new ObjectParameter("MK", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CheckIDNV", iSTK, iSMK, tKParameter, mKParameter, aCCESSKEY);
+        }
     }
 }

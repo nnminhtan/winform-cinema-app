@@ -14,10 +14,17 @@ namespace UInvcapcao
     
     public partial class tblVe
     {
-        public string MaGhe { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblVe()
+        {
+            this.tblThongTinVes = new HashSet<tblThongTinVe>();
+        }
+    
+        public int MaVe { get; set; }
         public string MaShow { get; set; }
     
-        public virtual tblGhePhongChieu tblGhePhongChieu { get; set; }
         public virtual tblLichChieu tblLichChieu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblThongTinVe> tblThongTinVes { get; set; }
     }
 }
