@@ -80,12 +80,6 @@
     <Compile Include="Forms\frmDatVe.Designer.cs">
       <DependentUpon>frmDatVe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmGiaoDien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmGiaoDien.Designer.cs">
-      <DependentUpon>frmGiaoDien.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +91,18 @@
     </Compile>
     <Compile Include="Forms\frmQuanLy.Designer.cs">
       <DependentUpon>frmQuanLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmGiaoDienBanVe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGiaoDienBanVe.Designer.cs">
+      <DependentUpon>frmGiaoDienBanVe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmVe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmVe.Designer.cs">
+      <DependentUpon>frmVe.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -142,14 +148,17 @@
     <EmbeddedResource Include="Forms\frmDatVe.resx">
       <DependentUpon>frmDatVe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmGiaoDien.resx">
-      <DependentUpon>frmGiaoDien.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmQuanLy.resx">
       <DependentUpon>frmQuanLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmGiaoDienBanVe.resx">
+      <DependentUpon>frmGiaoDienBanVe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmVe.resx">
+      <DependentUpon>frmVe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -213,6 +222,7 @@
       <DependentUpon>DataBase.edmx</DependentUpon>
       <LastGenOutput>DataBase.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Baking Bad.png" />
     <Content Include="Resources\Menu.png.png" />
     <None Include="Resources\poster_official_preiview.jpg" />
     <None Include="Resources\pink.png" />
