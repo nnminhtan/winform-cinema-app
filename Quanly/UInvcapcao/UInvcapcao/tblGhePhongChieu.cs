@@ -14,6 +14,12 @@ namespace UInvcapcao
     
     public partial class tblGhePhongChieu
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblGhePhongChieu()
+        {
+            this.tblThongTinVes = new HashSet<tblThongTinVe>();
+        }
+    
         public string MaGhe { get; set; }
         public string MaRap { get; set; }
         public string MaPhong { get; set; }
@@ -21,6 +27,7 @@ namespace UInvcapcao
     
         public virtual tblPhongChieu tblPhongChieu { get; set; }
         public virtual tblRap tblRap { get; set; }
-        public virtual tblVe tblVe { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblThongTinVe> tblThongTinVes { get; set; }
     }
 }

@@ -4,36 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b23855e82ea34f978d9d7001c82c8a61" Name="Diagram1" ZoomLevel="116">
-        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblChucNang" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblGhePhongChieu" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblGioChieu" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblKhach" Width="1.5" PointX="5" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblLichChieu" Width="1.5" PointX="8.25" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblLoaiKhach" Width="1.5" PointX="2.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblPhim" Width="1.5" PointX="6" PointY="18.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblPhongChieu" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblRap" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblTheLoai" Width="1.5" PointX="3.75" PointY="19" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblVe" Width="1.5" PointX="10.5" PointY="10.875" IsExpanded="true" />
-        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblGhePhongChieu_tblPhongChieu" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblGhePhongChieu_tblRap" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblVe_tblGhePhongChieu" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblGioChieu" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblGioChieu" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblKhach_tblLoaiKhach" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblPhim" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblPhongChieu" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblRap" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblVe_tblLichChieu" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblPhim" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblPhongChieu_tblRap" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblNhanVien" Width="1.5" PointX="3.125" PointY="4.25" />
-        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblNhanVien" />
-        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblQuyenHan" Width="1.5" PointX="5.375" PointY="4.125" />
+      <Diagram DiagramId="b23855e82ea34f978d9d7001c82c8a61" Name="Diagram1" ZoomLevel="66">
+        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblChucNang" Width="1.5" PointX="3" PointY="11.875" />
+        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblGhePhongChieu" Width="1.5" PointX="5.25" PointY="14.5" />
+        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblGioChieu" Width="1.5" PointX="3" PointY="5.625" />
+        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblLichChieu" Width="1.5" PointX="5.25" PointY="9.5" />
+        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblNhanVien" Width="1.5" PointX="3" PointY="8.375" />
+        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblPhim" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblPhongChieu" Width="1.5" PointX="3" PointY="14.75" />
+        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblQuyenHan" Width="1.5" PointX="5.25" PointY="6.625" />
+        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblRap" Width="1.5" PointX="0.75" PointY="8.25" />
+        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblTheLoai" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblThongTinVe" Width="1.5" PointX="9.75" PointY="12.25" />
+        <EntityTypeShape EntityType="QUANLYRAPCHIEUPHIMModel.tblVe" Width="1.5" PointX="7.5" PointY="10.5" />
         <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblQuyenHan_tblChucNang" />
+        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblGhePhongChieu_tblPhongChieu" />
+        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblGhePhongChieu_tblRap" />
+        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblThongTinVe_tblGhePhongChieu" />
+        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblGioChieu" />
+        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblGioChieu" />
+        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblPhim" />
+        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblPhongChieu" />
+        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblLichChieu_tblRap" />
+        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblVe_tblLichChieu" />
+        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblNhanVien" />
         <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblQuyenHan_tblNhanVien" />
-        </Diagram>
+        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblPhim" />
+        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblPhongChieu_tblRap" />
+        <AssociationConnector Association="QUANLYRAPCHIEUPHIMModel.FK_tblThongTinVe_tblVe" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

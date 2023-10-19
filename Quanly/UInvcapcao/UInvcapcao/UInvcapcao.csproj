@@ -86,17 +86,17 @@
     <Compile Include="Forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmQuanLy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmQuanLy.Designer.cs">
-      <DependentUpon>frmQuanLy.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmGiaoDienBanVe.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmGiaoDienBanVe.Designer.cs">
       <DependentUpon>frmGiaoDienBanVe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmQuanLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmQuanLy.Designer.cs">
+      <DependentUpon>frmQuanLy.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmVe.cs">
       <SubType>Form</SubType>
@@ -115,13 +115,7 @@
     <Compile Include="tblGioChieu.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="tblKhach.cs">
-      <DependentUpon>DataBase.tt</DependentUpon>
-    </Compile>
     <Compile Include="tblLichChieu.cs">
-      <DependentUpon>DataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tblLoaiKhach.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="tblNhanVien.cs">
@@ -142,6 +136,9 @@
     <Compile Include="tblTheLoai.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="tblThongTinVe.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="tblVe.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
@@ -151,11 +148,11 @@
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmQuanLy.resx">
-      <DependentUpon>frmQuanLy.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmGiaoDienBanVe.resx">
       <DependentUpon>frmGiaoDienBanVe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmQuanLy.resx">
+      <DependentUpon>frmQuanLy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmVe.resx">
       <DependentUpon>frmVe.cs</DependentUpon>
