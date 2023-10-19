@@ -73,6 +73,16 @@ namespace UInvcapcao.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Baking_Bad {
+            get {
+                object obj = ResourceManager.GetObject("Baking_Bad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bong_dung_trung_so {
             get {
                 object obj = ResourceManager.GetObject("bong_dung_trung_so", resourceCulture);

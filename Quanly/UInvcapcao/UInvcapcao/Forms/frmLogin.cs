@@ -43,7 +43,7 @@ namespace UInvcapcao
                         if(ACCESSKEY == 2)
                         {
                             this.Hide();
-                            frmGiaoDien frmgiaodien = new frmGiaoDien();
+                            frmGiaoDienBanVe frmgiaodien = new frmGiaoDienBanVe();
                             frmgiaodien.ShowDialog();
                         }
                         if (ACCESSKEY == 3)
