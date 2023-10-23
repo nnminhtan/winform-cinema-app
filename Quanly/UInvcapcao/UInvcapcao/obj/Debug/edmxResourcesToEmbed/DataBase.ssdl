@@ -106,11 +106,14 @@
     <Property Name="IdTTVe" Type="int" Nullable="false" />
     <Property Name="MaVe" Type="int" />
     <Property Name="MaGhe" Type="char" MaxLength="11" />
+    <Property Name="MaShow" Type="char" MaxLength="11" />
     <Property Name="TenPhim" Type="nvarchar" MaxLength="40" />
     <Property Name="NgayChieu" Type="datetime" />
-    <Property Name="GioChieu" Type="time" Precision="7" />
+    <Property Name="GioChieu" Type="char" MaxLength="50" />
     <Property Name="GiaVe" Type="int" />
+    <Property Name="PhongChieu" Type="nvarchar" MaxLength="50" />
     <Property Name="HinhThucThanhToan" Type="nvarchar" MaxLength="40" />
+    <Property Name="TrangThai" Type="bit" />
   </EntityType>
   <EntityType Name="tblVe">
     <Key>

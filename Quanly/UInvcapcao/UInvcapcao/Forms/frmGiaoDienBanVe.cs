@@ -14,9 +14,11 @@ namespace UInvcapcao
     public partial class frmGiaoDienBanVe : Form
     {
         bool sidebarExpand;
-        public frmGiaoDienBanVe()
+        string GetmaRap;
+        public frmGiaoDienBanVe(string maRap)
         {
             InitializeComponent();
+            GetmaRap = maRap;
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -47,42 +49,43 @@ namespace UInvcapcao
         private void ptbP1_Click(object sender, EventArgs e)
         {
             string selectedValue = ptbP1.Tag.ToString();
-            frmDatVe frmDatVe = new frmDatVe(selectedValue);
+            this.Hide();
+            frmDatVe frmDatVe = new frmDatVe(selectedValue, GetmaRap);
             frmDatVe.ShowDialog();
         }
 
         private void ptbP2_Click(object sender, EventArgs e)
         {
             string selectedValue = ptbP2.Tag.ToString();
-            frmDatVe frmDatVe = new frmDatVe(selectedValue);
+            frmDatVe frmDatVe = new frmDatVe(selectedValue, GetmaRap);
             frmDatVe.ShowDialog();
         }
 
         private void ptbP3_Click(object sender, EventArgs e)
         {
             string selectedValue = ptbP3.Tag.ToString();
-            frmDatVe frmDatVe = new frmDatVe(selectedValue);
+            frmDatVe frmDatVe = new frmDatVe(selectedValue, GetmaRap);
             frmDatVe.ShowDialog();
         }
 
         private void ptbP4_Click(object sender, EventArgs e)
         {
             string selectedValue = ptbP4.Tag.ToString();
-            frmDatVe frmDatVe = new frmDatVe(selectedValue);
+            frmDatVe frmDatVe = new frmDatVe(selectedValue, GetmaRap);
             frmDatVe.ShowDialog();
         }
 
         private void ptbP5_Click(object sender, EventArgs e)
         {
             string selectedValue = ptbP5.Tag.ToString();
-            frmDatVe frmDatVe = new frmDatVe(selectedValue);
+            frmDatVe frmDatVe = new frmDatVe(selectedValue, GetmaRap);
             frmDatVe.ShowDialog();
         }
 
         private void ptbP6_Click(object sender, EventArgs e)
         {
             string selectedValue = ptbP6.Tag.ToString();
-            frmDatVe frmDatVe = new frmDatVe(selectedValue);
+            frmDatVe frmDatVe = new frmDatVe(selectedValue, GetmaRap);
             frmDatVe.ShowDialog();
         }
     }

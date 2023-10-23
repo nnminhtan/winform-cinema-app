@@ -215,11 +215,14 @@
     <Property Name="MaGhe" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
     <Property Name="TenPhim" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
     <Property Name="NgayChieu" Type="DateTime" Precision="3" />
-    <Property Name="GioChieu" Type="Time" Precision="7" />
+    <Property Name="GioChieu" Type="String" />
     <Property Name="GiaVe" Type="Int32" />
     <Property Name="HinhThucThanhToan" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="tblGhePhongChieu" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblThongTinVe_tblGhePhongChieu" FromRole="tblThongTinVe" ToRole="tblGhePhongChieu" />
     <NavigationProperty Name="tblVe" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblThongTinVe_tblVe" FromRole="tblThongTinVe" ToRole="tblVe" />
+    <Property Name="MaShow" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="PhongChieu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai" Type="Boolean" />
   </EntityType>
   <EntityType Name="tblVe">
     <Key>

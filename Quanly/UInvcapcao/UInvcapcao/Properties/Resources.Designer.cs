@@ -133,6 +133,26 @@ namespace UInvcapcao.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Image_User3_jpg {
+            get {
+                object obj = ResourceManager.GetObject("Image_User3_jpg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Image_User4_jpg {
+            get {
+                object obj = ResourceManager.GetObject("Image_User4_jpg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logowithoutwords {
             get {
                 object obj = ResourceManager.GetObject("logowithoutwords", resourceCulture);
@@ -216,6 +236,16 @@ namespace UInvcapcao.Properties {
         internal static System.Drawing.Bitmap x {
             get {
                 object obj = ResourceManager.GetObject("x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap YournamePoster {
+            get {
+                object obj = ResourceManager.GetObject("YournamePoster", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

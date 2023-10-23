@@ -113,6 +113,9 @@
     <EntitySetMapping Name="tblThongTinVes">
       <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblThongTinVe">
         <MappingFragment StoreEntitySet="tblThongTinVe">
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="PhongChieu" ColumnName="PhongChieu" />
+          <ScalarProperty Name="MaShow" ColumnName="MaShow" />
           <ScalarProperty Name="HinhThucThanhToan" ColumnName="HinhThucThanhToan" />
           <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
           <ScalarProperty Name="GioChieu" ColumnName="GioChieu" />

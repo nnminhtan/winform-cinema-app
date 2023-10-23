@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Excel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,12 +18,20 @@ namespace UInvcapcao
     public partial class frmLogin : Form
     {
         QUANLYRAPCHIEUPHIMEntities db = new QUANLYRAPCHIEUPHIMEntities();
-        
+        string tendangnhap;
+        string id;
         public frmLogin()
         {
             InitializeComponent();
         }
-
+        public void FindName(string name)
+        {
+            id = name;
+            if (id != null)
+            {
+                tendangnhap = db.tblNhanViens.Where(x => x.MaNV == name).Select(x => x.TenNV).FirstOrDefault();
+            }
+        }
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             if (CheckHopLe())
@@ -32,18 +41,21 @@ namespace UInvcapcao
                     bool ISTK, ISMK;
                     int ACCESSKEY;
                     CheckIDNV(out ISTK, out ISMK, out ACCESSKEY);
-                    if(ISTK && ISMK)
+                    if (ISTK && ISMK)
                     {
-                        if(ACCESSKEY == 1)
+                        if (ACCESSKEY == 1)
                         {
                             this.Hide();
-                            frmQuanLy frmQuanLy = new frmQuanLy();
+                            FindName(txtTK.Text);
+                            frmQuanLy frmQuanLy = new frmQuanLy(tendangnhap);
                             frmQuanLy.ShowDialog();
                         }
-                        if(ACCESSKEY == 2)
+                        if (ACCESSKEY == 2)
                         {
                             this.Hide();
-                            frmGiaoDienBanVe frmgiaodien = new frmGiaoDienBanVe();
+                            FindName(txtTK.Text);
+                            string maRap = db.tblNhanViens.Where(x => x.MaNV == id).Select(x => x.MaRap).FirstOrDefault();
+                            frmGiaoDienBanVe frmgiaodien = new frmGiaoDienBanVe(maRap);
                             frmgiaodien.ShowDialog();
                         }
                         if (ACCESSKEY == 3)
@@ -55,10 +67,10 @@ namespace UInvcapcao
                 }
                 catch (ApplicationException ex)
                 {
-                    MessageBox.Show("Error "+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            
+
 
         }
 
@@ -100,7 +112,7 @@ namespace UInvcapcao
 
         private bool CheckHopLe()
         {
-            if(txtTK.Text.Trim() == string.Empty)
+            if (txtTK.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("Vui Lòng Nhập TK!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTK.Clear();
