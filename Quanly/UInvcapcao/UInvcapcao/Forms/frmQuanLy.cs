@@ -16,9 +16,10 @@ namespace UInvcapcao.Forms
     {
         QUANLYRAPCHIEUPHIMEntities db = new QUANLYRAPCHIEUPHIMEntities();
         bool sidebarExpand;
-        public frmQuanLy()
+        public frmQuanLy(string tendangnhap)
         {
             InitializeComponent();
+            btnUser.Text = "                " + tendangnhap;
         }
         #region "sidebar"
         private void sidebarTimer_Tick(object sender, EventArgs e)
@@ -50,6 +51,14 @@ namespace UInvcapcao.Forms
         {
             //set timer interval to lowest 
             sidebarTimer.Start();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            pnlQuanLyPhim.Visible = false;
+            pnlLichChieu.Visible = false;
+            pnlNhanVien.Visible = false;
+            pnlThongKe.Visible = false;
         }
         #endregion "sidebar"
 
@@ -860,7 +869,7 @@ namespace UInvcapcao.Forms
                 datatbl.Columns.Add(Col5);
                 datatbl.Columns.Add(Col6);
                 datatbl.Columns.Add(Col7);
-                
+
                 //Add rows to datatable
                 foreach (DataGridViewRow dgvrow in dgvQuanLyPhim.Rows)
                 {
@@ -908,7 +917,7 @@ namespace UInvcapcao.Forms
             }
             else if (button.Name == "btnThongKeDoanhThuPhim")
             {
-                ExportFile(datatbl2, "doanh thu phim", "Thống kê doanh thu phim", "dtp");
+                ExportFile(datatbl2, "doanh thu phim", "Tổng doanh thu phim", "dtp");
             }
             else if (button.Name == "btnThongKeLichChieu")
             {
@@ -948,7 +957,7 @@ namespace UInvcapcao.Forms
             }
             else if (button.Name == "btnThongKeDoanhThuRap")
             {
-                ExportFile(datatbl4, "doanh thu rạp", "Thống kê doanh thu rạp", "dtr");
+                ExportFile(datatbl4, "doanh thu rạp", "Tổng doanh thu rạp", "dtr");
             }
         }
         #endregion "phim"

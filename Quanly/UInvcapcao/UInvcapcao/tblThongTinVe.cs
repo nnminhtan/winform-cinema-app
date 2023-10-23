@@ -19,9 +19,12 @@ namespace UInvcapcao
         public string MaGhe { get; set; }
         public string TenPhim { get; set; }
         public Nullable<System.DateTime> NgayChieu { get; set; }
-        public Nullable<System.TimeSpan> GioChieu { get; set; }
+        public string GioChieu { get; set; }
         public Nullable<int> GiaVe { get; set; }
         public string HinhThucThanhToan { get; set; }
+        public string MaShow { get; set; }
+        public string PhongChieu { get; set; }
+        public Nullable<bool> TrangThai { get; set; }
     
         public virtual tblGhePhongChieu tblGhePhongChieu { get; set; }
         public virtual tblVe tblVe { get; set; }

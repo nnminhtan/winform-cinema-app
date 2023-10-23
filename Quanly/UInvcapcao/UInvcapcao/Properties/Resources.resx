@@ -166,4 +166,13 @@
   <data name="Baking_Bad" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Baking Bad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Image_User3_jpg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Image User3.jpg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YournamePoster" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YournamePoster.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Image_User4_jpg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Image User4.jpg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

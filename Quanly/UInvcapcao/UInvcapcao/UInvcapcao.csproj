@@ -80,17 +80,17 @@
     <Compile Include="Forms\frmDatVe.Designer.cs">
       <DependentUpon>frmDatVe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmGiaoDienBanVe.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmGiaoDienBanVe.Designer.cs">
       <DependentUpon>frmGiaoDienBanVe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmQuanLy.cs">
       <SubType>Form</SubType>
@@ -145,11 +145,11 @@
     <EmbeddedResource Include="Forms\frmDatVe.resx">
       <DependentUpon>frmDatVe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmGiaoDienBanVe.resx">
       <DependentUpon>frmGiaoDienBanVe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmQuanLy.resx">
       <DependentUpon>frmQuanLy.cs</DependentUpon>
@@ -198,6 +198,7 @@
     <None Include="Resources\bullet point icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\YournamePoster.jpg" />
     <None Include="Resources\shin.jpg" />
     <None Include="Resources\vietnam_eq3_intl_online_1080x1350_tsr_04.jpg" />
     <None Include="Resources\rsz_1shin_poster_ch_nh_th_c-01.jpg" />
@@ -220,6 +221,8 @@
       <LastGenOutput>DataBase.cs</LastGenOutput>
     </Content>
     <None Include="Resources\Baking Bad.png" />
+    <None Include="Resources\Image User3.jpg.png" />
+    <None Include="Resources\Image User4.jpg.png" />
     <Content Include="Resources\Menu.png.png" />
     <None Include="Resources\poster_official_preiview.jpg" />
     <None Include="Resources\pink.png" />

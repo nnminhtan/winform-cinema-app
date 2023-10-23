@@ -111,11 +111,14 @@
           <Property Name="IdTTVe" Type="int" Nullable="false" />
           <Property Name="MaVe" Type="int" />
           <Property Name="MaGhe" Type="char" MaxLength="11" />
+          <Property Name="MaShow" Type="char" MaxLength="11" />
           <Property Name="TenPhim" Type="nvarchar" MaxLength="40" />
           <Property Name="NgayChieu" Type="datetime" />
-          <Property Name="GioChieu" Type="time" Precision="7" />
+          <Property Name="GioChieu" Type="char" MaxLength="50" />
           <Property Name="GiaVe" Type="int" />
+          <Property Name="PhongChieu" Type="nvarchar" MaxLength="50" />
           <Property Name="HinhThucThanhToan" Type="nvarchar" MaxLength="40" />
+          <Property Name="TrangThai" Type="bit" />
         </EntityType>
         <EntityType Name="tblVe">
           <Key>
@@ -604,11 +607,14 @@
           <Property Name="MaGhe" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
           <Property Name="TenPhim" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="NgayChieu" Type="DateTime" Precision="3" />
-          <Property Name="GioChieu" Type="Time" Precision="7" />
+          <Property Name="GioChieu" Type="String" />
           <Property Name="GiaVe" Type="Int32" />
           <Property Name="HinhThucThanhToan" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblGhePhongChieu" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblThongTinVe_tblGhePhongChieu" FromRole="tblThongTinVe" ToRole="tblGhePhongChieu" />
           <NavigationProperty Name="tblVe" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblThongTinVe_tblVe" FromRole="tblThongTinVe" ToRole="tblVe" />
+          <Property Name="MaShow" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="PhongChieu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrangThai" Type="Boolean" />
         </EntityType>
         <EntityType Name="tblVe">
           <Key>
@@ -917,6 +923,9 @@
           <EntitySetMapping Name="tblThongTinVes">
             <EntityTypeMapping TypeName="QUANLYRAPCHIEUPHIMModel.tblThongTinVe">
               <MappingFragment StoreEntitySet="tblThongTinVe">
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="PhongChieu" ColumnName="PhongChieu" />
+                <ScalarProperty Name="MaShow" ColumnName="MaShow" />
                 <ScalarProperty Name="HinhThucThanhToan" ColumnName="HinhThucThanhToan" />
                 <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
                 <ScalarProperty Name="GioChieu" ColumnName="GioChieu" />

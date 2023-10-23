@@ -34,7 +34,6 @@
             this.txtTK = new System.Windows.Forms.TextBox();
             this.txtMK = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblQuenMK = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
@@ -45,7 +44,7 @@
             // lblTK
             // 
             this.lblTK.AutoSize = true;
-            this.lblTK.Location = new System.Drawing.Point(209, 178);
+            this.lblTK.Location = new System.Drawing.Point(209, 189);
             this.lblTK.Name = "lblTK";
             this.lblTK.Size = new System.Drawing.Size(56, 13);
             this.lblTK.TabIndex = 0;
@@ -54,7 +53,7 @@
             // lblMK
             // 
             this.lblMK.AutoSize = true;
-            this.lblMK.Location = new System.Drawing.Point(209, 243);
+            this.lblMK.Location = new System.Drawing.Point(209, 254);
             this.lblMK.Name = "lblMK";
             this.lblMK.Size = new System.Drawing.Size(53, 13);
             this.lblMK.TabIndex = 0;
@@ -63,7 +62,7 @@
             // txtTK
             // 
             this.txtTK.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTK.Location = new System.Drawing.Point(289, 178);
+            this.txtTK.Location = new System.Drawing.Point(289, 189);
             this.txtTK.Name = "txtTK";
             this.txtTK.Size = new System.Drawing.Size(136, 13);
             this.txtTK.TabIndex = 0;
@@ -71,7 +70,7 @@
             // txtMK
             // 
             this.txtMK.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMK.Location = new System.Drawing.Point(289, 243);
+            this.txtMK.Location = new System.Drawing.Point(289, 254);
             this.txtMK.Name = "txtMK";
             this.txtMK.Size = new System.Drawing.Size(136, 13);
             this.txtMK.TabIndex = 1;
@@ -79,7 +78,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.lblQuenMK);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnConfirm);
             this.panel1.Controls.Add(this.txtMK);
@@ -92,16 +90,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(642, 406);
             this.panel1.TabIndex = 2;
-            // 
-            // lblQuenMK
-            // 
-            this.lblQuenMK.AutoSize = true;
-            this.lblQuenMK.Location = new System.Drawing.Point(334, 280);
-            this.lblQuenMK.Name = "lblQuenMK";
-            this.lblQuenMK.Size = new System.Drawing.Size(91, 13);
-            this.lblQuenMK.TabIndex = 4;
-            this.lblQuenMK.Text = "Quên Mật Khẩu ?";
-            this.lblQuenMK.Click += new System.EventHandler(this.lblQuenMK_Click);
             // 
             // btnCancel
             // 
@@ -137,6 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(642, 406);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -160,6 +149,5 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.PictureBox pbLogo;
-        private System.Windows.Forms.Label lblQuenMK;
     }
 }

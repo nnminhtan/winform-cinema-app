@@ -33,10 +33,10 @@
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
             this.directorySearcher2 = new System.DirectoryServices.DirectorySearcher();
+            this.btnclose = new System.Windows.Forms.Button();
             this.ptbP4 = new System.Windows.Forms.PictureBox();
             this.ptbP5 = new System.Windows.Forms.PictureBox();
             this.ptbP6 = new System.Windows.Forms.PictureBox();
-            this.btnclose = new System.Windows.Forms.Button();
             this.ptbP3 = new System.Windows.Forms.PictureBox();
             this.ptbP2 = new System.Windows.Forms.PictureBox();
             this.ptbP1 = new System.Windows.Forms.PictureBox();
@@ -62,13 +62,28 @@
             this.directorySearcher2.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
             this.directorySearcher2.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
             // 
+            // btnclose
+            // 
+            this.btnclose.BackColor = System.Drawing.Color.Firebrick;
+            this.btnclose.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnclose.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnclose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnclose.Location = new System.Drawing.Point(11, 496);
+            this.btnclose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnclose.Name = "btnclose";
+            this.btnclose.Size = new System.Drawing.Size(94, 54);
+            this.btnclose.TabIndex = 1;
+            this.btnclose.Text = "Exit";
+            this.btnclose.UseVisualStyleBackColor = false;
+            this.btnclose.Click += new System.EventHandler(this.btnabout_Click);
+            // 
             // ptbP4
             // 
             this.ptbP4.Image = global::UInvcapcao.Properties.Resources.fastandfurious;
-            this.ptbP4.Location = new System.Drawing.Point(347, 345);
-            this.ptbP4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ptbP4.Location = new System.Drawing.Point(260, 280);
+            this.ptbP4.Margin = new System.Windows.Forms.Padding(2);
             this.ptbP4.Name = "ptbP4";
-            this.ptbP4.Size = new System.Drawing.Size(143, 158);
+            this.ptbP4.Size = new System.Drawing.Size(107, 128);
             this.ptbP4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbP4.TabIndex = 2;
             this.ptbP4.TabStop = false;
@@ -78,10 +93,10 @@
             // ptbP5
             // 
             this.ptbP5.Image = global::UInvcapcao.Properties.Resources.avengers;
-            this.ptbP5.Location = new System.Drawing.Point(579, 345);
-            this.ptbP5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ptbP5.Location = new System.Drawing.Point(434, 280);
+            this.ptbP5.Margin = new System.Windows.Forms.Padding(2);
             this.ptbP5.Name = "ptbP5";
-            this.ptbP5.Size = new System.Drawing.Size(141, 158);
+            this.ptbP5.Size = new System.Drawing.Size(106, 128);
             this.ptbP5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbP5.TabIndex = 2;
             this.ptbP5.TabStop = false;
@@ -90,40 +105,24 @@
             // 
             // ptbP6
             // 
-            this.ptbP6.Image = global::UInvcapcao.Properties.Resources.pink;
-            this.ptbP6.Location = new System.Drawing.Point(809, 345);
-            this.ptbP6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ptbP6.Image = global::UInvcapcao.Properties.Resources.YournamePoster;
+            this.ptbP6.Location = new System.Drawing.Point(607, 280);
+            this.ptbP6.Margin = new System.Windows.Forms.Padding(2);
             this.ptbP6.Name = "ptbP6";
-            this.ptbP6.Size = new System.Drawing.Size(141, 158);
+            this.ptbP6.Size = new System.Drawing.Size(106, 128);
             this.ptbP6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbP6.TabIndex = 2;
             this.ptbP6.TabStop = false;
             this.ptbP6.Tag = "P6";
             this.ptbP6.Click += new System.EventHandler(this.ptbP6_Click);
             // 
-            // btnclose
-            // 
-            this.btnclose.BackColor = System.Drawing.Color.Firebrick;
-            this.btnclose.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnclose.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnclose.Image = ((System.Drawing.Image)(resources.GetObject("btnclose.Image")));
-            this.btnclose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnclose.Location = new System.Drawing.Point(1, 542);
-            this.btnclose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnclose.Name = "btnclose";
-            this.btnclose.Size = new System.Drawing.Size(200, 70);
-            this.btnclose.TabIndex = 1;
-            this.btnclose.Text = "  Exit";
-            this.btnclose.UseVisualStyleBackColor = false;
-            this.btnclose.Click += new System.EventHandler(this.btnabout_Click);
-            // 
             // ptbP3
             // 
             this.ptbP3.Image = global::UInvcapcao.Properties.Resources.shin;
-            this.ptbP3.Location = new System.Drawing.Point(809, 142);
-            this.ptbP3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ptbP3.Location = new System.Drawing.Point(607, 115);
+            this.ptbP3.Margin = new System.Windows.Forms.Padding(2);
             this.ptbP3.Name = "ptbP3";
-            this.ptbP3.Size = new System.Drawing.Size(141, 158);
+            this.ptbP3.Size = new System.Drawing.Size(106, 128);
             this.ptbP3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbP3.TabIndex = 2;
             this.ptbP3.TabStop = false;
@@ -133,10 +132,10 @@
             // ptbP2
             // 
             this.ptbP2.Image = global::UInvcapcao.Properties.Resources.conan;
-            this.ptbP2.Location = new System.Drawing.Point(579, 142);
-            this.ptbP2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ptbP2.Location = new System.Drawing.Point(434, 115);
+            this.ptbP2.Margin = new System.Windows.Forms.Padding(2);
             this.ptbP2.Name = "ptbP2";
-            this.ptbP2.Size = new System.Drawing.Size(141, 158);
+            this.ptbP2.Size = new System.Drawing.Size(106, 128);
             this.ptbP2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbP2.TabIndex = 2;
             this.ptbP2.TabStop = false;
@@ -146,10 +145,10 @@
             // ptbP1
             // 
             this.ptbP1.Image = global::UInvcapcao.Properties.Resources.Baking_Bad;
-            this.ptbP1.Location = new System.Drawing.Point(347, 142);
-            this.ptbP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ptbP1.Location = new System.Drawing.Point(260, 115);
+            this.ptbP1.Margin = new System.Windows.Forms.Padding(2);
             this.ptbP1.Name = "ptbP1";
-            this.ptbP1.Size = new System.Drawing.Size(143, 158);
+            this.ptbP1.Size = new System.Drawing.Size(107, 128);
             this.ptbP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbP1.TabIndex = 2;
             this.ptbP1.TabStop = false;
@@ -158,22 +157,22 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox1.BackColor = System.Drawing.Color.Cornsilk;
             this.pictureBox1.Image = global::UInvcapcao.Properties.Resources.logowithwords;
-            this.pictureBox1.Location = new System.Drawing.Point(564, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(408, 11);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(207, 90);
+            this.pictureBox1.Size = new System.Drawing.Size(155, 73);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
             // frmGiaoDienBanVe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1312, 690);
+            this.BackColor = System.Drawing.Color.Cornsilk;
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.ptbP4);
             this.Controls.Add(this.ptbP5);
             this.Controls.Add(this.ptbP6);
@@ -183,8 +182,9 @@
             this.Controls.Add(this.ptbP1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmGiaoDienBanVe";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giao Diện Bán Vé";
             ((System.ComponentModel.ISupportInitialize)(this.ptbP4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbP5)).EndInit();
