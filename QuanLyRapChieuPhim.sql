@@ -100,12 +100,14 @@ CREATE TABLE tblThongTinVe
 	MaVe INT,
 	MaGhe CHAR(11),
 	--MaKhach INT,
-	--MaShow CHAR(11),
+	MaShow CHAR(11),
 	TenPhim  NVARCHAR(40),
 	NgayChieu DATETIME,
-	GioChieu TIME,
+	GioChieu CHAR(50),
 	GiaVe INT,
+	PhongChieu NVARCHAR(50),
 	HinhThucThanhToan NVARCHAR(40),
+	TrangThai bit
 	--HinhThucDat bit
 )
 
@@ -124,8 +126,7 @@ CREATE TABLE tblRap
 	--TongSoBangChieu INT,
 	--TongSoMayChieu INT,
 	--TongSoDieuHoa INT,
-	TongSoGhe INT
-	
+	TongSoGhe INT	
 )
 
 IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE NAME = 'tblGioChieu')
@@ -793,3 +794,8 @@ ELSE
 	END
 	END
 END
+
+select * from tblVe
+select * from tblThongTinVe
+DELETE from tblVe
+DELETE from tblThongTinVe
