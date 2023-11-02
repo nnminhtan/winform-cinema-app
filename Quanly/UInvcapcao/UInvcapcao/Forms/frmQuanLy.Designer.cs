@@ -70,6 +70,11 @@ namespace UInvcapcao.Forms
             this.MaRap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuyenHan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNvShowList = new System.Windows.Forms.Button();
+            this.pnlNvDel = new System.Windows.Forms.Panel();
+            this.lblDelWarning2 = new System.Windows.Forms.Label();
+            this.lblDelWarning1 = new System.Windows.Forms.Label();
+            this.btnCancelDel = new System.Windows.Forms.Button();
+            this.btnConfirmDel = new System.Windows.Forms.Button();
             this.pnlNvUpdate = new System.Windows.Forms.Panel();
             this.btnNvCancelUpdate = new System.Windows.Forms.Button();
             this.btnNvConfirmUpdate = new System.Windows.Forms.Button();
@@ -96,11 +101,6 @@ namespace UInvcapcao.Forms
             this.txtTenNV = new System.Windows.Forms.TextBox();
             this.lblMaCN = new System.Windows.Forms.Label();
             this.lblTenNhanVien = new System.Windows.Forms.Label();
-            this.pnlNvDel = new System.Windows.Forms.Panel();
-            this.lblDelWarning2 = new System.Windows.Forms.Label();
-            this.lblDelWarning1 = new System.Windows.Forms.Label();
-            this.btnCancelDel = new System.Windows.Forms.Button();
-            this.btnConfirmDel = new System.Windows.Forms.Button();
             this.pnlThongKe = new System.Windows.Forms.Panel();
             this.lblQuanLyDoanhThu = new System.Windows.Forms.Label();
             this.btnThongKeDoanhThuRap = new System.Windows.Forms.Button();
@@ -135,13 +135,6 @@ namespace UInvcapcao.Forms
             this.lblMaPhim = new System.Windows.Forms.Label();
             this.ptbPosterPhim = new System.Windows.Forms.PictureBox();
             this.dgvQuanLyPhim = new System.Windows.Forms.DataGridView();
-            this.MaPhim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlLichChieu = new System.Windows.Forms.Panel();
             this.lblQuanLyLichChieu = new System.Windows.Forms.Label();
             this.btnThongKeLichChieu = new System.Windows.Forms.Button();
@@ -165,6 +158,13 @@ namespace UInvcapcao.Forms
             this.lblMaShow = new System.Windows.Forms.Label();
             this.lblTenPhong = new System.Windows.Forms.Label();
             this.dgvLichChieu = new System.Windows.Forms.DataGridView();
+            this.MaPhim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaShow = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -187,9 +187,9 @@ namespace UInvcapcao.Forms
             this.panel2.SuspendLayout();
             this.pnlNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNvData)).BeginInit();
+            this.pnlNvDel.SuspendLayout();
             this.pnlNvUpdate.SuspendLayout();
             this.pnlNvAddDetails.SuspendLayout();
-            this.pnlNvDel.SuspendLayout();
             this.pnlThongKe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThuRap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThuPhim)).BeginInit();
@@ -511,9 +511,9 @@ namespace UInvcapcao.Forms
             this.pnlNhanVien.Controls.Add(this.btnNvAdd);
             this.pnlNhanVien.Controls.Add(this.dgvNvData);
             this.pnlNhanVien.Controls.Add(this.btnNvShowList);
-            this.pnlNhanVien.Controls.Add(this.pnlNvUpdate);
             this.pnlNhanVien.Controls.Add(this.pnlNvAddDetails);
             this.pnlNhanVien.Controls.Add(this.pnlNvDel);
+            this.pnlNhanVien.Controls.Add(this.pnlNvUpdate);
             this.pnlNhanVien.Location = new System.Drawing.Point(65, 5);
             this.pnlNhanVien.Margin = new System.Windows.Forms.Padding(2);
             this.pnlNhanVien.Name = "pnlNhanVien";
@@ -664,6 +664,60 @@ namespace UInvcapcao.Forms
             this.btnNvShowList.Text = "Show List";
             this.btnNvShowList.UseVisualStyleBackColor = false;
             this.btnNvShowList.Click += new System.EventHandler(this.btnShowList_Click);
+            // 
+            // pnlNvDel
+            // 
+            this.pnlNvDel.Controls.Add(this.lblDelWarning2);
+            this.pnlNvDel.Controls.Add(this.lblDelWarning1);
+            this.pnlNvDel.Controls.Add(this.btnCancelDel);
+            this.pnlNvDel.Controls.Add(this.btnConfirmDel);
+            this.pnlNvDel.Location = new System.Drawing.Point(652, 173);
+            this.pnlNvDel.Name = "pnlNvDel";
+            this.pnlNvDel.Size = new System.Drawing.Size(238, 115);
+            this.pnlNvDel.TabIndex = 4;
+            this.pnlNvDel.Visible = false;
+            // 
+            // lblDelWarning2
+            // 
+            this.lblDelWarning2.AutoSize = true;
+            this.lblDelWarning2.Location = new System.Drawing.Point(14, 42);
+            this.lblDelWarning2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDelWarning2.Name = "lblDelWarning2";
+            this.lblDelWarning2.Size = new System.Drawing.Size(196, 13);
+            this.lblDelWarning2.TabIndex = 3;
+            this.lblDelWarning2.Text = "Một khi xóa data sẽ không được restore";
+            // 
+            // lblDelWarning1
+            // 
+            this.lblDelWarning1.AutoSize = true;
+            this.lblDelWarning1.Location = new System.Drawing.Point(28, 17);
+            this.lblDelWarning1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDelWarning1.Name = "lblDelWarning1";
+            this.lblDelWarning1.Size = new System.Drawing.Size(170, 13);
+            this.lblDelWarning1.TabIndex = 3;
+            this.lblDelWarning1.Text = "Bạn có chắc là muốn xóa không ?";
+            // 
+            // btnCancelDel
+            // 
+            this.btnCancelDel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelDel.Location = new System.Drawing.Point(126, 73);
+            this.btnCancelDel.Name = "btnCancelDel";
+            this.btnCancelDel.Size = new System.Drawing.Size(82, 26);
+            this.btnCancelDel.TabIndex = 2;
+            this.btnCancelDel.Text = "Cancel";
+            this.btnCancelDel.UseVisualStyleBackColor = false;
+            this.btnCancelDel.Click += new System.EventHandler(this.btnCancelDel_Click);
+            // 
+            // btnConfirmDel
+            // 
+            this.btnConfirmDel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnConfirmDel.Location = new System.Drawing.Point(18, 73);
+            this.btnConfirmDel.Name = "btnConfirmDel";
+            this.btnConfirmDel.Size = new System.Drawing.Size(82, 26);
+            this.btnConfirmDel.TabIndex = 2;
+            this.btnConfirmDel.Text = "Confirm";
+            this.btnConfirmDel.UseVisualStyleBackColor = false;
+            this.btnConfirmDel.Click += new System.EventHandler(this.btnConfirmDel_Click);
             // 
             // pnlNvUpdate
             // 
@@ -924,60 +978,6 @@ namespace UInvcapcao.Forms
             this.lblTenNhanVien.TabIndex = 0;
             this.lblTenNhanVien.Text = "Ten Nhan Vien:";
             // 
-            // pnlNvDel
-            // 
-            this.pnlNvDel.Controls.Add(this.lblDelWarning2);
-            this.pnlNvDel.Controls.Add(this.lblDelWarning1);
-            this.pnlNvDel.Controls.Add(this.btnCancelDel);
-            this.pnlNvDel.Controls.Add(this.btnConfirmDel);
-            this.pnlNvDel.Location = new System.Drawing.Point(652, 173);
-            this.pnlNvDel.Name = "pnlNvDel";
-            this.pnlNvDel.Size = new System.Drawing.Size(238, 115);
-            this.pnlNvDel.TabIndex = 4;
-            this.pnlNvDel.Visible = false;
-            // 
-            // lblDelWarning2
-            // 
-            this.lblDelWarning2.AutoSize = true;
-            this.lblDelWarning2.Location = new System.Drawing.Point(14, 42);
-            this.lblDelWarning2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDelWarning2.Name = "lblDelWarning2";
-            this.lblDelWarning2.Size = new System.Drawing.Size(196, 13);
-            this.lblDelWarning2.TabIndex = 3;
-            this.lblDelWarning2.Text = "Một khi xóa data sẽ không được restore";
-            // 
-            // lblDelWarning1
-            // 
-            this.lblDelWarning1.AutoSize = true;
-            this.lblDelWarning1.Location = new System.Drawing.Point(28, 17);
-            this.lblDelWarning1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDelWarning1.Name = "lblDelWarning1";
-            this.lblDelWarning1.Size = new System.Drawing.Size(170, 13);
-            this.lblDelWarning1.TabIndex = 3;
-            this.lblDelWarning1.Text = "Bạn có chắc là muốn xóa không ?";
-            // 
-            // btnCancelDel
-            // 
-            this.btnCancelDel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelDel.Location = new System.Drawing.Point(126, 73);
-            this.btnCancelDel.Name = "btnCancelDel";
-            this.btnCancelDel.Size = new System.Drawing.Size(82, 26);
-            this.btnCancelDel.TabIndex = 2;
-            this.btnCancelDel.Text = "Cancel";
-            this.btnCancelDel.UseVisualStyleBackColor = false;
-            this.btnCancelDel.Click += new System.EventHandler(this.btnCancelDel_Click);
-            // 
-            // btnConfirmDel
-            // 
-            this.btnConfirmDel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnConfirmDel.Location = new System.Drawing.Point(18, 73);
-            this.btnConfirmDel.Name = "btnConfirmDel";
-            this.btnConfirmDel.Size = new System.Drawing.Size(82, 26);
-            this.btnConfirmDel.TabIndex = 2;
-            this.btnConfirmDel.Text = "Confirm";
-            this.btnConfirmDel.UseVisualStyleBackColor = false;
-            this.btnConfirmDel.Click += new System.EventHandler(this.btnConfirmDel_Click);
-            // 
             // pnlThongKe
             // 
             this.pnlThongKe.Controls.Add(this.lblQuanLyDoanhThu);
@@ -1030,6 +1030,7 @@ namespace UInvcapcao.Forms
             this.dgvDoanhThuRap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDoanhThuRap.Location = new System.Drawing.Point(181, 286);
             this.dgvDoanhThuRap.Name = "dgvDoanhThuRap";
+            this.dgvDoanhThuRap.RowHeadersWidth = 51;
             this.dgvDoanhThuRap.Size = new System.Drawing.Size(542, 174);
             this.dgvDoanhThuRap.TabIndex = 4;
             // 
@@ -1049,6 +1050,7 @@ namespace UInvcapcao.Forms
             this.dgvDoanhThuPhim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDoanhThuPhim.Location = new System.Drawing.Point(181, 61);
             this.dgvDoanhThuPhim.Name = "dgvDoanhThuPhim";
+            this.dgvDoanhThuPhim.RowHeadersWidth = 51;
             this.dgvDoanhThuPhim.Size = new System.Drawing.Size(542, 183);
             this.dgvDoanhThuPhim.TabIndex = 2;
             // 
@@ -1330,51 +1332,11 @@ namespace UInvcapcao.Forms
             this.Column7});
             this.dgvQuanLyPhim.Location = new System.Drawing.Point(15, 70);
             this.dgvQuanLyPhim.Name = "dgvQuanLyPhim";
+            this.dgvQuanLyPhim.RowHeadersWidth = 51;
             this.dgvQuanLyPhim.Size = new System.Drawing.Size(553, 403);
             this.dgvQuanLyPhim.TabIndex = 0;
             this.dgvQuanLyPhim.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvQuanLyPhim_CellClick);
             this.dgvQuanLyPhim.SelectionChanged += new System.EventHandler(this.dgvQuanLyPhim_SelectionChanged);
-            // 
-            // MaPhim
-            // 
-            this.MaPhim.HeaderText = "Mã phim";
-            this.MaPhim.Name = "MaPhim";
-            this.MaPhim.Width = 50;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Tên phim";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Thể loại";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 70;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Ngày khởi chiếu";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 80;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Ngày kết thúc";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 80;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Thời lượng";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 60;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Tổng chi phí";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 70;
             // 
             // pnlLichChieu
             // 
@@ -1616,50 +1578,108 @@ namespace UInvcapcao.Forms
             this.Column14});
             this.dgvLichChieu.Location = new System.Drawing.Point(11, 70);
             this.dgvLichChieu.Name = "dgvLichChieu";
+            this.dgvLichChieu.RowHeadersWidth = 51;
             this.dgvLichChieu.Size = new System.Drawing.Size(573, 292);
             this.dgvLichChieu.TabIndex = 0;
             this.dgvLichChieu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLichChieu_CellClick);
             // 
+            // MaPhim
+            // 
+            this.MaPhim.HeaderText = "Mã phim";
+            this.MaPhim.MinimumWidth = 6;
+            this.MaPhim.Name = "MaPhim";
+            this.MaPhim.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên phim";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 110;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Thể loại";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 70;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Ngày khởi chiếu";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 80;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Ngày kết thúc";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 80;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Thời lượng";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 60;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Tổng chi phí";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 70;
+            // 
             // MaShow
             // 
             this.MaShow.HeaderText = "Mã Show";
+            this.MaShow.MinimumWidth = 6;
             this.MaShow.Name = "MaShow";
             this.MaShow.Width = 50;
             // 
             // Column9
             // 
             this.Column9.HeaderText = "Tên Phim";
+            this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
+            this.Column9.Width = 125;
             // 
             // Column10
             // 
             this.Column10.HeaderText = "Mã Rạp";
+            this.Column10.MinimumWidth = 6;
             this.Column10.Name = "Column10";
             this.Column10.Width = 60;
             // 
             // Column11
             // 
             this.Column11.HeaderText = "Tên Phòng";
+            this.Column11.MinimumWidth = 6;
             this.Column11.Name = "Column11";
             this.Column11.Width = 60;
             // 
             // Column12
             // 
             this.Column12.HeaderText = "Ngày Chiếu";
+            this.Column12.MinimumWidth = 6;
             this.Column12.Name = "Column12";
             this.Column12.Width = 80;
             // 
             // Column13
             // 
             this.Column13.HeaderText = "Giờ Chiếu";
+            this.Column13.MinimumWidth = 6;
             this.Column13.Name = "Column13";
             this.Column13.Width = 90;
             // 
             // Column14
             // 
             this.Column14.HeaderText = "Giá Vé";
+            this.Column14.MinimumWidth = 6;
             this.Column14.Name = "Column14";
-            this.Column14.Width = 90;
+            this.Column14.Width = 70;
             // 
             // frmQuanLy
             // 
@@ -1696,12 +1716,12 @@ namespace UInvcapcao.Forms
             this.pnlNhanVien.ResumeLayout(false);
             this.pnlNhanVien.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNvData)).EndInit();
+            this.pnlNvDel.ResumeLayout(false);
+            this.pnlNvDel.PerformLayout();
             this.pnlNvUpdate.ResumeLayout(false);
             this.pnlNvUpdate.PerformLayout();
             this.pnlNvAddDetails.ResumeLayout(false);
             this.pnlNvAddDetails.PerformLayout();
-            this.pnlNvDel.ResumeLayout(false);
-            this.pnlNvDel.PerformLayout();
             this.pnlThongKe.ResumeLayout(false);
             this.pnlThongKe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThuRap)).EndInit();
@@ -1839,22 +1859,8 @@ namespace UInvcapcao.Forms
         private Button btndgvLichChieuShowList;
         private Button btnLcAdd;
         private Button btnLcUpdate;
-        private DataGridViewTextBoxColumn MaShow;
-        private DataGridViewTextBoxColumn Column9;
-        private DataGridViewTextBoxColumn Column10;
-        private DataGridViewTextBoxColumn Column11;
-        private DataGridViewTextBoxColumn Column12;
-        private DataGridViewTextBoxColumn Column13;
-        private DataGridViewTextBoxColumn Column14;
         private Button btnLcDelete;
         private Button btnThongKeLichChieu;
-        private DataGridViewTextBoxColumn MaPhim;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewTextBoxColumn Column7;
         private Button btnXuatDoanhThuRap;
         private DataGridView dgvDoanhThuRap;
         private Button btnThongKeDoanhThuRap;
@@ -1864,6 +1870,20 @@ namespace UInvcapcao.Forms
         private Label lblQuanLyDoanhThu;
         private Panel panel2;
         private Button btnUser;
+        private DataGridViewTextBoxColumn MaPhim;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column7;
+        private DataGridViewTextBoxColumn MaShow;
+        private DataGridViewTextBoxColumn Column9;
+        private DataGridViewTextBoxColumn Column10;
+        private DataGridViewTextBoxColumn Column11;
+        private DataGridViewTextBoxColumn Column12;
+        private DataGridViewTextBoxColumn Column13;
+        private DataGridViewTextBoxColumn Column14;
         //       private Timer phimTimer;
     }
 }

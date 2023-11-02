@@ -277,3 +277,22 @@ C:\Users\ASUS\source\repos\winform-cinema-app\Final\Quanly\UInvcapcao\UInvcapcao
 C:\Users\ASUS\source\repos\winform-cinema-app\Final\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.xml
 C:\Users\ASUS\source\repos\winform-cinema-app\Final\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\ASUS\source\repos\winform-cinema-app\Final\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.CopyComplete
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.exe.config
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.exe
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\bin\Debug\UInvcapcao.pdb
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.dll
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.xml
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmDatVe.resources
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmGiaoDienBanVe.resources
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.frmLogin.resources
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.Forms.frmQuanLy.resources
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.Forms.frmVe.resources
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.Properties.Resources.resources
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.GenerateResource.cache
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.csproj.CopyComplete
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.exe
+C:\Users\ASUS\source\repos\winform-cinema-app\Update Final\Quanly\UInvcapcao\UInvcapcao\obj\Debug\UInvcapcao.pdb
