@@ -607,7 +607,7 @@
           <Property Name="MaGhe" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
           <Property Name="TenPhim" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="NgayChieu" Type="DateTime" Precision="3" />
-          <Property Name="GioChieu" Type="String" />
+          <Property Name="GioChieu" Type="String" MaxLength="50" Unicode="false" FixedLength="true" />
           <Property Name="GiaVe" Type="Int32" />
           <Property Name="HinhThucThanhToan" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblGhePhongChieu" Relationship="QUANLYRAPCHIEUPHIMModel.FK_tblThongTinVe_tblGhePhongChieu" FromRole="tblThongTinVe" ToRole="tblGhePhongChieu" />

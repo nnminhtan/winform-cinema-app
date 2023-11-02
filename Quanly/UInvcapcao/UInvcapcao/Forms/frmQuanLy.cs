@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -383,53 +384,63 @@ namespace UInvcapcao.Forms
         //adding
         private void btnConfirmAdd_Click(object sender, EventArgs e)
         {
-            //old
-            ////create a nhan vien to add to the table
-            //tblNhanVien nv = new tblNhanVien() { MaNV = (Ma01 + Ma02.ToString()),
-            //    TenNV = txtTenNV.Text, MatKhauNV = txtMK.Text, ChucVu = txtChucVu.Text,
-            //    Luong = Convert.ToInt32(txtLuong.Text), MaRap = txtMaRap.Text };
-            //db.tblNhanViens.Add(nv);
-            //db.SaveChanges();
-            //string ID = GenerateID(txtMaCN.Text).ToString();
-            int Ma01 = db.tblNhanViens.Select(x => x.ChucVu).Count() + 1;
-            if (txtMaCN.Text == "1" || txtMaCN.Text == "2")
+            if (txtMaCN.Text == "" || txtTenNV.Text == "" || txtMK.Text == "" || txtLuong.Text == "" || txtMaRap.Text == "")
             {
-                //new
-                tblNhanVien nv = new tblNhanVien()
-                {
-                    MaNV = Ma01.ToString(), //adding the MaNV by counting the list and adding 1
-                    TenNV = txtTenNV.Text,
-                    MatKhauNV = txtMK.Text,
-                    ChucVu = GetChucVu(txtMaCN.Text),
-                    Luong = Convert.ToInt32(txtLuong.Text),
-                    MaRap = txtMaRap.Text
-                };
-                int MaQuyen1 = db.tblQuyenHans.Select(x => x.MaQuyen).Count() + 1;
-                tblQuyenHan qh = new tblQuyenHan()
-                {
-                    MaQuyen = MaQuyen1,
-                    MaNV = Ma01.ToString(),
-                    MaChucNang = Convert.ToInt32(txtMaCN.Text),
-
-                };
-                db.tblNhanViens.Add(nv);
-                db.tblQuyenHans.Add(qh);
-                db.SaveChanges();
+                MessageBox.Show("Vui lòng nhập đủ thông tin!");
             }
             else
             {
-                MessageBox.Show("Sai dinh dang", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtMaCN.Clear();
-                txtMaCN.Focus();
+                string text = txtLuong.Text;
+
+                int number;
+                if (int.TryParse(text, out number))
+                {
+                    int Ma01 = db.tblNhanViens.Select(x => x.ChucVu).Count() + 1;
+                    if (txtMaCN.Text == "1" || txtMaCN.Text == "2")
+                    {
+                        //new
+                        tblNhanVien nv = new tblNhanVien()
+                        {
+                            MaNV = Ma01.ToString(), //adding the MaNV by counting the list and adding 1
+                            TenNV = txtTenNV.Text,
+                            MatKhauNV = txtMK.Text,
+                            ChucVu = GetChucVu(txtMaCN.Text),
+                            Luong = Convert.ToInt32(txtLuong.Text),
+                            MaRap = txtMaRap.Text
+                        };
+                        int MaQuyen1 = db.tblQuyenHans.Select(x => x.MaQuyen).Count() + 1;
+                        tblQuyenHan qh = new tblQuyenHan()
+                        {
+                            MaQuyen = MaQuyen1,
+                            MaNV = Ma01.ToString(),
+                            MaChucNang = Convert.ToInt32(txtMaCN.Text),
+
+                        };
+                        db.tblNhanViens.Add(nv);
+                        db.tblQuyenHans.Add(qh);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sai dinh dang", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtMaCN.Clear();
+                        txtMaCN.Focus();
+                    }
+                    MessageBox.Show("Thêm Thông tin thành công!");
+                    //clear txtbox
+                    txtMaCN.Clear();
+                    txtTenNV.Clear();
+                    txtMK.Clear();
+                    txtLuong.Clear();
+                    txtMaRap.Clear();
+                    pnlNvAddDetails.Visible = false;
+                    RefreshNv();
+                }
+                else
+                {
+                    MessageBox.Show("Nhập sai định dạng!");
+                }
             }
-            //clear txtbox
-            txtMaCN.Clear();
-            txtTenNV.Clear();
-            txtMK.Clear();
-            txtLuong.Clear();
-            txtMaRap.Clear();
-            pnlNvAddDetails.Visible = false;
-            RefreshNv();
         }
         public string GetChucVu(string textCN)
         {
@@ -476,11 +487,14 @@ namespace UInvcapcao.Forms
             //delete the nhanvien by the row that you select
             var rowData = dgvNvData.SelectedRows[0].Cells["MaNV"].Value.ToString();
             tblNhanVien nv = db.tblNhanViens.Find(rowData);
-            tblQuyenHan qh = db.tblQuyenHans.SingleOrDefault(x => x.MaNV == nv.MaNV);
-
-            db.tblQuyenHans.Remove(qh);
+            tblQuyenHan qh = db.tblQuyenHans.Where(p => p.MaNV == nv.MaNV).SingleOrDefault();
+            if (qh != null)
+            {
+                db.tblQuyenHans.Remove(qh);
+            }
             db.tblNhanViens.Remove(nv);
             db.SaveChanges();
+            MessageBox.Show("Xóa thông tin thành công!");
             pnlNvDel.Visible = false;
             RefreshNv();
 
@@ -500,26 +514,38 @@ namespace UInvcapcao.Forms
             String id = (dgvNvData.SelectedRows[0].Cells["MaNV"].Value.ToString());
             tblNhanVien nv = db.tblNhanViens.Find(id);
             tblQuyenHan qh = db.tblQuyenHans.SingleOrDefault(x => x.MaNV == nv.MaNV);
-            //if finded the nv
-            if (nv != null)
+            string text = txtLuongUpdate.Text;
+
+            int number;
+            if (int.TryParse(text, out number))
             {
-                nv.TenNV = txtTenNVUpdate.Text;
-                nv.MatKhauNV = txtMKUpdate.Text;
-                nv.ChucVu = GetChucVu(txtMaCNUpdate.Text);
-                nv.Luong = Convert.ToInt32(txtLuongUpdate.Text);
-                nv.TenNV = txtTenNVUpdate.Text;
-                nv.MaRap = txtMaRapUpdate.Text;
-                qh.MaChucNang = Convert.ToInt32(txtMaCNUpdate.Text);
-                db.SaveChanges();
+                //if finded the nv
+                if (nv != null)
+                {
+
+                    nv.TenNV = txtTenNVUpdate.Text;
+                    nv.MatKhauNV = txtMKUpdate.Text;
+                    nv.ChucVu = GetChucVu(txtMaCNUpdate.Text);
+                    nv.Luong = Convert.ToInt32(txtLuongUpdate.Text);
+                    nv.TenNV = txtTenNVUpdate.Text;
+                    nv.MaRap = txtMaRapUpdate.Text;
+                    qh.MaChucNang = Convert.ToInt32(txtMaCNUpdate.Text);
+                    db.SaveChanges();
+                }
+                MessageBox.Show("Sửa thông tin thành công!");
+                //txtbox clear
+                txtMaCNUpdate.Clear();
+                txtTenNVUpdate.Clear();
+                txtMKUpdate.Clear();
+                txtMaRapUpdate.Clear();
+                txtLuongUpdate.Clear();
+                pnlNvUpdate.Visible = false;
+                RefreshNv();
             }
-            //txtbox clear
-            txtMaCNUpdate.Clear();
-            txtTenNVUpdate.Clear();
-            txtMKUpdate.Clear();
-            txtMaRapUpdate.Clear();
-            txtLuongUpdate.Clear();
-            pnlNvUpdate.Visible = false;
-            RefreshNv();
+            else
+            {
+                MessageBox.Show("Nhập sai định dạng!");
+            }
         }
 
         private void btnCancelUpdate_Click(object sender, EventArgs e)
@@ -689,48 +715,61 @@ namespace UInvcapcao.Forms
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string maTheLoai = db.tblTheLoais.First(tl => tl.TenTheLoai == cmbTheLoai.Text).MaTheLoai;
-            tblPhim ph = new tblPhim()
+            if (txtMaPhim.Text == "" || txtTenPhim.Text == "" || txtThoiLuong.Text == "" || txtTongChiPhi.Text == "")
             {
-                MaPhim = txtMaPhim.Text,
-                TenPhim = txtTenPhim.Text,
-                MaTheLoai = maTheLoai,
-                NgayKhoiChieu = dtpNgayKhoiChieu.Value,
-                NgayKetThuc = dtpNgayKetThuc.Value,
-                ThoiLuong = txtThoiLuong.Text,
-                TongChiPhi = Convert.ToInt32(txtTongChiPhi.Text),
-                Poster = imageBytes
-            };
-            //if (db.tblTheLoais.Find(ph.MaTheLoai) == null)
-            //{
-            //    // The MaTheLoai column does not exist in the tblTheLoai table.
-            //    // Show an error message to the user.
-            //    MessageBox.Show("The selected genre does not exist. Please select a valid genre.");
-            //    return;
-            //}
-            // Get the MaPhim value of the new record.
-            string maPhim = txtMaPhim.Text;
-            // Check if there is already a record with the same MaPhim value.
-            if (db.tblPhims.Any(p => p.MaPhim == maPhim))
-            {
-                // There is already a record with the same MaPhim value.
-                // Show an error message to the user.
-                MessageBox.Show("Đã có phim này rồi!");
+                MessageBox.Show("Vui Lòng nhập đầy đủ thông tin!");
             }
             else
             {
-                db.tblPhims.Add(ph);
-                db.SaveChanges();
-                txtMaPhim.Clear();
-                txtTenPhim.Clear();
-                List<tblTheLoai> dstl = db.tblTheLoais.ToList();
-                FillGenreCombobox(dstl);
-                dtpNgayKhoiChieu.Value = DateTime.Now;
-                dtpNgayKetThuc.Value = DateTime.Now;
-                txtThoiLuong.Clear();
-                txtTongChiPhi.Clear();
-                ptbPosterPhim.Image = null;
-                RefreshPhim();
+
+                string text = txtTongChiPhi.Text;
+
+                int number;
+                if (int.TryParse(text, out number))
+                {
+                    string maTheLoai = db.tblTheLoais.First(tl => tl.TenTheLoai == cmbTheLoai.Text).MaTheLoai;
+                    tblPhim ph = new tblPhim()
+                    {
+                        MaPhim = txtMaPhim.Text,
+                        TenPhim = txtTenPhim.Text,
+                        MaTheLoai = maTheLoai,
+                        NgayKhoiChieu = dtpNgayKhoiChieu.Value,
+                        NgayKetThuc = dtpNgayKetThuc.Value,
+                        ThoiLuong = txtThoiLuong.Text,
+                        TongChiPhi = Convert.ToInt32(txtTongChiPhi.Text),
+                        Poster = imageBytes
+                    };
+
+                    // Get the MaPhim value of the new record.
+                    string maPhim = txtMaPhim.Text;
+                    // Check if there is already a record with the same MaPhim value.
+                    if (db.tblPhims.Any(p => p.MaPhim == maPhim))
+                    {
+                        // There is already a record with the same MaPhim value.
+                        // Show an error message to the user.
+                        MessageBox.Show("Đã có phim này rồi!");
+                    }
+                    else
+                    {
+                        db.tblPhims.Add(ph);
+                        db.SaveChanges();
+                        txtMaPhim.Clear();
+                        txtTenPhim.Clear();
+                        List<tblTheLoai> dstl = db.tblTheLoais.ToList();
+                        FillGenreCombobox(dstl);
+                        dtpNgayKhoiChieu.Value = DateTime.Now;
+                        dtpNgayKetThuc.Value = DateTime.Now;
+                        txtThoiLuong.Clear();
+                        txtTongChiPhi.Clear();
+                        ptbPosterPhim.Image = null;
+                        MessageBox.Show("Thêm thông tin thành công!");
+                        RefreshPhim();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Sai định dạng!");
+                }
             }
         }
         private void btnXoa_Click(object sender, EventArgs e)
@@ -754,6 +793,7 @@ namespace UInvcapcao.Forms
                 txtThoiLuong.Clear();
                 txtTongChiPhi.Clear();
                 ptbPosterPhim.Image = null;
+                MessageBox.Show("Xóa Thành công!");
                 RefreshPhim();
             }
         }
@@ -766,26 +806,37 @@ namespace UInvcapcao.Forms
             string maTheLoai = db.tblTheLoais.First(tl => tl.TenTheLoai == cmbTheLoai.Text).MaTheLoai;
             String id = (dgvQuanLyPhim.SelectedRows[0].Cells["MaPhim"].Value.ToString());
             tblPhim p = db.tblPhims.Find(id);
-            if (p != null)
+            string text = txtTongChiPhi.Text;
+
+            int number;
+            if (int.TryParse(text, out number))
             {
-                p.TenPhim = txtTenPhim.Text;
-                p.MaTheLoai = maTheLoai;
-                p.NgayKhoiChieu = dtpNgayKhoiChieu.Value;
-                p.NgayKetThuc = dtpNgayKetThuc.Value;
-                p.ThoiLuong = txtThoiLuong.Text;
-                p.TongChiPhi = Convert.ToInt32(txtTongChiPhi.Text);
-                p.Poster = imageBytes;
-                db.SaveChanges();
-                txtMaPhim.Clear();
-                txtTenPhim.Clear();
-                List<tblTheLoai> dstl = db.tblTheLoais.ToList();
-                FillGenreCombobox(dstl);
-                dtpNgayKhoiChieu.Value = DateTime.Now;
-                dtpNgayKetThuc.Value = DateTime.Now;
-                txtThoiLuong.Clear();
-                txtTongChiPhi.Clear();
-                ptbPosterPhim.Image = null;
-                RefreshPhim();
+                if (p != null)
+                {
+                    p.TenPhim = txtTenPhim.Text;
+                    p.MaTheLoai = maTheLoai;
+                    p.NgayKhoiChieu = dtpNgayKhoiChieu.Value;
+                    p.NgayKetThuc = dtpNgayKetThuc.Value;
+                    p.ThoiLuong = txtThoiLuong.Text;
+                    p.TongChiPhi = Convert.ToInt32(txtTongChiPhi.Text);
+                    p.Poster = imageBytes;
+                    db.SaveChanges();
+                    txtMaPhim.Clear();
+                    txtTenPhim.Clear();
+                    List<tblTheLoai> dstl = db.tblTheLoais.ToList();
+                    FillGenreCombobox(dstl);
+                    dtpNgayKhoiChieu.Value = DateTime.Now;
+                    dtpNgayKetThuc.Value = DateTime.Now;
+                    txtThoiLuong.Clear();
+                    txtTongChiPhi.Clear();
+                    ptbPosterPhim.Image = null;
+                    MessageBox.Show("Sửa Thông tin Thành công!");
+                    RefreshPhim();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nhập sai định dạng!");
             }
         }
         private void dgvQuanLyPhim_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1084,46 +1135,65 @@ namespace UInvcapcao.Forms
         }
         private void btnLcAdd_Click(object sender, EventArgs e)
         {
-            string maPhim = db.tblPhims.First(t => t.TenPhim == cmbTenPhimLC.Text).MaPhim;
-            string maRap = db.tblRaps.First(t => t.MaRap == cmbMaRapLC.Text).MaRap;
-            string maPhong = db.tblPhongChieux.First(t => t.TenPhong == cmbTenPhongLC.Text).MaPhong;
-            // Get the time string from the cmbGioChieu.Text control.
-            string timeString = cmbGioChieuLC.Text;
-            // Convert the time string to a TimeSpan object.
-            TimeSpan time = TimeSpan.Parse(timeString);
-            // Find the GioChieu object with the same time as the time string.
-            string maGioChieu = db.tblGioChieux.Where(t => t.GioChieu == time && t.MaRap == maRap).Select(t => t.MaGioChieu).FirstOrDefault();
-            tblLichChieu lc = new tblLichChieu()
+            if (txtMaShow.Text == "" || txtGiaVeLC.Text == "")
             {
-                MaShow = txtMaShow.Text,
-                MaPhim = maPhim,
-                MaRap = maRap,
-                MaPhong = maPhong,
-                NgayChieu = dtpNgayChieuLC.Value,
-                MaGioChieu = maGioChieu,
-                GiaVe = Convert.ToInt32(txtGiaVeLC.Text)
-            };
-            // Get the MaPhim value of the new record.
-            string maShow = txtMaShow.Text;
-            // Check if there is already a record with the same MaPhim value.
-            if (db.tblLichChieux.Any(p => p.MaShow == maShow))
-            {
-                // There is already a record with the same MaPhim value.
-                // Show an error message to the user.
-                MessageBox.Show("Đã có lịch chiếu này rồi!");
+                MessageBox.Show("Vui Lòng nhập đầy đủ thông tin!");
             }
             else
             {
-                db.tblLichChieux.Add(lc);
-                db.SaveChanges();
-                txtMaShow.Clear();
-                cmbTenPhimLC.SelectedIndex = 0;
-                cmbMaRapLC.SelectedIndex = 0;
-                cmbTenPhongLC.SelectedIndex = 0;
-                dtpNgayChieuLC.Value = DateTime.Now;
-                cmbGioChieuLC.SelectedIndex = 0;
-                txtGiaVeLC.Clear();
-                RefreshPhim();
+                string text = txtGiaVeLC.Text;
+
+                int number;
+                if (int.TryParse(text, out number))
+                {
+                    string maPhim = db.tblPhims.First(t => t.TenPhim == cmbTenPhimLC.Text).MaPhim;
+                    string maRap = db.tblRaps.First(t => t.MaRap == cmbMaRapLC.Text).MaRap;
+                    string maPhong = db.tblPhongChieux.First(t => t.TenPhong == cmbTenPhongLC.Text).MaPhong;
+                    // Get the time string from the cmbGioChieu.Text control.
+                    string timeString = cmbGioChieuLC.Text;
+                    // Convert the time string to a TimeSpan object.
+                    TimeSpan time = TimeSpan.Parse(timeString);
+                    // Find the GioChieu object with the same time as the time string.
+                    string maGioChieu = db.tblGioChieux.Where(t => t.GioChieu == time && t.MaRap == maRap).Select(t => t.MaGioChieu).FirstOrDefault();
+                    tblLichChieu lc = new tblLichChieu()
+                    {
+                        MaShow = txtMaShow.Text,
+                        MaPhim = maPhim,
+                        MaRap = maRap,
+                        MaPhong = maPhong,
+                        NgayChieu = dtpNgayChieuLC.Value,
+                        MaGioChieu = maGioChieu,
+                        GiaVe = Convert.ToInt32(txtGiaVeLC.Text)
+                    };
+                    // Get the MaPhim value of the new record.
+                    string maShow = txtMaShow.Text;
+                    // Check if there is already a record with the same MaPhim value.
+                    if (db.tblLichChieux.Any(p => p.MaShow == maShow))
+                    {
+                        // There is already a record with the same MaPhim value.
+                        // Show an error message to the user.
+                        MessageBox.Show("Đã có lịch chiếu này rồi!");
+                    }
+                    else
+                    {
+                        db.tblLichChieux.Add(lc);
+                        db.SaveChanges();
+                        txtMaShow.Clear();
+                        cmbTenPhimLC.SelectedIndex = 0;
+                        cmbMaRapLC.SelectedIndex = 0;
+                        cmbTenPhongLC.SelectedIndex = 0;
+                        dtpNgayChieuLC.Value = DateTime.Now;
+                        cmbGioChieuLC.SelectedIndex = 0;
+                        txtGiaVeLC.Clear();
+                        MessageBox.Show("Thêm Thành Công!");
+                        RefreshLichChieu();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nhập sai định dạng!");
+                }
+
             }
         }
         private void btnLcUpdate_Click(object sender, EventArgs e)
@@ -1139,23 +1209,33 @@ namespace UInvcapcao.Forms
             string maGioChieu = db.tblGioChieux.Where(t => t.GioChieu == time && t.MaRap == maRap).Select(t => t.MaGioChieu).FirstOrDefault();
             String id = (dgvLichChieu.SelectedRows[0].Cells["MaShow"].Value.ToString());
             tblLichChieu lc = db.tblLichChieux.Find(id);
-            if (lc != null)
+            string text = txtGiaVeLC.Text;
+
+            int number;
+            if (int.TryParse(text, out number))
             {
-                lc.MaPhim = maPhim;
-                lc.MaRap = maRap;
-                lc.MaPhong = maPhong;
-                lc.NgayChieu = dtpNgayChieuLC.Value;
-                lc.MaGioChieu = maGioChieu;
-                lc.GiaVe = Convert.ToInt32(txtGiaVeLC.Text);
-                db.SaveChanges();
-                txtMaShow.Clear();
-                cmbTenPhimLC.SelectedIndex = 0;
-                cmbMaRapLC.SelectedIndex = 0;
-                cmbTenPhongLC.SelectedIndex = 0;
-                dtpNgayChieuLC.Value = DateTime.Now;
-                cmbGioChieuLC.SelectedIndex = 0;
-                txtGiaVeLC.Clear();
-                RefreshLichChieu();
+                if (lc != null)
+                {
+                    lc.MaPhim = maPhim;
+                    lc.MaRap = maRap;
+                    lc.MaPhong = maPhong;
+                    lc.NgayChieu = dtpNgayChieuLC.Value;
+                    lc.MaGioChieu = maGioChieu;
+                    lc.GiaVe = Convert.ToInt32(txtGiaVeLC.Text);
+                    db.SaveChanges();
+                    txtMaShow.Clear();
+                    cmbTenPhimLC.SelectedIndex = 0;
+                    cmbMaRapLC.SelectedIndex = 0;
+                    cmbTenPhongLC.SelectedIndex = 0;
+                    dtpNgayChieuLC.Value = DateTime.Now;
+                    cmbGioChieuLC.SelectedIndex = 0;
+                    txtGiaVeLC.Clear();
+                    RefreshLichChieu();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nhập sai định dạng!");
             }
         }
         private void btnLcDelete_Click(object sender, EventArgs e)
@@ -1174,9 +1254,11 @@ namespace UInvcapcao.Forms
                 dtpNgayChieuLC.Value = DateTime.Now;
                 cmbGioChieuLC.SelectedIndex = 0;
                 txtGiaVeLC.Clear();
+                MessageBox.Show("Xóa thông tin thành công!");
                 RefreshLichChieu();
             }
         }
         #endregion "lich chieu"
+
     }
 }
